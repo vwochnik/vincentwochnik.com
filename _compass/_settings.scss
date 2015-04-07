@@ -1,0 +1,32 @@
+/*
+ * This file contains settings variables used in other included SCSS files.
+ */
+ 
+/* breakpoint mixin device variables */
+//TODO make smaller mobile
+$print: 'only print';
+$mobile: 'screen' (max-width 767px);
+$tablet: 'screen' (width 768px 959px);
+$desktop: 'screen' (min-width 960px);
+
+// tiny mobile phones
+$viewport-tiny:   'screen';
+// portrait mobile phones
+$viewport-small:  'screen' (min-width 34em);
+// tablets
+$viewport-medium: 'screen' (min-width 48em);
+// laptops and desktops
+$viewport-large:  'screen' (min-width 62em);
+// large desktops and televisions
+$viewport-huge:   'screen' (min-width 75em);
+
+/* font sizes */
+$body-font-size: 12px;
+$navbar-menu-font-size: 24px;
+
+/* brand colors */
+$brand-main: #ebebff;
+$brand-secondary: #ffebeb;
+$brand-light: #eef;
+$brand-dark: #88a;
+$brand-lighter: scale-lightness($brand-light, 10%);

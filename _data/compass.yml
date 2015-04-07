@@ -1,0 +1,14 @@
+---
+require:
+- jekyll-compass
+- compass-normalize
+- breakpoint
+- susy
+output_style: compressed
+relative_assets: true
+line_comments: false
+http_path: /
+sass_dir: _compass
+css_dir: css
+images_dir: img
+javascripts_dir: js

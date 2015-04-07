@@ -1,0 +1,65 @@
+/*
+ * This file contains grid layout definitions.
+ */
+
+/* global susy grid settings */
+$susy: (
+  global-box-sizing: border-box,
+  container: 1140px,
+  debug: (image: hide)
+);
+
+@include border-box-sizing;
+
+@include susy-breakpoint($viewport-tiny, (gutter: 1/4)) {
+  .segment {
+    padding: gutter(6) 0;
+  }
+}
+
+@include susy-breakpoint($viewport-small, (gutter: 1/4)) {
+  .segment {
+    padding: gutter(6) 0 gutter(6) 6em;
+  }
+}
+
+@include susy-breakpoint($viewport-medium, (gutter: 1/4)) {
+  .segment {
+    padding: gutter(6) 0 gutter(6) 7em;
+  }
+}
+
+@include susy-breakpoint($viewport-small, (gutter: 1/4)) {
+  .segment {
+    padding: gutter(6) 0 gutter(6) 8em;
+  }
+}
+
+/* mobile grid layout */
+@include susy-breakpoint($mobile, (columns: 1, gutter: 1/4, container: 480px)) {
+  .container {
+    @include container(center);
+    padding: 0px gutter(8);
+  }
+
+  .content {
+    padding-bottom: gutter(6);
+  }
+}
+
+//TODO use segment to steer clear of the logo
+/* tablet grid layout */
+@include susy-breakpoint(($tablet, $desktop), (columns: 3, gutter: 1/4, container: 768px)) {
+  .container {
+    @include container(center);
+    padding: 0px gutter(8);
+  }
+
+  .content {
+    @include span(2 first);
+  }
+
+  .sidebar {
+    @include span(1 last);
+  }
+}

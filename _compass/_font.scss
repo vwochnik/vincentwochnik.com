@@ -1,0 +1,15 @@
+/*
+ * This file contains font sizes and typography adjustments.
+ */
+ 
+$rhythm-unit: "rem";
+@include establish-baseline;
+
+body {
+   @include adjust-font-size-to($body-font-size);
+}
+
+/*
+  @include adjust-font-size-to($navbar-menu-font-size);
+  @include unstyled-link;
+*/
