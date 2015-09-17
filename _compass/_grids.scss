@@ -35,7 +35,7 @@ $susy: (
   }
 }
 
-/* mobile grid layout */
+/*
 @include susy-breakpoint($mobile, (columns: 1, gutter: 1/4, container: 480px)) {
   .container {
     @include container(center);
@@ -47,8 +47,6 @@ $susy: (
   }
 }
 
-//TODO use segment to steer clear of the logo
-/* tablet grid layout */
 @include susy-breakpoint(($tablet, $desktop), (columns: 3, gutter: 1/4, container: 768px)) {
   .container {
     @include container(center);
@@ -63,3 +61,4 @@ $susy: (
     @include span(1 last);
   }
 }
+*/

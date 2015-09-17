@@ -1,4 +1,18 @@
 ---
 layout: default
 ---
-<h1>Welcome!</h1>
+<header class="cover viewport-adjust">
+  <div class="cover-content">
+    <h1>Vincent Wochnik</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+  </div>
+  <a href="#contact" class="cover-arrow-down"></a>
+</header>
+{% include cover-js.html %}
+<section class="segment contact-segment" id="contact">
+  <h2>Get in touch</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quas soluta, sint magnam, ipsum laudantium? Numquam fugiat, corporis at dolorem voluptatibus. Atque ab reprehenderit velit dignissimos voluptatibus nobis neque, quos.</p>
+</section>
+<footer class="segment footer-segment">
+  <p>Copyright &copy; Vincent Wochnik {{ site.time | date: '%Y' }}. All rights reserved.</p>
+</footer>

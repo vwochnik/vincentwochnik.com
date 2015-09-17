@@ -1,3 +1,24 @@
 /*
  * This file contains theming definitions.
  */
+
+body {
+  background: url('/img/background.svg') center center fixed;
+  background-color: $theme-background-color;
+  @include background-size(cover);
+  color: $theme-text-color;
+}
+
+h1, h2, h3, h4, h5, h5 {
+  color: $theme-primary-color;
+}
+
+.footer-segment {
+  > p {
+    color: $theme-footer-color;
+
+    > a {
+      @include link-colors($theme-footer-link-color, $theme-footer-link-color, false, $theme-footer-link-color, $theme-footer-link-color);
+    }
+  }
+}
