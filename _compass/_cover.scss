@@ -5,6 +5,12 @@
   align-items: center;
   justify-content: center;
 
+  > .cover-image-large {
+    display: block;
+    width: 40em;
+    height: 40em;
+  }
+
   > .cover-arrow-down {
     position: absolute;
     display: block;

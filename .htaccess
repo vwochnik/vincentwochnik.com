@@ -1,0 +1,34 @@
+# Redirect to domain without www prefix
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www.vincentwochnik.com$ [NC]
+RewriteRule ^(.*)$ http://vincentwochnik.com/$1 [R=301,L]
+
+ErrorDocument 404 /404.html
+
+# Disable indexes
+Options -Indexes
+
+FileETag MTime Size
+<IfModule mod_expires.c>
+  # Enable expirations.
+  ExpiresActive On
+
+  # Cache all files for 2 weeks after access (A).
+  ExpiresDefault A1209600
+
+  <FilesMatch \.php$>
+    # Do not allow PHP scripts to be cached unless they explicitly send cache
+    # headers themselves. Otherwise all scripts would have to overwrite the
+    # headers set by mod_expires if they want another caching behavior.
+    ExpiresActive Off
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  # Enable compression
+  AddOutputFilterByType DEFLATE text/plain text/html text/xml
+  AddOutputFilterByType DEFLATE text/css text/javascript
+  AddOutputFilterByType DEFLATE application/xml application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml image/svg+xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+</IfModule>
