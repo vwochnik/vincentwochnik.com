@@ -5,7 +5,6 @@
 /* global susy grid settings */
 $susy: (
   global-box-sizing: border-box,
-  container: 1140px,
   debug: (image: hide)
 );
 
@@ -13,30 +12,30 @@ $susy: (
 
 @include susy-breakpoint($viewport-tiny, (gutter: 1/4)) {
   .segment {
-    padding: gutter(6) 0;
+    padding: gutter(6) gutter(12);
   }
 }
 
 @include susy-breakpoint($viewport-small, (gutter: 1/4)) {
   .segment {
-    padding: gutter(6) 0 gutter(6) 6em;
+    padding: gutter(6) gutter(12);
   }
 }
 
 @include susy-breakpoint($viewport-medium, (gutter: 1/4)) {
   .segment {
-    padding: gutter(6) 0 gutter(6) 7em;
+    padding: gutter(6) gutter(12);
   }
 }
 
-@include susy-breakpoint($viewport-small, (gutter: 1/4)) {
+@include susy-breakpoint($viewport-large, (gutter: 1/4)) {
   .segment {
-    padding: gutter(6) 0 gutter(6) 8em;
+    padding: gutter(6) gutter(12);
   }
 }
 
 /*
-@include susy-breakpoint($mobile, (columns: 1, gutter: 1/4, container: 480px)) {
+@include susy-breakpoint($viewport-small, (columns: 1, gutter: 1/4, container: 480px)) {
   .container {
     @include container(center);
     padding: 0px gutter(8);
@@ -62,3 +61,27 @@ $susy: (
   }
 }
 */
+
+@include susy-breakpoint($viewport-medium, (container: 60%)) {
+  .contact-form {
+    @include container(center);
+  }
+}
+
+@include susy-breakpoint($viewport-medium, (columns: 2, gutter: 1/4)) {
+  .contact-form {
+    > .contact-form-left-column {
+      @include span(1 first);
+    }
+
+    > .contact-form-right-column {
+      @include span(1 last);
+    }
+
+    .contact-form-input {
+      margin: gutter(6) 0;
+      height: 2em;
+      background: rgba(128, 128, 255, 0.5);
+    }
+  }
+}

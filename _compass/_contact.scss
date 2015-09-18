@@ -1,0 +1,26 @@
+.contact-segment {
+  > h2 {
+    text-align: center;
+  }
+}
+
+.social-icons {
+  @include inline-block-list(1.0em);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  > li:first-child {
+    padding-left: 0;
+  }
+
+  > li:last-child {
+    padding-right: 0;
+  }
+
+  .social-icon {
+    > a > img {
+      width: 4em; height: 4em;
+    }
+  }
+}

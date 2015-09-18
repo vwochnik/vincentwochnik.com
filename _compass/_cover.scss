@@ -1,12 +1,9 @@
 .cover {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  > .cover-content {
-    text-align: center;
-  }
 
   > .cover-arrow-down {
     position: absolute;
