@@ -24,3 +24,54 @@
     }
   }
 }
+
+.qr-code {
+  position: relative;
+  margin: 3em 0 3em auto;
+
+  > .qr-code-image, > .qr-code-overlay {
+    @include transition(transform .5s ease-in-out, opacity .5s ease-in-out);
+    cursor: pointer;
+  }
+
+  > .qr-code-image {
+    position: absolute;
+    transform-origin: bottom right;
+    @include opacity(0.6);
+  }
+
+  > .qr-code-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    background-color: $theme-background-color;
+    @include opacity(0.0);
+    z-index: 10000;
+  }
+
+  &.enlarged {
+    > .qr-code-image {
+      @include opacity(1.0);
+      z-index: 10001;
+    }
+
+    > .qr-code-overlay {
+      width: 100%;
+      height: 100%;
+      @include opacity(0.8);
+    }
+  }
+}
+
+.qr-code {
+  &, > .qr-code-image {
+    width: 10em;
+    height: 10em;
+  }
+
+  &.enlarged > .qr-code-image {
+    transform: scale(2.3);
+  }
+}

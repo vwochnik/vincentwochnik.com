@@ -5,6 +5,10 @@
       return $(elem).height(height).height();
     });
 
+    $('.qr-code').click(function() {
+      $(this).toggleClass('enlarged');
+    });
+    
     /* arrow down scroll */
     $('a.animated-scroll').each(function() {
       var $this = $(this)

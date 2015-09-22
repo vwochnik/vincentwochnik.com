@@ -6,7 +6,7 @@ layout: default
   <p class="cover-slogan">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
   <a href="#contact" class="cover-arrow-down animated-scroll"></a>
 </header>
-{% include cover-js.html %}
+{% include inline/cover-js.html %}
 <section class="segment contact-segment" id="contact">
   <h2>Get in touch</h2>
   <ul class="social-icons">
@@ -31,17 +31,10 @@ layout: default
       </a>
     </li>
   </ul>
-  <div class="contact-form">
-    <div class="contact-form-left-column">
-      <div class="contact-form-input"></div>
-      <div class="contact-form-input"></div>
-      <div class="contact-form-input"></div>
-    </div>
-    <div class="contact-form-right-column">
-      <div class="contact-form-input"></div>
-      <div class="contact-form-input"></div>
-      <div class="contact-form-input"></div>
-    </div>
+  {% include inline/contact-form.html %}
+  <div class="qr-code">
+    <div class="qr-code-overlay"></div>
+    <img class="qr-code-image" src="/img/vcard-qr.svg" />
   </div>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quas soluta, sint magnam, ipsum laudantium? Numquam fugiat, corporis at dolorem voluptatibus. Atque ab reprehenderit velit dignissimos voluptatibus nobis neque, quos.</p>
 </section>
