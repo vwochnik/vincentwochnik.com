@@ -32,12 +32,10 @@ layout: default
     </li>
   </ul>
   {% include inline/contact-form.html %}
-  <div class="qr-code">
-    <div class="qr-code-overlay"></div>
-    <img class="qr-code-image" src="/img/vcard-qr.svg" />
-  </div>
+  <a href="#" class="qr-code-link" id="qr-code-link"><img src="/img/qr-pointer.svg"/></a>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quas soluta, sint magnam, ipsum laudantium? Numquam fugiat, corporis at dolorem voluptatibus. Atque ab reprehenderit velit dignissimos voluptatibus nobis neque, quos.</p>
 </section>
 <footer class="segment footer-segment">
   <p>Copyright &copy; Vincent Wochnik {{ site.time | date: '%Y' }}. All rights reserved.</p>
 </footer>
+{% include inline/qr-code-overlay.html %}

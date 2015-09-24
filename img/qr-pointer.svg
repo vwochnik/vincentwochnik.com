@@ -13,7 +13,7 @@
  </defs>
  <mask id="pointerMask">
 	 <rect fill="#fff" x="0" y="0" width="533.333" height="533.333"/>
-	 <use xlink:href="#pointer" stroke="#000" stroke-width="120"/>
+	 <use xlink:href="#pointer" stroke="#000" stroke-width="180"/>
 </mask>
 <g fill="#00c0ff" mask="url(#pointerMask)">
 	<path d="M166.667,33.333H33.333v133.333h133.333V33.333z M200,0L200,0v200H0V0H200z M66.667,66.667h66.667v66.667H66.667V66.667z
@@ -37,5 +37,5 @@
 		h-33.333V466.667z M333.333,500h33.333v33.333h-33.333V500z M400,500h33.334v33.333H400V500z M466.667,500H500v33.333h-33.333V500z
 		"/>
 </g>
- <use xlink:href="#pointer" stroke="#00c0ff" stroke-width="40"/>
+ <use xlink:href="#pointer" stroke="#00c0ff" stroke-width="50"/>
 </svg>

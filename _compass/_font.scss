@@ -1,7 +1,7 @@
 /*
  * This file contains font sizes and typography adjustments.
  */
- 
+
 $rhythm-unit: "rem";
 @include establish-baseline;
 
@@ -13,3 +13,14 @@ body {
   @include adjust-font-size-to($navbar-menu-font-size);
   @include unstyled-link;
 */
+
+.screenreader {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
