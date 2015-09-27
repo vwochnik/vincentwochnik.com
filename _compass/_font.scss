@@ -3,10 +3,14 @@
  */
 
 $rhythm-unit: "rem";
+$round-to-nearest-half-line: false;
+$base-font-size: 16px;
+$base-line-height: 20px;
+
 @include establish-baseline;
 
 body {
-   @include adjust-font-size-to($body-font-size);
+   @include adjust-font-size-to($body-font-size, 1.0);
 }
 
 /*

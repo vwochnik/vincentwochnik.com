@@ -32,9 +32,20 @@ layout: default
     </li>
   </ul>
   {% include inline/contact-form.html %}
-  <a href="/contact.vcf" class="vcard-link"><img src="/img/vcard.svg"/></a>
-  <a href="/img/contact-qr.svg" class="qr-code-link" id="qr-code-link"><img src="/img/qr-pointer.svg"/></a>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quas soluta, sint magnam, ipsum laudantium? Numquam fugiat, corporis at dolorem voluptatibus. Atque ab reprehenderit velit dignissimos voluptatibus nobis neque, quos.</p>
+  <div class="contact-information">
+    <div class="contact-information-lead">
+      <h3>Contact Information</h3>
+      <p>You have the option of downloading a contact card or using a QR code to add contact information to your mobile device by clicking on either icon on the right.</p>
+    </div>
+    <ul class="contact-icons">
+      <li class="contact-icon">
+        <a href="/contact.vcf" class="vcard-link"><img src="/img/vcard.svg"/></a>
+      </li>
+      <li class="contact-icon">
+        <a href="/img/contact-qr.svg" class="qr-code-link" id="qr-code-link"><img src="/img/qr-pointer.svg"/></a>
+      </li>
+    </ul>
+  </div>
 </section>
 <footer class="segment footer-segment">
   <p>Copyright &copy; Vincent Wochnik {{ site.time | date: '%Y' }}. All rights reserved.</p>

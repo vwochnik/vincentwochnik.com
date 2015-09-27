@@ -73,18 +73,11 @@ $susy: (
     @include container(center);
   }
 }
-@include susy-breakpoint($viewport-medium, (container-position: 0)) {
+
+@include susy-breakpoint($viewport-medium, (columns: 2, gutters: 1/12, container-position: 0)) {
   .contact-form {
     @include container();
-  }
 
-  .contact-form-input {
-    margin: gutter(6) 0;
-  }
-}
-
-@include susy-breakpoint($viewport-medium, (columns: 2, gutters: 1/12)) {
-  .contact-form {
     > .contact-form-left-column {
       @include span(1 first);
     }
