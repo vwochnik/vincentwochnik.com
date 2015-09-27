@@ -42,6 +42,8 @@
 }
 
 .qr-code-link {
-  width: 10em;
-  height: 10em;
+  > img {
+    width: 8em;
+    height: 8em;
+  }
 }
