@@ -6,15 +6,16 @@
 (function($) {
     var $form = $("#contact-form"),
         $messages = $("#contact-messages");
-    var ticket = null, submitting = false, fails = 0, timeout = null;
+    var ticket = null, processing = false, fails = 0, timeout = null;
 
-    function formResult(msg, cls) {
-        var $span = $('<span class="'+cls+'">'+msg+'</span>');
+    function showMessage(msg, cls, next) {
+        var $span = $('<span class="'+cls+'"/>').append(msg);
         $messages.empty().removeClass('fade-out').addClass('visible').append($span);
         $form.addClass('with-messages');
         setTimeout(function() {
             $messages.addClass('fade-out').removeClass('visible');
             $form.removeClass('with-messages');
+            if (next) next();
         }, 5000);
     }
 
@@ -27,7 +28,11 @@
     }
 
     function getTicket() {
-        if (timeout != null) {
+        if (processing) {
+          return false;
+        }
+
+        if (timeout !== null) {
             clearTimeout(timeout);
             timeout = null;
         }
@@ -37,15 +42,17 @@
             dataType: 'json',
             error: function() {
                 fails++;
-                if (fails < 3)
-                    timeout = setTimeout(getTicket, 6000);
+                if (fails < 3) {
+                  timeout = setTimeout(getTicket, 6000);
+                }
             },
             success: function(data) {
                 fails = 0;
                 ticket = data;
-                if (ticket.expires)
+                if (ticket.expires) {
                     timeout = setTimeout(getTicket,
                                new Date(ticket.expires) - new Date());
+                }
             }
         });
     }

@@ -1,6 +1,7 @@
 .cover {
   position: relative;
   @include flex-cover();
+  min-height: 100vh;
 
   > .cover-image-large {
     display: block;
