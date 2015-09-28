@@ -1,7 +1,11 @@
 .cover {
   position: relative;
   @include flex-cover();
-  min-height: 100vh;
+  /* IE 11 not supporting min-height: 100vh with vertically centered flex
+   * items. */
+  height: 100vh;
+
+  padding-bottom: 4em;
 
   > .cover-image-large {
     display: block;
