@@ -5,15 +5,17 @@
 
 (function($) {
     var $form = $("#contact-form"),
-        $result = $("#contact-result");
+        $messages = $("#contact-messages");
     var ticket = null, submitting = false, fails = 0, timeout = null;
 
     function formResult(msg, cls) {
         var $span = $('<span class="'+cls+'">'+msg+'</span>');
-        $result.empty().append($span);
-        $span.fadeOut(5000, function() {
-            $span.remove();
-        });
+        $messages.empty().removeClass('fade-out').addClass('visible').append($span);
+        $form.addClass('with-messages');
+        setTimeout(function() {
+            $messages.addClass('fade-out').removeClass('visible');
+            $form.removeClass('with-messages');
+        }, 5000);
     }
 
     function needTicket() {

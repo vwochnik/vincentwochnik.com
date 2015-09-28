@@ -9,6 +9,7 @@
     font: inherit;
     outline: none;
     border: none;
+    padding: 0.5em 0.7em;
   }
 
   input, textarea {
@@ -17,6 +18,10 @@
 
   textarea {
     resize: none;
+  }
+
+  button {
+    text-transform: uppercase;
   }
 }
 
@@ -41,21 +46,38 @@
   }
 }
 
+.contact-form {
+  position: relative;
+
+  > .contact-form-left-column,
+  > .contact-form-right-column {
+    @include opacity(1.0);
+    @include transition(opacity 0.5s ease-in-out);
+  }
+
+  > .contact-messages {
+    @include flex-cover();
+    @include overlay(absolute, 99, 0.5s);
+  }
+
+  &.with-messages {
+    > .contact-form-left-column,
+    > .contact-form-right-column {
+      @include opacity(0.3);
+    }
+  }
+}
+
 .contact-information {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+  @include display-flex(flex);
+  @include flex-direction(row);
+  @include align-items(center);
+  @include justify-content(space-between);
 
   .contact-icons {
     @include inline-block-list(1.0em);
     text-align: right;
-    -webkit-flex-shrink: 0;
-    flex-shrink: 0;
+    @include flex-shrink(0);
 
     > li:last-child {
       padding-right: 0;

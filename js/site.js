@@ -5,13 +5,11 @@
       return $(elem).height(height).height();
     });
 
-    $('#qr-code-link').click(function() {
-      $('#qr-code-overlay').show();
-      return false;
-    });
-
-    $('#qr-code-overlay').click(function() {
-      $('#qr-code-overlay').hide();
+    $('#qr-code-link, #qr-code-overlay').click(function() {
+      if ($('#qr-code-overlay').hasClass('visible'))
+        $('#qr-code-overlay').addClass('fade-out').removeClass('visible');
+      else
+        $('#qr-code-overlay').removeClass('fade-out').addClass('visible');
       return false;
     });
 

@@ -26,3 +26,25 @@ h1, h2, h3, h4, h5, h5 {
 .qr-code-overlay {
   background-color: rgba($theme-background-color, 0.9);
 }
+
+.contact-form {
+  input, textarea {
+    background-color: rgba(lighten($theme-background-color, 5%), 0.5);
+  }
+
+  button {
+    background-color: $theme-primary-color;
+    color: $theme-background-color;
+  }
+}
+
+.social-icon a,
+.contact-form button,
+.contact-icon a {
+  @include opacity(0.8);
+  @include transition(opacity 0.5s ease-in-out);
+
+  &:hover, &:active {
+    @include opacity(1.0);
+  }
+}
