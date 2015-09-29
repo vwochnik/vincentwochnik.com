@@ -2,25 +2,25 @@
 <div class="contact-form-left-column">
   <div class="contact-form-input">
     <label for="contact-name" class="screenreader">Your name</label>
-    <input id="contact-name" type="text" class="form-control" placeholder="Your name">
-  </div><!-- /.input-group -->
+    <input id="contact-name" name="name" type="text" placeholder="Your name">
+  </div>
     <div class="contact-form-input">
       <label for="contact-email" class="screenreader">Your E-mail address</label>
-      <input id="contact-email" type="text" class="form-control" placeholder="Your E-mail address">
-    </div><!-- /.input-group -->
+      <input id="contact-email" name="email" type="text" placeholder="Your E-mail address">
+    </div>
     <div class="contact-form-input">
       <label for="contact-subject" class="screenreader">Subject</label>
-      <input id="contact-subject" type="text" class="form-control" placeholder="Subject">
-    </div><!-- /.input-group -->
-</div><!-- /.form-column -->
+      <input id="contact-subject" name="subject", type="text" placeholder="Subject">
+    </div>
+</div>
 <div class="contact-form-right-column">
   <div class="contact-form-input">
     <label for="contact-message" class="screenreader">Message</label>
-    <textarea id="contact-message" class="form-control" rows="6" placeholder="Type your message"></textarea>
-  </div><!-- /.form-group -->
+    <textarea id="contact-message" name="message" rows="6" placeholder="Type your message"></textarea>
+  </div>
   <div class="contact-form-input">
-    <button id="contact-submit" class="btn btn-brand"><span class="glyphicon glyphicon-ok"></span> Send message</button>
-  </div><!-- /.form-group -->
-</div><!-- /.form-column -->
+    <button id="contact-submit" type="submit">Send message</button>
+  </div>
+</div>
 <div id="contact-messages" class="contact-messages"></div>
 </form>

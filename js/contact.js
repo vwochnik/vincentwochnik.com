@@ -64,11 +64,12 @@
         return;
       }
 
+      $('[type="submit"]', $form).prop('disabled', true);
       if (tries > 0) {
         getTicket(function(success) {
           if (success) {
+            $('[type="submit"]', $form).prop('disabled', false);
             timeout = setTimeout(function() { ticketRecursive(3); }, new Date(ticket.expires).getTime() - (new Date()).getTime());
-            showMessage('Ticket received successfully. You can now submit a message.', false, true);
           } else {
             ticketRecursive(tries - 1);
           }
@@ -78,7 +79,7 @@
       }
     }
 
-    function submitData(name, email, subject, message, next) {
+    function submitData(data, next) {
       if ((processing) || (needTicket())) {
         next(false);
         return;
@@ -90,7 +91,7 @@
         type: 'post',
         dataType: 'json',
         contentType: 'application/json',
-        data: JSON.stringify({ name: name, email: email, subject: subject, message: message, secret: ticket.secret })
+        data: JSON.stringify($.extend({}, data, { secret: ticket.secret }))
       }).done(function(data) {
         processing = false;
         if (data.success) {
@@ -110,19 +111,20 @@
       $form = $("#contact-form");
       $messages = $("#contact-messages");
 
-      $("#contact-submit").click(function(e) {
-        $("#contact-submit").prop('disabled', true);
-        submitData($("#contact-name").val(), $("#contact-email").val(), $("#contact-subject").val(), $("#contact-message").val(), function(success) {
+      $form.submit(function(e) {
+        var data = {};
+        $.each($form.serializeArray(), function(idx, item) { data[item.name] = item.value; });
+
+        $('[type="submit"]', $form).prop('disabled', true);
+        submitData(data, function(success) {
           if (success) {
             showMessage('Thank you! Your message has been submitted successfully.', false, true);
           } else {
             showMessage('Your message could not be submitted. Please try again later.', true, true);
           }
           $form.trigger('reset');
-          $("#contact-submit").prop('disabled', false);
-          stopTimeout();
-          ticket = null;
-          timeout = setTimeout(function() { ticketRecursive(3); }, 10000);
+          $('[type="submit"]', $form).prop('disabled', false);
+          ticketRecursive(3);
         });
         e.preventDefault();
         return false;
