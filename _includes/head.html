@@ -1,12 +1,20 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <meta name="description" content="{{ site.description }}">
-
-    <link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl }}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-    {% include inline/analytics.html %}
+<head lang="en" prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <script>(function(e,t,n){if("replaceState"in e.history)e.history.replaceState("",t.title,e.location.pathname+e.location.search);else e.location.hash="";if((n.scrollTop||0)+(e.scrollY||0)===0)n.className+=" scrolled-top"})(window,document,document.documentElement)</script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="keywords" content="{{ site.keywords }}">
+  <meta name="author" content="Vincent Wochnik">
+  <meta name="description" content="{{ site.description }}">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta property="og:locale" content="en">
+  <meta property="og:site_name" content="{{ site.title }}">
+  {% if page.title %}<meta property="og:title" content="{{ page.title }}">{% endif %}
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:image" content="{{ site.url }}/img/thumbnail.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+  {% include inline/analytics.html %}
 </head>
