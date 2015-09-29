@@ -10,96 +10,65 @@ $susy: (
 
 @include border-box-sizing;
 
-@include susy-breakpoint($viewport-tiny, (gutters: 1/4)) {
-  .segment {
-    padding: gutter(6) gutter(12);
+@mixin segment-grid($viewport, $container, $gutters) {
+  $susy-options: null;
+  @if $container {
+    $susy-options: (container: $container, gutters: $gutters);
+  } @else {
+    $susy-options: (gutters: $gutters);
+  }
 
-    > .segment-heading {
-      margin: 0 0 gutter(6) 0;
+  @include susy-breakpoint($viewport, $susy-options) {
+    .segment {
+      @if $container {
+        @include container(center);
+      }
+      padding: gutter(6) gutter(12);
+
+      > .segment-heading {
+        margin: 0 0 gutter(6) 0;
+      }
     }
   }
 }
 
-@include susy-breakpoint($viewport-small, (gutter: 1/4)) {
-  .segment {
-    padding: gutter(6) gutter(12);
+@mixin contact-form-grid($viewport, $gutters, $with-columns) {
+  $susy-options: null;
+  @if $with-columns {
+    $susy-options: (columns: 2, gutters: $gutters, container-position: 0);
+  } @else {
+    $susy-options: (gutters: $gutters, container-position: 0);
+  }
 
-    > .segment-heading {
-      margin: 0 0 gutter(6) 0;
+  @include susy-breakpoint($viewport, $susy-options) {
+    .contact-form {
+      @include container();
+
+      @if $with-columns {
+        > .contact-form-left-column {
+          @include span(1 first);
+        }
+
+        > .contact-form-right-column {
+          @include span(1 last);
+        }
+      }
+
+      .contact-form-input {
+        margin: gutter(2) 0;
+      }
     }
   }
 }
 
-@include susy-breakpoint($viewport-medium, (gutters: 1/4)) {
-  .segment {
-    padding: gutter(6) gutter(12);
+// segment grid
+@include segment-grid($viewport-tiny, false, 1/4);
+@include segment-grid($viewport-small, false, 1/4);
+@include segment-grid($viewport-medium, 80%, 1/4);
+@include segment-grid($viewport-large, 75%, 1/4);
+@include segment-grid($viewport-huge, 60%, 1/4);
 
-    > .segment-heading {
-      margin: 0 0 gutter(6) 0;
-    }
-  }
-}
-
-@include susy-breakpoint($viewport-large, (gutters: 1/4)) {
-  .segment {
-    padding: gutter(6) gutter(12);
-
-    > .segment-heading {
-      margin: 0 0 gutter(6) 0;
-    }
-  }
-}
-
-/*
-@include susy-breakpoint($viewport-small, (columns: 1, gutter: 1/4, container: 480px)) {
-  .container {
-    @include container(center);
-    padding: 0px gutter(8);
-  }
-
-  .content {
-    padding-bottom: gutter(6);
-  }
-}
-
-@include susy-breakpoint(($tablet, $desktop), (columns: 3, gutter: 1/4, container: 768px)) {
-  .container {
-    @include container(center);
-    padding: 0px gutter(8);
-  }
-
-  .content {
-    @include span(2 first);
-  }
-
-  .sidebar {
-    @include span(1 last);
-  }
-}
-*/
-
-@include susy-breakpoint($viewport-tiny, (container: 60%)) {
-  .contact-form-input {
-    margin: gutter(6) 0;
-  }
-}
-
-@include susy-breakpoint($viewport-medium, (container: 60%)) {
-  .contact-segment {
-    @include container(center);
-  }
-}
-
-@include susy-breakpoint($viewport-medium, (columns: 2, gutters: 1/12, container-position: 0)) {
-  .contact-form {
-    @include container();
-
-    > .contact-form-left-column {
-      @include span(1 first);
-    }
-
-    > .contact-form-right-column {
-      @include span(1 last);
-    }
-  }
-}
+// contact form grid
+@include contact-form-grid($viewport-tiny, 1/24, false);
+@include contact-form-grid($viewport-small, 1/24, true);
+@include contact-form-grid($viewport-medium, 1/12, true);
