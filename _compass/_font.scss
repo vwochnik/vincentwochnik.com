@@ -11,6 +11,11 @@ $base-line-height: 20px;
 
 body {
    @include adjust-font-size-to($body-font-size, 1.0);
+   font-family: $body-font-face;
+}
+
+.segment > .segment-heading {
+  text-align: center;
 }
 
 /*
@@ -28,3 +33,14 @@ body {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font-face;
+  font-weight: $heading-font-weight;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+h1 { font-size: $h1-font-size; }
+h2 { font-size: $h2-font-size; }
+h3 { font-size: $h3-font-size; }

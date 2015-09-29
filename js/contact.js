@@ -1,109 +1,124 @@
 /*!
- * VincentWochnik.com Contact Form
- * Copyright 2014 Vincent Wochnik. All rights reserved.
+ * vincentwochnik.com contact form script
+ * Copyright 2015 Vincent Wochnik. All rights reserved.
  */
 
 (function($) {
-    var $form = $("#contact-form"),
-        $messages = $("#contact-messages");
-    var ticket = null, processing = false, fails = 0, timeout = null;
+    var $form, $messages;
+    var ticket = null, processing = false, timeout = null;
 
-    function showMessage(msg, cls, next) {
-        var $span = $('<span class="'+cls+'"/>').append(msg);
-        $messages.empty().removeClass('fade-out').addClass('visible').append($span);
-        $form.addClass('with-messages');
+    function showMessage(msg, error, clear) {
+      var $span = $('<span/>').addClass('contact-message').append(msg);
+      $span.addClass(error ? 'contact-message-error' : 'contact-message-success');
+      $messages.empty().removeClass('fade-out').addClass('visible').append($span);
+      $form.addClass('with-messages');
+
+      if (clear) {
         setTimeout(function() {
-            $messages.addClass('fade-out').removeClass('visible');
-            $form.removeClass('with-messages');
-            if (next) next();
+          $messages.addClass('fade-out').removeClass('visible');
+          $form.removeClass('with-messages');
         }, 5000);
+      }
     }
 
     function needTicket() {
-        if (!ticket)
-            return true;
-        if ((ticket.expires) && (new Date(ticket.expires) < new Date()))
-            return true;
-        return false;
+      return ((!ticket) || ((ticket.expires) && (new Date(ticket.expires) < new Date())));
     }
 
-    function getTicket() {
+    function getTicket(next) {
         if (processing) {
-          return false;
+          next(false);
+          return;
         }
 
-        if (timeout !== null) {
-            clearTimeout(timeout);
-            timeout = null;
-        }
+        processing = true;
         $.ajax({
-            url: "/ajax/contact.php",
-            type: 'get',
-            dataType: 'json',
-            error: function() {
-                fails++;
-                if (fails < 3) {
-                  timeout = setTimeout(getTicket, 6000);
-                }
-            },
-            success: function(data) {
-                fails = 0;
-                ticket = data;
-                if (ticket.expires) {
-                    timeout = setTimeout(getTicket,
-                               new Date(ticket.expires) - new Date());
-                }
-            }
+          url: "/ajax/contact.php",
+          type: 'get',
+          dataType: 'json'
+        }).done(function(data) {
+          processing = false;
+          if (data.secret) {
+            ticket = data;
+            next(true);
+          } else {
+            next(false);
+          }
+        }).fail(function() {
+          processing = false;
+          next(false);
         });
+    }
+
+    function ticketRecursive(tries) {
+      if (timeout !== null) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+
+      if (processing) {
+        setTimeout(function() { ticketRecursive(3); }, 10000);
+        return;
+      }
+
+      if (tries > 0) {
+        getTicket(function(success) {
+          if (success) {
+            timeout = setTimeout(function() { ticketRecursive(3); }, (ticket.expires - new Date()).getTime());
+            showMessage('Ticket received successfully. You can now submit a message.', false, true);
+          } else {
+            ticketRecursive(tries - 1);
+          }
+        });
+      } else {
+        showMessage('Ticket could not be received.', true, false);
+      }
+    }
+
+    function submitData(name, email, subject, message, next) {
+      if ((processing) || (needTicket())) {
+        next(false);
+        return;
+      }
+
+      processing = true;
+      $.ajax({
+        url: "/ajax/contact.php",
+        type: 'post',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify({ name: name, email: email, subject: subject, message: message, secret: ticket.secret })
+      }).done(function(data) {
+        processing = false;
+        if (data.success) {
+          next(true, data.success);
+        } else if (data.error) {
+          next(false, data.error);
+        } else {
+          next(false);
+        }
+      }).fail(function() {
+        processing = false;
+        next(false);
+      });
     }
 
     $(function() {
-        $("#contact-submit").click(function(e) {
-            if (submitting)
-                return false;
-            if (needTicket()) {
-                formResult("Unable to submit data.", "text-danger");
-                return false;
-            }
-            submitting = true;
+      $form = $("#contact-form");
+      $messages = $("#contact-messages");
 
-            var data = {
-                name: $("#contact-name").val(),
-                email: $("#contact-email").val(),
-                subject: $("#contact-subject").val(),
-                message: $("#contact-message").val(),
-                secret: ticket.secret
-            };
-
-            $.ajax({
-                url: "/ajax/contact.php",
-                type: 'post',
-                dataType: 'json',
-                contentType: 'application/json',
-                data: JSON.stringify(data),
-                error: function() {
-                    formResult("Unable to submit data.", "text-danger");
-                    submitting = false;
-                    getTicket();
-                },
-                success: function(data) {
-                    if (data.success) {
-                        formResult(data.success, "text-success");
-                        $form.trigger("reset");
-                    } else if (data.error) {
-                        formResult(data.error, "text-danger");
-                    } else {
-                        formResult("Internal error.", "text-danger");
-                    }
-                    submitting = false;
-                    getTicket();
-                }
-            });
-
-            return false;
+      $("#contact-submit").click(function(e) {
+        submitData($("#contact-name").val(), $("#contact-email").val(), $("#contact-subject").val(), $("#contact-message").val(), function(success) {
+          if (success) {
+            showMessage('Thank you! Your message has been submitted successfully.', false, true);
+          } else {
+            showMessage('Your message could not be submitted. Please try again later.', true, false);
+          }
         });
+        e.preventDefault();
+        return false;
+      });
 
-        // start getting tickets
-        getTicket();
+      ticketRecursive(3);
     });
 })(jQuery);

@@ -48,3 +48,13 @@ h1, h2, h3, h4, h5, h5 {
     @include opacity(1.0);
   }
 }
+
+.contact-messages > .contact-message {
+  &.contact-message-success {
+    color: $theme-primary-color;
+  }
+
+  &.contact-message-error {
+    color: $theme-error-color;
+  }
+}

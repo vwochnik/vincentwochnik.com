@@ -13,12 +13,20 @@ $viewport-large:  'screen' (min-width 62em);
 // large desktops and televisions
 $viewport-huge:   'screen' (min-width 75em);
 
-/* font sizes */
+/* font settings */
 $body-font-size: 12px;
+$body-font-face: "Open Sans", Arial, Helvetica, sans-serif;
+
+$heading-font-face: "Titillium Web", sans-serif;
+$heading-font-weight: 200;
+$h1-font-size: 36px;
+$h2-font-size: 24px;
+$h3-font-size: 18px;
 
 /* theme colors */
 $theme-background-color: #1c1c1c;
 $theme-text-color: #c7bfc9;
 $theme-primary-color: #00c0ff;
+$theme-error-color: #ff00c0;
 $theme-footer-color: #444;
 $theme-footer-link-color: #446;

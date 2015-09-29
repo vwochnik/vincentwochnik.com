@@ -1,8 +1,4 @@
 .contact-segment {
-  > h2 {
-    text-align: center;
-  }
-
   input, textarea, button {
     display: block;
     @include box-shadow(none);

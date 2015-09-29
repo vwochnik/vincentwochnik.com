@@ -13,24 +13,40 @@ $susy: (
 @include susy-breakpoint($viewport-tiny, (gutters: 1/4)) {
   .segment {
     padding: gutter(6) gutter(12);
+
+    > .segment-heading {
+      margin: 0 0 gutter(6) 0;
+    }
   }
 }
 
 @include susy-breakpoint($viewport-small, (gutter: 1/4)) {
   .segment {
     padding: gutter(6) gutter(12);
+
+    > .segment-heading {
+      margin: 0 0 gutter(6) 0;
+    }
   }
 }
 
 @include susy-breakpoint($viewport-medium, (gutters: 1/4)) {
   .segment {
     padding: gutter(6) gutter(12);
+
+    > .segment-heading {
+      margin: 0 0 gutter(6) 0;
+    }
   }
 }
 
 @include susy-breakpoint($viewport-large, (gutters: 1/4)) {
   .segment {
     padding: gutter(6) gutter(12);
+
+    > .segment-heading {
+      margin: 0 0 gutter(6) 0;
+    }
   }
 }
 
