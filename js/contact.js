@@ -25,6 +25,13 @@
       return ((!ticket) || ((ticket.expires) && (new Date(ticket.expires) < new Date())));
     }
 
+    function stopTimeout() {
+      if (timeout !== null) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+    }
+
     function getTicket(next) {
         if (processing) {
           next(false);
@@ -51,20 +58,16 @@
     }
 
     function ticketRecursive(tries) {
-      if (timeout !== null) {
-        clearTimeout(timeout);
-        timeout = null;
-      }
-
+      stopTimeout();
       if (processing) {
-        setTimeout(function() { ticketRecursive(3); }, 10000);
+        timeout = setTimeout(function() { ticketRecursive(3); }, 10000);
         return;
       }
 
       if (tries > 0) {
         getTicket(function(success) {
           if (success) {
-            timeout = setTimeout(function() { ticketRecursive(3); }, (ticket.expires - new Date()).getTime());
+            timeout = setTimeout(function() { ticketRecursive(3); }, new Date(ticket.expires).getTime() - (new Date()).getTime());
             showMessage('Ticket received successfully. You can now submit a message.', false, true);
           } else {
             ticketRecursive(tries - 1);
@@ -108,12 +111,18 @@
       $messages = $("#contact-messages");
 
       $("#contact-submit").click(function(e) {
+        $("#contact-submit").prop('disabled', true);
         submitData($("#contact-name").val(), $("#contact-email").val(), $("#contact-subject").val(), $("#contact-message").val(), function(success) {
           if (success) {
             showMessage('Thank you! Your message has been submitted successfully.', false, true);
           } else {
-            showMessage('Your message could not be submitted. Please try again later.', true, false);
+            showMessage('Your message could not be submitted. Please try again later.', true, true);
           }
+          $form.trigger('reset');
+          $("#contact-submit").prop('disabled', false);
+          stopTimeout();
+          ticket = null;
+          timeout = setTimeout(function() { ticketRecursive(3); }, 10000);
         });
         e.preventDefault();
         return false;
