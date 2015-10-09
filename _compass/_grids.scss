@@ -32,7 +32,7 @@ $susy: (
   }
 }
 
-@mixin contact-form-grid($viewport, $gutters, $with-columns) {
+@mixin two-column-grid($class, $viewport, $gutters, $with-columns) {
   $susy-options: null;
   @if $with-columns {
     $susy-options: (columns: 2, gutters: $gutters, container-position: 0);
@@ -41,21 +41,17 @@ $susy: (
   }
 
   @include susy-breakpoint($viewport, $susy-options) {
-    .contact-form {
+    .#{$class} {
       @include container();
 
       @if $with-columns {
-        > .contact-form-left-column {
+        > .#{$class}-left-column {
           @include span(1 first);
         }
 
-        > .contact-form-right-column {
+        > .#{$class}-right-column {
           @include span(1 last);
         }
-      }
-
-      .contact-form-input {
-        margin: gutter(2) 0;
       }
     }
   }
@@ -69,6 +65,28 @@ $susy: (
 @include segment-grid($viewport-huge, 60%, 1/4);
 
 // contact form grid
-@include contact-form-grid($viewport-tiny, 1/24, false);
-@include contact-form-grid($viewport-small, 1/24, true);
-@include contact-form-grid($viewport-medium, 1/12, true);
+@include two-column-grid('contact-form', $viewport-tiny, 1/24, false);
+@include two-column-grid('contact-form', $viewport-small, 1/24, true);
+@include two-column-grid('contact-form', $viewport-medium, 1/12, true);
+
+// qr code grid
+@include two-column-grid('qr-code-images', $viewport-tiny, 1/24, false);
+@include two-column-grid('qr-code-images', $viewport-medium, 1/12, true);
+
+@include susy-breakpoint($viewport-tiny, (gutters: 1/24)) {
+    .contact-form-input {
+      margin: gutter(2) 0;
+    }
+}
+
+@include susy-breakpoint($viewport-small, (gutters: 1/24)) {
+    .contact-form-input {
+      margin: gutter(2) 0;
+    }
+}
+
+@include susy-breakpoint($viewport-medium, (gutters: 1/12)) {
+    .contact-form-input {
+      margin: gutter(2) 0;
+    }
+}

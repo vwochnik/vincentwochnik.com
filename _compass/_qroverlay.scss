@@ -1,7 +1,38 @@
-.qr-code-overlay {
-  @include overlay(fixed, 999, 1s);
+@mixin qr-code-overlay-adapt($viewport, $left-image, $size) {
+  @include breakpoint($viewport) {
+    .qr-code-overlay .qr-code-segment .qr-code-images-left-column {
+      @if $left-image {
+        display: block;
+      } @else {
+        display: none;
+      }
+    }
 
-  .qr-code-segment {
-
+    .qr-code-overlay .qr-code-wrapper .qr-code-segment .qr-code-image-responsive {
+      width: $size;
+      height: $size;
+    }
   }
 }
+
+.qr-code-overlay {
+  @include overlay(fixed, 999, 1s);
+  @include flex-cover();
+
+  .qr-code-wrapper {
+    width: 100%;
+
+    .qr-code-segment {
+      .qr-code-image-responsive {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@include qr-code-overlay-adapt($viewport-tiny, false, 75vw);
+@include qr-code-overlay-adapt($viewport-small, false, 60vw);
+@include qr-code-overlay-adapt($viewport-medium, true, 30vw);
+@include qr-code-overlay-adapt($viewport-large, true, 25vw);
+@include qr-code-overlay-adapt($viewport-huge, true, 20vw);
