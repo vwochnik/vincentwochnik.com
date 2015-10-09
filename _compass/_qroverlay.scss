@@ -27,12 +27,16 @@
         display: block;
         margin: 0 auto;
       }
+
+      .qr-code-description {
+        text-align: center;
+      }
     }
   }
 }
 
-@include qr-code-overlay-adapt($viewport-tiny, false, 75vw);
-@include qr-code-overlay-adapt($viewport-small, false, 60vw);
+@include qr-code-overlay-adapt($viewport-tiny, false, 75vmin);
+@include qr-code-overlay-adapt($viewport-small, false, 50vmin);
 @include qr-code-overlay-adapt($viewport-medium, true, 30vw);
 @include qr-code-overlay-adapt($viewport-large, true, 25vw);
 @include qr-code-overlay-adapt($viewport-huge, true, 20vw);
