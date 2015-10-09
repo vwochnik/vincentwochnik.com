@@ -15,12 +15,20 @@ $base-line-height: 20px;
 @mixin font-scaling-mixin($viewport, $scale) {
   @include breakpoint($viewport) {
     body {
-       @include adjust-font-size-to($scale*$body-font-size, 1.0);
+       @include adjust-font-size-to($scale*$body-font-size, $scale);
     }
 
-    h1 { font-size: $scale*$h1-font-size; }
-    h2 { font-size: $scale*$h2-font-size; }
-    h3 { font-size: $scale*$h3-font-size; }
+    h1 {
+       @include adjust-font-size-to($scale*$h1-font-size, $scale);
+    }
+
+    h2 {
+       @include adjust-font-size-to($scale*$h2-font-size, $scale);
+    }
+
+    h3 {
+       @include adjust-font-size-to($scale*$h3-font-size, $scale);
+    }
   }
 }
 
@@ -28,7 +36,8 @@ body {
    font-family: $body-font-face;
 }
 
-.segment > .segment-heading {
+.segment > .segment-heading,
+.footer-segment {
   text-align: center;
 }
 
