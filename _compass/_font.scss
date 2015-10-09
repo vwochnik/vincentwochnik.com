@@ -8,9 +8,23 @@ $base-font-size: 16px;
 $base-line-height: 20px;
 
 @include establish-baseline;
+  /*
+  @include unstyled-link;
+  */
+
+@mixin font-scaling-mixin($viewport, $scale) {
+  @include breakpoint($viewport) {
+    body {
+       @include adjust-font-size-to($scale*$body-font-size, 1.0);
+    }
+
+    h1 { font-size: $scale*$h1-font-size; }
+    h2 { font-size: $scale*$h2-font-size; }
+    h3 { font-size: $scale*$h3-font-size; }
+  }
+}
 
 body {
-   @include adjust-font-size-to($body-font-size, 1.0);
    font-family: $body-font-face;
 }
 
@@ -18,10 +32,12 @@ body {
   text-align: center;
 }
 
-/*
-  @include adjust-font-size-to($navbar-menu-font-size);
-  @include unstyled-link;
-*/
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font-face;
+  font-weight: $heading-font-weight;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
 
 .screenreader {
   position: absolute;
@@ -34,13 +50,8 @@ body {
   border: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: $heading-font-face;
-  font-weight: $heading-font-weight;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-h1 { font-size: $h1-font-size; }
-h2 { font-size: $h2-font-size; }
-h3 { font-size: $h3-font-size; }
+@include font-scaling-mixin($viewport-tiny, $font-scale-tiny);
+@include font-scaling-mixin($viewport-small, $font-scale-small);
+@include font-scaling-mixin($viewport-medium, $font-scale-medium);
+@include font-scaling-mixin($viewport-large, $font-scale-large);
+@include font-scaling-mixin($viewport-huge, $font-scale-huge);

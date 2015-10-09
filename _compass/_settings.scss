@@ -13,10 +13,16 @@ $viewport-large:  'screen' (min-width 62em);
 // large desktops and televisions
 $viewport-huge:   'screen' (min-width 75em);
 
-/* font settings */
+// tiny font scaling
+$font-scale-tiny: 0.8;
+$font-scale-small: 0.8;
+$font-scale-medium: 1.0;
+$font-scale-large: 1.2;
+$font-scale-huge: 1.5;
+
+/* font faces and sizes */
 $body-font-size: 12px;
 $body-font-face: "Open Sans", Arial, Helvetica, sans-serif;
-
 $heading-font-face: "Titillium Web", sans-serif;
 $heading-font-weight: 200;
 $h1-font-size: 36px;
