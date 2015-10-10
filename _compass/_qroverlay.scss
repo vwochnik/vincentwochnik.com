@@ -23,9 +23,13 @@
     width: 100%;
 
     .qr-code-segment {
-      .qr-code-image-responsive {
-        display: block;
-        margin: 0 auto;
+      .qr-code-images {
+        margin-bottom: 4em;
+
+        .qr-code-image-responsive {
+          display: block;
+          margin: 0 auto;
+        }
       }
 
       .qr-code-description {

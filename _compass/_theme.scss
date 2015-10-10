@@ -3,10 +3,21 @@
  */
 
 body {
-  background: url('/img/background.svg') center center fixed;
-  background-color: $theme-background-color;
-  @include background-size(cover);
   color: $theme-text-color;
+
+  &:before {
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background: url('/img/background.svg') no-repeat center center;
+    background-color: $theme-background-color;
+    @include background-size(cover);
+  }
 }
 
 h1, h2, h3, h4, h5, h5 {
