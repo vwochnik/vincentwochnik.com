@@ -7,10 +7,10 @@
     var $form, $messages;
     var ticket = null, processing = false, timeout = null;
 
-    function showMessage(msg, error, clear) {
-      var $span = $('<span/>').addClass('contact-message').append(msg);
-      $span.addClass(error ? 'contact-message-error' : 'contact-message-success');
-      $messages.empty().removeClass('fade-out').addClass('visible').append($span);
+    function showMessage(cls, clear) {
+      $messages.children().hide();
+      $('.'+cls, $messages).show();
+      $messages.removeClass('fade-out').addClass('visible');
       $form.addClass('with-messages');
 
       if (clear) {
@@ -75,7 +75,7 @@
           }
         });
       } else {
-        showMessage('Ticket could not be received.', true, false);
+        showMessage('contact-message-ticket-failure', false);
       }
     }
 
@@ -118,9 +118,9 @@
         $('[type="submit"]', $form).prop('disabled', true);
         submitData(data, function(success) {
           if (success) {
-            showMessage('Thank you! Your message has been submitted successfully.', false, true);
+            showMessage('contact-message-sent', true);
           } else {
-            showMessage('Your message could not be submitted. Please try again later.', true, true);
+            showMessage('contact-message-send-failed', true);
           }
           $form.trigger('reset');
           $('[type="submit"]', $form).prop('disabled', false);

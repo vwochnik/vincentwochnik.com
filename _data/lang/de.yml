@@ -1,0 +1,24 @@
+---
+404:
+  title: Seite Nicht Gefunden
+
+index:
+  title: Webentwicklung, Internet der Dinge und mehr
+  lead: Vincent wochnik
+  slogan: Softwareentwickler &middot; Frontend Developer
+  contact_heading: Kontakt
+  send_an_email: Send me an E-mail
+  call_on_skype: Call me on Skype
+  profile_on_gplus: Visit my profile on Google+
+  profile_on_linkedin: Visit my profile on LinkedIn
+  show_qrcode: Show QR code
+  contact_form_name_label: Your name
+  contact_form_email_label: Your e-mail address
+  contact_form_subject_label: Subject
+  contact_form_message_label: Type your message
+  contact_form_send: Send message
+  scan_qr_code: Scan QR Code
+  scan_qr_code_instruction: Scan the QR code on the right with your favorite QR code reader to obtain contact information.
+  contact_message_sent: Thank you! Your message has been submitted successfully.
+  contact_message_send_failed: Your message could not be submitted. Please try again later.
+  contact_message_ticket_failure: Ticket could not be received.

@@ -36,7 +36,7 @@
 
   .social-icon {
     > a > img {
-      width: 4em; height: 4em;
+      width: 3em; height: 3em;
     }
   }
 }
@@ -59,29 +59,6 @@
     > .contact-form-left-column,
     > .contact-form-right-column {
       @include opacity(0.3);
-    }
-  }
-}
-
-.contact-information {
-  @include display-flex(flex);
-  @include flex-direction(row);
-  @include align-items(center);
-  @include justify-content(space-between);
-
-  .contact-icons {
-    @include inline-block-list(1.0em);
-    text-align: right;
-    @include flex-shrink(0);
-
-    > li:last-child {
-      padding-right: 0;
-    }
-
-    .contact-icon {
-      > a > img {
-        width: 5em; height: 5em;
-      }
     }
   }
 }

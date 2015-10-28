@@ -1,0 +1,41 @@
+<section class="cover">
+  <h1 class="cover-lead">{% t lead %}</h1>
+  <p class="cover-slogan">{% t slogan %}</p>
+  <a href="#contact" class="cover-arrow-down animated-scroll"></a>
+</section>
+{% include inline/cover-js.html %}
+<section class="segment contact-segment" id="contact">
+  <header class="segment-heading">
+    <h2>{% t contact_heading %}</h2>
+  </header>
+  <ul class="social-icons">
+    <li class="social-icon">
+      <a href="mailto:&#118;&#105;&#110;&#099;&#101;&#110;&#116;&#064;&#118;&#105;&#110;&#099;&#101;&#110;&#116;&#119;&#111;&#099;&#104;&#110;&#105;&#107;&#046;&#099;&#111;&#109;" title="{% t send_an_email %}">
+        <img src="/img/social-email.svg" alt="{% t send_an_email %}"/>
+      </a>
+    </li>
+    <li class="social-icon">
+      <a href="skype:v.wochnik?call" title="{% t call_on_skype %}">
+        <img src="/img/social-skype.svg" alt="{% t call_on_skype %}"/>
+      </a>
+    </li>
+    <li class="social-icon">
+      <a href="https://plus.google.com/+VincentWochnik?rel=author" target="_blank" title="{% t profile_on_gplus %}">
+        <img src="/img/social-google-plus.svg" alt="{% t profile_on_gplus %}"/>
+      </a>
+    </li>
+    <li class="social-icon">
+      <a href="http://lnkd.in/d5yxEw6" target="_blank" title="{% t profile_on_linkedin %}">
+        <img src="/img/social-linkedin.svg" alt="{% t profile_on_linkedin %}"/>
+      </a>
+    </li>
+    <li class="social-icon">
+      <a href="#" id="qr-code-link" title="{% t show_qrcode %}">
+        <img src="/img/social-qrcode.svg" alt="{% t show_qrcode %}"/>
+      </a>
+    </li>
+  </ul>
+  {% include inline/contact-form.html %}
+</section>
+{% include inline/footer.html %}
+{% include inline/qr-code-overlay.html %}
