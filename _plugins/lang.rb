@@ -10,7 +10,7 @@ module Jekyll
       data = context['site']['data']['lang'][lang]
 
       a = context['page']['alias']
-      if a and data[a].include?(@lkey)
+      if a and data.include?(a) and data[a].include?(@lkey)
         "#{data[a][@lkey]}"
       elsif data.include?(@lkey)
         "#{data[@lkey]}"
