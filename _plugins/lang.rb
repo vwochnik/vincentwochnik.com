@@ -21,11 +21,11 @@ module Jekyll
 
       data = get_language_data(context, page_language)
       if page_alias and data.include?(page_alias) and data[page_alias].include?(key)
-        str = "#{data[page_alias][key]}"
+        "#{data[page_alias][key]}"
       elsif data.include?(key)
-        str = "#{data[key]}"
+        "#{data[key]}"
       else
-        str = ""
+        ""
       end
     end
 
