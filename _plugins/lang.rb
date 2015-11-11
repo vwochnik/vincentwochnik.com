@@ -6,27 +6,31 @@ module Jekyll
       @lkey = @params.shift
     end
 
-    def get_language_data(context)
-      lang = context['page']['lang']
-
+    def get_language_data(context, language)
       language_data = context['site']['language_data'].strip
-      traverse = language_data.gsub("%%", lang).split('.')
+      traverse = language_data.gsub("%%", language).split('.')
+
       data = context['site']
       traverse.each { |t| data = data[t] }
       data
     end
 
-    def render(context)
-      data = get_language_data(context)
-      a = context['page']['alias']
-      if a and data.include?(a) and data[a].include?(@lkey)
-        str = "#{data[a][@lkey]}"
-      elsif data.include?(@lkey)
-        str = "#{data[@lkey]}"
+    def get_language_string(context, key)
+      page_language = (context['page']['language'] || "").strip
+      page_alias = (context['page']['alias'] || "").strip
+
+      data = get_language_data(context, page_language)
+      if page_alias and data.include?(page_alias) and data[page_alias].include?(key)
+        str = "#{data[page_alias][key]}"
+      elsif data.include?(key)
+        str = "#{data[key]}"
       else
         str = ""
       end
+    end
 
+    def render(context)
+      str = get_language_string(context, @lkey)
       @params.each { |p| str.sub!("%%", p) }
       str
     end
