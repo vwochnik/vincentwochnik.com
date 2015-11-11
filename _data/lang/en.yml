@@ -15,7 +15,10 @@ index:
   contact_form_message_label: Type your message
   contact_form_send: Send message
   scan_qr_code: Scan QR Code
-  scan_qr_code_instruction: Scan the QR code on the right with your favorite QR code reader to obtain contact information.
+  scan_qr_code_instruction: >
+    Scan the QR code on the right with your favorite QR code reader to obtain
+    contact information or download my <a href="%%" title="Contact
+    card">contact card</a>.
   contact_message_sent: Thank you! Your message has been submitted successfully.
   contact_message_send_failed: Your message could not be submitted. Please try again later.
   contact_message_ticket_failure: Ticket could not be received.

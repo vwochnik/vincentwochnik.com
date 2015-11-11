@@ -1,10 +1,21 @@
 (function($, wnd) {
+  function toggleOverlay() {
+    if ($('#qr-code-overlay').hasClass('visible'))
+      $('#qr-code-overlay').addClass('fade-out').removeClass('visible');
+    else
+      $('#qr-code-overlay').removeClass('fade-out').addClass('visible');
+  }
+
   $(function() {
-    $('#qr-code-link, #qr-code-overlay').click(function() {
-      if ($('#qr-code-overlay').hasClass('visible'))
-        $('#qr-code-overlay').addClass('fade-out').removeClass('visible');
-      else
-        $('#qr-code-overlay').removeClass('fade-out').addClass('visible');
+    $('#qr-code-overlay').click(function(e) {
+      if (e.target.nodeName !== 'A') {
+        toggleOverlay();
+        return false;
+      }
+    });
+
+    $('#qr-code-link').click(function(e) {
+      toggleOverlay();
       return false;
     });
 

@@ -24,6 +24,10 @@ h1, h2, h3, h4, h5, h5 {
   color: $theme-primary-color;
 }
 
+a {
+  @include link-colors($theme-primary-color, $theme-primary-color, false, $theme-primary-color, $theme-primary-color);
+}
+
 .footer-segment {
   > p {
     color: $theme-footer-color;

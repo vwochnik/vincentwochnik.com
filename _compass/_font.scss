@@ -48,6 +48,16 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.1em;
 }
 
+a {
+  &, &:visited, &:active {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .screenreader {
   position: absolute;
   width: 1px;

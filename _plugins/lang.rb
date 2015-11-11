@@ -1,8 +1,9 @@
 module Jekyll
   class LanguageTag < Liquid::Tag
-    def initialize(tag_name, lkey, tokens)
+    def initialize(tag_name, markup, tokens)
       super
-      @lkey = lkey.strip
+      @params = markup.gsub(/\s+/m, ' ').strip.split(" ")
+      @lkey = @params.shift
     end
 
     def render(context)
@@ -11,12 +12,15 @@ module Jekyll
 
       a = context['page']['alias']
       if a and data.include?(a) and data[a].include?(@lkey)
-        "#{data[a][@lkey]}"
+        str = "#{data[a][@lkey]}"
       elsif data.include?(@lkey)
-        "#{data[@lkey]}"
+        str = "#{data[@lkey]}"
       else
-        ""
+        str = ""
       end
+
+      @params.each { |p| str.sub!("%%", p) }
+      str
     end
   end
 end

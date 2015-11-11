@@ -15,7 +15,10 @@ index:
   contact_form_message_label: Geben Sie eine Nachricht ein
   contact_form_send: Nachricht senden
   scan_qr_code: QR-Code Scannen
-  scan_qr_code_instruction: Scannen Sie den QR-Code auf der rechten Seite mit Ihrem bevorzugten QR-Code-Reader um Kontaktinformationen zu erhalten.
+  scan_qr_code_instruction: >
+    Scannen Sie den QR-Code auf der rechten Seite mit Ihrem bevorzugten
+    QR-Code-Reader um Kontaktinformationen zu erhalten oder laden Sie meine
+    <a href="%%" title="Visitenkarte">Visitenkarte</a> herunter.
   contact_message_sent: Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
   contact_message_send_failed: Ihre Nachricht konnte nicht versendet werden. Bitte versuchen Sie es erneut.
   contact_message_ticket_failure: Ticket konnte nicht empfangen werden.
