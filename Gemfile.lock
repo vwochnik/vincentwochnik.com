@@ -7,6 +7,12 @@ GIT
       compass (~> 1.0)
       jekyll (~> 3.0)
 
+GIT
+  remote: https://github.com/vwochnik/jekyll-language-plugin.git
+  revision: 63ba963047de3106622d078d5939a825a55dd232
+  specs:
+    jekyll-language-plugin (1.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -71,6 +77,7 @@ DEPENDENCIES
   compass-normalize
   jekyll (>= 3.0.0)
   jekyll-compass (= 2.0.0)!
+  jekyll-language-plugin (= 1.0.0)!
   jekyll-sitemap
   susy
 

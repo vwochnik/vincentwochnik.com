@@ -26,6 +26,46 @@ module Jekyll
     end
   end
 
+  class PostReader
+    def read_content(dir, magic_dir, matcher)
+      entries = @site.reader.get_entries(dir, magic_dir)
+      documents = []
+      for entry in entries
+        next unless entry =~ matcher
+        path = @site.in_source_dir(File.join(dir, magic_dir, entry))
+        documents.concat(multilinguify(path))
+      end
+      documents
+    end
+
+    def multilinguify(path)
+      document = create_document_from_path(path)
+      document.read
+      if not document.language and not document.languages
+        # create a new document that can be freshly read
+        return [create_document_from_path(path)]
+      end
+
+      languages = document.languages || []
+      if document.language and not languages.include?(document.language)
+        languages.push(document.language)
+      end
+
+      languages.map do |language|
+        document2 = create_document_from_path(path)
+        document2.data['language'] = language
+        document2
+      end
+    end
+
+    def create_document_from_path(path)
+      LanguageDocument.new(path, {
+        site: @site,
+        collection: @site.posts
+      })
+    end
+  end
+
   class LanguagePage < Page
     alias_method :template_orig, :template
     alias_method :url_placeholders_orig, :url_placeholders
@@ -45,6 +85,34 @@ module Jekyll
         return "/:language" + template_orig
       end
       template_orig
+    end
+
+    def url_placeholders
+      p = url_placeholders_orig
+      p['language'] = language
+      p
+    end
+  end
+
+  class LanguageDocument < Document
+    alias_method :url_template_orig, :url_template
+    alias_method :url_placeholders_orig, :url_placeholders
+
+    def language
+      return nil if data.nil? || data['language'].nil?
+      data['language']
+    end
+
+    def languages
+      return nil if data.nil? || data['languages'].nil?
+      data['languages']
+    end
+
+    def url_template
+      if language
+        return "/:language" + url_template_orig
+      end
+      url_template_orig
     end
 
     def url_placeholders

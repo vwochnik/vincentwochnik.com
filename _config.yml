@@ -10,6 +10,7 @@ markdown: kramdown
 gems:
 - jekyll-compass
 - jekyll-sitemap
+- jekyll-language-plugin
 
 # source of language data
 language_data: data.lang.%%
