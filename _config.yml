@@ -13,3 +13,4 @@ gems:
 
 # source of language data
 language_data: data.lang.%%
+language_includes_dir: _i18n

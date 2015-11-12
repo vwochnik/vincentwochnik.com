@@ -18,7 +18,7 @@ RewriteCond %{REQUEST_URI} !^/(en|de)/ [NC]
 RewriteRule ^$ /en/ [R=302,L]
 
 # error document
-ErrorDocument 404 /404.html
+ErrorDocument 404 /en/404.html
 
 # Disable indexes
 Options -Indexes

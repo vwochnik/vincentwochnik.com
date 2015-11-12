@@ -1,4 +1,8 @@
 ---
+404:
+  title: Datei Nicht Gefunden
+  lead: 404
+  slogan: Datei Nicht Gefunden
 index:
   title: Webentwicklung, Internet der Dinge und mehr
   lead: Vincent wochnik
