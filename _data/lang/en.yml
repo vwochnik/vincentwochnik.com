@@ -1,5 +1,5 @@
 ---
-404:
+err:
   title: File Not Found
   lead: 404
   slogan: File Not Found
@@ -27,3 +27,10 @@ index:
   contact_message_send_failed: Your message could not be submitted. Please try again later.
   contact_message_ticket_failure: Ticket could not be received.
 all_rights_reserved: All rights reserved.
+site_last_published: Last published
+site_last_published_date: '%B %d, %Y.'
+date:
+  abbr_daynames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  daynames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  abbr_monthnames: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  monthnames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']

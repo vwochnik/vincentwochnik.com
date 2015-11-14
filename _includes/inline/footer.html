@@ -1,3 +1,3 @@
 <footer class="segment footer-segment">
-  <p><small>Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}. {% t all_rights_reserved %}</small></p>
+  <p><small>Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}. {% t all_rights_reserved %} {% t site_last_published %}: {{ site.time | tdate: 'site_last_published_date' }}</small></p>
 </footer>

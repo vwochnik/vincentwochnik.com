@@ -1,5 +1,5 @@
 ---
-404:
+err:
   title: Datei Nicht Gefunden
   lead: 404
   slogan: Datei Nicht Gefunden
@@ -27,3 +27,10 @@ index:
   contact_message_send_failed: Ihre Nachricht konnte nicht versendet werden. Bitte versuchen Sie es erneut.
   contact_message_ticket_failure: Ticket konnte nicht empfangen werden.
 all_rights_reserved: Alle Rechte vorbehalten.
+site_last_published: Zulezt veröffentlicht
+site_last_published_date: '%d. %B %Y.'
+date:
+  abbr_daynames: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+  daynames: ['Sonntag', 'Montag', 'Dienstag', 'Mitwoch', 'Donnerstag', 'Freitag', 'Samstag']
+  abbr_monthnames: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez']
+  monthnames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
