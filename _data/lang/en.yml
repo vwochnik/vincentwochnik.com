@@ -29,6 +29,7 @@ index:
 all_rights_reserved: All rights reserved.
 site_last_published: Last published
 site_last_published_date: '%B %d, %Y.'
+site_powered_by: Powered by
 date:
   abbr_daynames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
   daynames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
