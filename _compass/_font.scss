@@ -29,6 +29,10 @@ $base-line-height: 20px;
     h3 {
        @include adjust-font-size-to($scale*$h3-font-size, $scale);
     }
+
+    footer {
+       @include adjust-font-size-to($scale*$footer-font-size, $scale);
+    }
   }
 }
 
