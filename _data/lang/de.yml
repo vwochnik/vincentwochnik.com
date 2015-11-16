@@ -30,6 +30,8 @@ all_rights_reserved: Alle Rechte vorbehalten.
 site_last_published: Zulezt veröffentlicht
 site_last_published_date: '%d. %B %Y.'
 site_powered_by: Powered by
+site_translation_english: Englisch
+site_translation_german: Deutsch
 date:
   abbr_daynames: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
   daynames: ['Sonntag', 'Montag', 'Dienstag', 'Mitwoch', 'Donnerstag', 'Freitag', 'Samstag']

@@ -32,14 +32,14 @@ a {
   > p {
     color: $theme-footer-color;
 
-    > a {
+    a {
       @include link-colors($theme-footer-link-color, $theme-footer-link-color, false, $theme-footer-link-color, $theme-footer-link-color);
     }
 
     .powered-by-jekyll {
       width: auto;
-      height: 2.0em;
-      vertical-align: middle;
+      height: 2.5em;
+      vertical-align: -32%;
     }
   }
 }

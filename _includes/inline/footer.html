@@ -1,6 +1,7 @@
 <footer class="segment footer-segment">
   <p>
-    <span>Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}. {% t all_rights_reserved %} {% t site_last_published %}: {{ site.time | tdate: 'site_last_published_date' }}</span>
-    <br/><span>{% t site_powered_by %}: <a href="http://jekyllrb.com/" title="Jekyll"><img class="powered-by-jekyll" src="/img/powered-by-jekyll.svg" alt="Jekyll"></a></span>
+    <span>Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}. {% t all_rights_reserved %} &middot; {% t site_last_published %}: {{ site.time | tdate: 'site_last_published_date' }}</span>
+    <br/><span>{% t site_powered_by %} <a href="http://jekyllrb.com/" title="Jekyll"><img class="powered-by-jekyll" src="/img/powered-by-jekyll.svg" alt="Jekyll"></a> &middot; </span>
+    <span><a href="/en/" title="{% t site_translation_english %}">{% t site_translation_english %}</a> &middot; <a href="/de/" title="{% t site_translation_german %}">{% t site_translation_german %}</a>
   </p>
 </footer>
