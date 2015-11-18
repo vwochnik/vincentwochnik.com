@@ -4,7 +4,9 @@
 
 body {
   color: $theme-text-color;
+  background: url('/img/theme-background.png') $theme-background-color;
 
+  /* additional background pattern */
   &:before {
     content: "";
     display: block;
@@ -14,8 +16,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -10;
-    background: url('/img/background.svg') no-repeat center center;
-    background-color: $theme-background-color;
+    background: url('/img/background-pattern.svg') no-repeat center center;
     @include background-size(cover);
   }
 }
