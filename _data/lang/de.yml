@@ -30,6 +30,9 @@ all_rights_reserved: Alle Rechte vorbehalten.
 site_last_published: Zulezt veröffentlicht
 site_last_published_date: '%d. %B %Y.'
 site_powered_by: Powered by
+lang:
+  en: Englisch
+  de: Deutsch
 site_translation_english: Englisch
 site_translation_german: Deutsch
 date:

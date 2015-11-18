@@ -30,6 +30,9 @@ all_rights_reserved: All rights reserved.
 site_last_published: Last published
 site_last_published_date: '%B %d, %Y.'
 site_powered_by: Powered by
+lang:
+  en: English
+  de: German
 site_translation_english: English
 site_translation_german: German
 date:

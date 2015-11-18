@@ -4,6 +4,7 @@ email: vincent@vincentwochnik.com
 description: Web Development, Internet of Things and more
 keywords: wochnik, vincent, vincent wochnik, software development, software, engineer, developer, web design, web, mobile, frontend, design, internet of things, iot
 url: "http://vincentwochnik.com"
+languages: ['en', 'de']
 
 # Build settings
 markdown: kramdown
