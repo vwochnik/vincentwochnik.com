@@ -12,5 +12,6 @@
 
 ## Copyright
 
-Copyright (c) Vincent Wochnik 2015.
+Copyright (c) 2015 Vincent Wochnik.
+
 License: MIT
