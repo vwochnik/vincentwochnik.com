@@ -15,6 +15,11 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}">
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+  {% for language in page.languages %}
+    {% if page.language != language %}
+      <link rel=”alternate” hreflang="{{ language }}" href="{{ site.url }}{{ site.baseurl }}{{ page.url | replace_first: page.language, language }}" />
+    {% endif %}
+  {% endfor %}
   {% include inline/analytics.html %}
 </head>
