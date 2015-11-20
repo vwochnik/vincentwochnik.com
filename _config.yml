@@ -12,6 +12,7 @@ gems:
 - jekyll-compass
 - jekyll-sitemap
 - jekyll-language-plugin
+- jekyll-email-protect
 
 # source of language data
 language_data: data.lang.%%
