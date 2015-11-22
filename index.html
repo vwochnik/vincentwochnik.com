@@ -17,7 +17,7 @@ subset: index
   </header>
   <ul class="social-icons">
     <li class="social-icon">
-      <a href="mailto:{{ site.email | protect_email }}" title="{% t 'send_an_email' %}">
+      <a href="mailto:{{ site.email | encode_email }}" title="{% t 'send_an_email' %}">
         <img src="{{ site.baseurl }}/img/social-email.svg" alt="{% t 'send_an_email' %}"/>
       </a>
     </li>
