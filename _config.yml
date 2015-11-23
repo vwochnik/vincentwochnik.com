@@ -2,19 +2,21 @@
 title: Vincent Wochnik
 author: Vincent Wochnik
 email: vincent@vincentwochnik.com
-description: Web Development, Internet of Things and more
-keywords: wochnik, vincent, vincent wochnik, software development, software, engineer, developer, web design, web, mobile, frontend, design, internet of things, iot
 url: "http://vincentwochnik.com"
 languages: ['en', 'de']
 
 # Build settings
 markdown: kramdown
+encoding: utf-8
+exclude: ['Gemfile', 'Gemfile.lock']
+
+# Plugin gems
 gems:
 - jekyll-compass
 - jekyll-sitemap
 - jekyll-language-plugin
 - jekyll-email-protect
 
-# source of language data
+# Jekyll Language Plugin settings
 language_data: data.lang.%%
 language_includes_dir: _i18n
