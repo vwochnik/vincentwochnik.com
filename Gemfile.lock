@@ -1,11 +1,10 @@
 GIT
-  remote: https://github.com/chikamichi/jekyll-compass.git
-  revision: e4c5e691246ecc3d67a0e33b16f1611e63f22eef
-  branch: jekyll3
+  remote: https://github.com/vwochnik/jekyll-compass.git
+  revision: 9c066dee39a82f31c7ed7a77dd594ee0aa6ed4eb
+  branch: quality-improvements
   specs:
-    jekyll-compass (2.0.0)
+    jekyll-compass (2.0.1)
       compass (~> 1.0)
-      jekyll (~> 3.0)
 
 GEM
   remote: https://rubygems.org/
@@ -72,7 +71,7 @@ DEPENDENCIES
   compass (>= 1.1.0.alpha.3)
   compass-normalize
   jekyll (= 3.0.1)
-  jekyll-compass (= 2.0.0)!
+  jekyll-compass (= 2.0.1)!
   jekyll-email-protect (= 1.0.3)
   jekyll-language-plugin (= 1.1.7)
   jekyll-sitemap

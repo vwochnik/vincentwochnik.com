@@ -2,8 +2,16 @@
 common:
   site:
     title: Vincent Wochnik
-    description: Web Development, Internet of Things and more
-    keywords: wochnik, vincent, vincent wochnik, software development, software, engineer, developer, web design, web, mobile, frontend, design, internet of things, iot
+    description: Frontend Development, Softwareentwicklung und mehr
+    keywords: >
+      wochnik, vincent, vincent wochnik, software, entwickler, entwicklung,
+      development, softwareentwickler, rontend, frontend development,
+      internet der dinge, internet of things, iot
+  footer:
+    all_rights_reserved: Alle Rechte vorbehalten.
+    site_last_published: Zulezt veröffentlicht
+    site_last_published_date: '%d. %B %Y.'
+    site_powered_by: Powered by
 err:
   title: Datei Nicht Gefunden
   lead: 404
@@ -32,15 +40,9 @@ index:
   contact_message_sent: Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
   contact_message_send_failed: Ihre Nachricht konnte nicht versendet werden. Bitte versuchen Sie es erneut.
   contact_message_ticket_failure: Ticket konnte nicht empfangen werden.
-all_rights_reserved: Alle Rechte vorbehalten.
-site_last_published: Zulezt veröffentlicht
-site_last_published_date: '%d. %B %Y.'
-site_powered_by: Powered by
 lang:
   en: Englisch
   de: Deutsch
-site_translation_english: Englisch
-site_translation_german: Deutsch
 date:
   abbr_daynames: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
   daynames: ['Sonntag', 'Montag', 'Dienstag', 'Mitwoch', 'Donnerstag', 'Freitag', 'Samstag']
