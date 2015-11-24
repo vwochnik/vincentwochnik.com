@@ -21,7 +21,7 @@ subset: index
       </a>
     </li>
     <li class="social-icon">
-      <a href="skype:v.wochnik?call" title="{% t 'call_on_skype' %}">
+      <a href="skype:{{ site.skype | encode_email }}?call" title="{% t 'call_on_skype' %}">
         <img src="{{ site.baseurl }}/img/social-skype.svg" alt="{% t 'call_on_skype' %}"/>
       </a>
     </li>
