@@ -21,3 +21,7 @@ gems:
 # Jekyll Language Plugin settings
 language_data: data.lang.%%
 language_includes_dir: _i18n
+
+# deploy options
+deploy:
+- rsync -aze ssh --delete ./ vincentwochnik.com:public_html/
