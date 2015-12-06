@@ -1,47 +1,84 @@
 (function(doc, _, Two) {
+    // Date.now() IE<=8 shim
+    if (!Date.now) {
+      Date.now = function() { return new Date().getTime(); }
+    }
 
     var root = this,
         two = new Two({ domElement: doc.getElementById('cover-canvas') }),
         segments = [];
 
-    function segmentCircle(two, radius, thickness, parts, color, opacity) {
-      var params = function(frameCount) {
-        var ary = [];
-        for (var i = 0; i < parts; i++) {
-          var d = 360.0 / parts;
-          var s = i * d;
-          ary.push({
-            cx: two.width / 2.0,
-            cy: two.height / 2.0,
-            ir: radius - thickness / 2.0,
-            or: radius + thickness / 2.0,
-            sa: s / 180.0 * Math.PI,
-            se: (s+d) / 180.0 * Math.PI,
-            s: s,
-            opacity: i/parts
-          });
-        }
-        return ary;
-      };
+    function segmentCircle(two, size, layer, parts, color, opacity) {
+      var group;
 
-      var makeArcs = function(frameCount) {
-        var that = this;
-        _.each(this.params(frameCount), function(p) {
-          that.makeArc(p);
+      var pattern = function() {
+        var sum = 0;
+        ary = _.times(parts*2, function() {
+          var val = Math.random();
+          sum += val;
+          return val;
+        });
+
+        return _.map(ary, function(val) {
+          return val / sum;
         });
       };
 
-      var makeArc = function(p) {
-        var arc = two.makeArcSegment(p.cx, p.cy, p.ir, p.or, p.sa, p.se, p.s);
-        arc.fill = color;
-        arc.opacity = p.opacity;
-        return arc;
+      var params = function(frameCount) {
+        var ary = [];
+        var thickness = size / 12.0 / Math.pow(layer + 2, 0.9);
+        var radius = size / 12.0 * Math.pow(layer + 3.5, 0.8);
+
+        var pattern = this.pattern();
+        var offset = 0;
+        return _.times(parts, function() {
+          var length = pattern.pop();
+          var start = (offset += length);
+          var end = start + length;
+          offset += pattern.pop();
+
+          return {
+            ir: radius - thickness,
+            or: radius,
+            sa: start * 2.0*Math.PI,
+            se: end * 2.0*Math.PI,
+            s: 360.0 * length,
+            opacity: 0.5 - (layer/14.0)
+          };
+        });
+      };
+
+      var init = function() {
+        var arcs = _.map(this.params(), function(p) {
+          var arc = new Two.ArcSegment(0, 0, p.ir, p.or, p.sa, p.se, p.s);
+          arc.fill = color;
+          arc.opacity = p.opacity;
+          return arc;
+        });
+
+        // add them to a group
+        this.group = two.makeGroup(arcs);
+        this.group.translation.set(two.width / 2, two.height / 2);
+        this.group.scale = Math.min(two.width, two.height) / size;
+      };
+
+      var update = function(delta) {
+        console.log(delta);
+        this.group.rotation += delta/500.0/(1+layer);
+      };
+
+      var resize = function() {
+        this.group.translation.set(two.width / 2, two.height / 2);
+        this.group.scale = Math.min(two.width, two.height) / size;
       };
 
       return {
+        group: group,
+        pattern: pattern,
         params: params,
-        makeArcs: makeArcs,
-        makeArc: makeArc,
+        init: init,
+        update: update,
+        resize: resize
       };
     }
 
@@ -60,19 +97,30 @@
       root.attachEvent('onresize', fitted);
     fitted();
 
-    segments.push(segmentCircle(two, 100, 50, 2, '#00c0ff', 0.3));
-    segments.push(segmentCircle(two, 200, 50, 4, '#00c0ff', 0.2));
-    _.each(segments, function(segment) {
-      segment.makeArcs(0);
+    _.times(6, function(i) {
+      var segment = segmentCircle(two, 960, i, Math.pow(i+2, 2), '#00c0ff', 0.3);
+      segments.push(segment);
+      segment.init();
     });
     two.update();
 
+    var lastTime = Date.now(), time, delta;
     two.bind('update', function(frameCount) {
-      two.clear();
+      time = Date.now();
+      delta = time - lastTime;
+      lastTime = time;
+
       _.each(segments, function(segment) {
-        segment.makeArcs(frameCount);
+        segment.update(delta);
       });
     }).play();
+
+    two.bind('resize', function() {
+      _.each(segments, function(segment) {
+        segment.resize();
+      });
+      two.update();
+    });
 })(
   document,
   typeof require === 'function' ? require('underscore') : _,
