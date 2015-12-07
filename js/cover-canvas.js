@@ -42,8 +42,7 @@
             or: radius,
             sa: start * 2.0*Math.PI,
             se: end * 2.0*Math.PI,
-            s: 360.0 * length,
-            opacity: 0.5 - (layer/14.0)
+            s: 360.0 * length
           };
         });
       };
@@ -52,7 +51,7 @@
         var arcs = _.map(this.params(), function(p) {
           var arc = new Two.ArcSegment(0, 0, p.ir, p.or, p.sa, p.se, p.s);
           arc.fill = color;
-          arc.opacity = p.opacity;
+          arc.opacity = 0.2;
           return arc;
         });
 
