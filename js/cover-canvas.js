@@ -42,7 +42,7 @@
             or: radius,
             sa: start * 2.0*Math.PI,
             se: end * 2.0*Math.PI,
-            s: 360.0 * length
+            s: Math.min(3, Math.floor(360 * length))
           };
         });
       };
