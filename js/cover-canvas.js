@@ -12,13 +12,16 @@
       var group;
 
       var pattern = function() {
-        var sum = 0;
+        var sum = 0, ary;
+
+        // calculate random numbers with fixed component
         ary = _.times(parts*2, function() {
-          var val = Math.random();
+          var val = 0.2+Math.random();
           sum += val;
           return val;
         });
 
+        // return an array with sum of 1.0
         return _.map(ary, function(val) {
           return val / sum;
         });
