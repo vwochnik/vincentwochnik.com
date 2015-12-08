@@ -99,7 +99,7 @@
       root.attachEvent('onresize', fitted);
     fitted();
 
-    _.times(6, function(i) {
+    _.times(3, function(i) {
       var segment = segmentCircle(two, 960, i, Math.pow(i+2, 2), '#00c0ff', 0.3);
       segments.push(segment);
       segment.init();
