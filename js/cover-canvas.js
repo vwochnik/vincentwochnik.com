@@ -5,60 +5,52 @@
     }
 
     var root = this,
-        two = new Two({ domElement: doc.getElementById('cover-canvas') }),
+        canvasElement = doc.getElementById('cover-canvas'),
+        two = new Two({ domElement: canvasElement }),
+        colors = canvasElement.dataset.colors.split(/,\s*/),
+        numberOfSegments = parseInt(canvasElement.dataset.segments),
+        drawingOpacity = parseFloat(canvasElement.dataset.opacity),
         segments = [];
 
-    function segmentCircle(two, size, layer, parts, color, opacity) {
+    function segmentCircle(two, size, layer, parts, colors, opacity) {
       var group;
 
-      var pattern = function() {
-        var sum = 0, ary;
-
-        // calculate random numbers with fixed component
-        ary = _.times(parts*2, function() {
-          var val = 0.2+Math.random();
-          sum += val;
-          return val;
-        });
-
-        // return an array with sum of 1.0
-        return _.map(ary, function(val) {
-          return val / sum;
-        });
-      };
-
-      var params = function(frameCount) {
-        var ary = [];
+      var init = function() {
         var thickness = size / 12.0 / Math.pow(layer + 3, 0.9);
         var radius = size / 12.0 * Math.pow(layer + 3.5, 0.85);
 
-        var pattern = this.pattern();
-        var offset = 0;
-        return _.times(parts, function() {
-          var length = pattern.pop();
-          var start = (offset += length);
-          var end = start + length;
-          offset += pattern.pop();
+        var sum = 0, offset = 0;
+        var arcs = _.chain(parts*2)
+         .times(function() {
+          var val = 0.2+Math.random();
+          sum += val;
+          return val;
+         })
+         .map(function(val) {
+          return val / sum;
+         })
+         .groupBy(function(elem, i) {
+          return Math.floor(i/2);
+         })
+         .map(function(pair) {
+          var start = (offset += pair[0]);
+          var end = start + pair[0];
+          offset += pair[1];
 
           return {
-            ir: radius - thickness,
-            or: radius,
             sa: start * 2.0*Math.PI,
             se: end * 2.0*Math.PI,
             s: Math.min(3, Math.floor(360 * length))
           };
-        });
-      };
-
-      var init = function() {
-        var arcs = _.map(this.params(), function(p) {
-          var arc = new Two.ArcSegment(0, 0, p.ir, p.or, p.sa, p.se, p.s);
-          arc.fill = color;
-          arc.opacity = 0.2;
+         })
+         .map(function(p) {
+          var arc = new Two.ArcSegment(0, 0, radius - thickness, radius, p.sa, p.se, p.s);
+          arc.fill = colors[_.random(0, colors.length-1)];
+          arc.opacity = opacity;
           return arc;
-        });
+         })
+         .value();
 
-        // add them to a group
         this.group = two.makeGroup(arcs);
         this.group.translation.set(two.width / 2, two.height / 2);
         this.group.scale = Math.min(two.width, two.height) / size;
@@ -74,9 +66,6 @@
       };
 
       return {
-        group: group,
-        pattern: pattern,
-        params: params,
         init: init,
         update: update,
         resize: resize
@@ -98,8 +87,8 @@
       root.attachEvent('onresize', fitted);
     fitted();
 
-    _.times(3, function(i) {
-      var segment = segmentCircle(two, 960, i, Math.pow(i+2, 2), '#00c0ff', 0.3);
+    _.times(numberOfSegments, function(i) {
+      var segment = segmentCircle(two, 960, i, Math.pow(i+2, 2), colors, drawingOpacity);
       segment.init();
       segments.push(segment);
     });
