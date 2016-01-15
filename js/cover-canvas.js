@@ -29,8 +29,8 @@
 
       var params = function(frameCount) {
         var ary = [];
-        var thickness = size / 12.0 / Math.pow(layer + 2, 0.9);
-        var radius = size / 12.0 * Math.pow(layer + 3.5, 0.8);
+        var thickness = size / 12.0 / Math.pow(layer + 3, 0.9);
+        var radius = size / 12.0 * Math.pow(layer + 3.5, 0.85);
 
         var pattern = this.pattern();
         var offset = 0;
@@ -65,7 +65,6 @@
       };
 
       var update = function(delta) {
-        console.log(delta);
         this.group.rotation += delta/500.0/(1+layer);
       };
 
@@ -101,8 +100,8 @@
 
     _.times(3, function(i) {
       var segment = segmentCircle(two, 960, i, Math.pow(i+2, 2), '#00c0ff', 0.3);
-      segments.push(segment);
       segment.init();
+      segments.push(segment);
     });
     two.update();
 
@@ -123,8 +122,4 @@
       });
       two.update();
     });
-})(
-  document,
-  typeof require === 'function' ? require('underscore') : _,
-  typeof require === 'function' ? require('two.js') : Two
-);
+})(document, _, Two);
