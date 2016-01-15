@@ -9,6 +9,7 @@ languages: ['en', 'de']
 # Build settings
 markdown: kramdown
 encoding: utf-8
+include: ['.htaccess', '_redirects']
 exclude: ['Gemfile', 'Gemfile.lock']
 
 # Plugin gems
