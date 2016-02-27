@@ -5,7 +5,7 @@
 
 (function($) {
     var $form, $messages;
-    var ticket = null, processing = false, timeout = null;
+    var processing = false;
 
     function showMessage(cls, clear) {
       $messages.children().hide();
@@ -21,86 +21,25 @@
       }
     }
 
-    function needTicket() {
-      return ((!ticket) || ((ticket.expires) && (new Date(ticket.expires) < new Date())));
-    }
-
-    function stopTimeout() {
-      if (timeout !== null) {
-        clearTimeout(timeout);
-        timeout = null;
-      }
-    }
-
-    function getTicket(next) {
-        if (processing) {
-          next(false);
-          return;
-        }
-
-        processing = true;
-        $.ajax({
-          url: "/ajax/contact.php",
-          type: 'get',
-          dataType: 'json'
-        }).done(function(data) {
-          processing = false;
-          if (data.secret) {
-            ticket = data;
-            next(true);
-          } else {
-            next(false);
-          }
-        }).fail(function() {
-          processing = false;
-          next(false);
-        });
-    }
-
-    function ticketRecursive(tries) {
-      stopTimeout();
-      if (processing) {
-        timeout = setTimeout(function() { ticketRecursive(3); }, 10000);
-        return;
-      }
-
-      $('[type="submit"]', $form).prop('disabled', true);
-      if (tries > 0) {
-        getTicket(function(success) {
-          if (success) {
-            $('[type="submit"]', $form).prop('disabled', false);
-            timeout = setTimeout(function() { ticketRecursive(3); }, new Date(ticket.expires).getTime() - (new Date()).getTime());
-          } else {
-            ticketRecursive(tries - 1);
-          }
-        });
-      } else {
-        showMessage('contact-message-ticket-failure', false);
-      }
-    }
-
     function submitData(data, next) {
-      if ((processing) || (needTicket())) {
+      if (processing) {
         next(false);
         return;
       }
 
       processing = true;
       $.ajax({
-        url: "/ajax/contact.php",
-        type: 'post',
-        dataType: 'json',
-        contentType: 'application/json',
-        data: JSON.stringify($.extend({}, data, { secret: ticket.secret }))
+        url: '//formspree.io/%76%69%6E%63%65%6E%74@%76%69%6E%63%65%6E%74%77%6F%63%68%6E%69%6B.%63%6F%6D',
+        method: 'POST',
+        data: {
+          '_replyto': data.name+' <'+data.email+'>',
+          '_subject': data.subject,
+          'message': data.message
+        },
+        dataType: 'json'
       }).done(function(data) {
         processing = false;
-        if (data.success) {
-          next(true, data.success);
-        } else if (data.error) {
-          next(false, data.error);
-        } else {
-          next(false);
-        }
+        next((typeof data.success !== 'undefined') ? true : false);
       }).fail(function() {
         processing = false;
         next(false);
@@ -124,12 +63,9 @@
           }
           $form.trigger('reset');
           $('[type="submit"]', $form).prop('disabled', false);
-          ticketRecursive(3);
         });
         e.preventDefault();
         return false;
       });
-
-      ticketRecursive(3);
     });
 })(jQuery);
