@@ -9,6 +9,7 @@ cp -R ./. $TMP_DIR
 pushd $TMP_DIR
 
 git init
+git checkout --orphan gh-pages
 git add .
 git commit -m "Site built at $DATE"
 git remote add origin git@github.com:vwochnik/vincentwochnik.com.git
