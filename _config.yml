@@ -9,8 +9,8 @@ languages: ['en', 'de']
 # Build settings
 markdown: kramdown
 encoding: utf-8
-include: ['.htaccess', '_redirects']
-exclude: ['Gemfile', 'Gemfile.lock']
+include: ['.htaccess']
+exclude: ['Gemfile', 'Gemfile.lock', 'README.md']
 
 # Plugin gems
 gems:
@@ -25,4 +25,4 @@ language_includes_dir: _i18n
 
 # deploy options
 deploy:
-- rsync -aze ssh --delete ./ vincentwochnik.com:public_html/
+- ../.deploy-script.sh

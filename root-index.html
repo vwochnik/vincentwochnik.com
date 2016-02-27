@@ -1,0 +1,45 @@
+---
+layout: null
+permalink: /
+sitemap: false
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Redirect</title>
+  </head>
+<body>
+  <p>If you are not automatically being redirected, click <a href="/en/" title="redirect">here</a>.
+</body>
+</html>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+  (function(wnd, $) {
+    var languageRegex = /^([^-]+)/ig;
+
+    $(function() {
+      if ($("#site-languages-json").length > 0) {
+        var languages = JSON.parse($("#site-languages-json").html() || "{}");
+        var navlang = navigator.language || navigator.userLanguage;
+
+        if ((match = languageRegex.exec(navlang))) {
+          var language = match[1];
+
+          if (languages.hasOwnProperty(language)) {
+            wnd.location.replace(languages[language]);
+          }
+        }
+      }
+    });
+  })(window, jQuery);
+</script>
+<script id="site-languages-json" type="application/json">
+{% raw %}{{% endraw %}
+{% for language in site.languages %}
+  "{{ language }}": "{{ site.baseurl }}/{{ language }}/"
+  {% if forloop.last != true %},{% endif %}
+{% endfor %}
+{% raw %}}{% endraw %}
+</script>
