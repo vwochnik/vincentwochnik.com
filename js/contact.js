@@ -21,21 +21,24 @@
       }
     }
 
-    function submitData(data, next) {
+    function submitData(form_data, next) {
       if (processing) {
         next(false);
         return;
+      }
+
+      var json_data = {};
+      for (var fkey in form_data) {
+        if (form_data.hasOwnProperty(fkey)) {
+          json_data['_'+fkey] = form_data[fkey];
+        }
       }
 
       processing = true;
       $.ajax({
         url: '//formspree.io/%76%69%6E%63%65%6E%74@%76%69%6E%63%65%6E%74%77%6F%63%68%6E%69%6B.%63%6F%6D',
         method: 'POST',
-        data: {
-          '_replyto': data.name+' <'+data.email+'>',
-          '_subject': data.subject,
-          'message': data.message
-        },
+        data: json_data,
         dataType: 'json'
       }).done(function(data) {
         processing = false;
