@@ -16,30 +16,29 @@ sitemap: false
 </html>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 <script>
-  (function(wnd, $) {
-    var languageRegex = /^([^-]+)/ig;
-
+  (function(wnd, nav, $) {
     $(function() {
-      if ($("#site-languages-json").length > 0) {
-        var languages = JSON.parse($("#site-languages-json").html() || "{}");
-        var navlang = navigator.language || navigator.userLanguage;
+      var siteLanguages = JSON.parse($("#site-languages").html() || "[]"),
+          userLanguages = nav.languages || [nav.language] || [nav.userLanguage],
+          preferredLanguage = siteLanguages[0];
 
-        if ((match = languageRegex.exec(navlang))) {
-          var language = match[1];
-
-          if (languages.hasOwnProperty(language)) {
-            wnd.location.replace(languages[language]);
-          }
+      userLanguages.some(function(userLanguage) {
+        if ((match = /^([^-]+)/ig.exec(userLanguage))) {
+          userLanguage = match[1];
         }
-      }
+
+        if (siteLanguages.indexOf(userLanguage) !== -1) {
+          preferredLanguage = userLanguage;
+          return true;
+        }
+
+        return false;
+      });
+
+      wnd.location.assign(preferredLanguage+'/');
     });
-  })(window, jQuery);
+  })(window, navigator, jQuery);
 </script>
-<script id="site-languages-json" type="application/json">
-{% raw %}{{% endraw %}
-{% for language in site.languages %}
-  "{{ language }}": "{{ site.baseurl }}/{{ language }}/"
-  {% if forloop.last != true %},{% endif %}
-{% endfor %}
-{% raw %}}{% endraw %}
+<script id="site-languages" type="application/json">
+{{ site.languages | json }}
 </script>
