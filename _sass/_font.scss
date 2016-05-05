@@ -2,36 +2,40 @@
  * This file contains font sizes and typography adjustments.
  */
 
-$rhythm-unit: "rem";
-$round-to-nearest-half-line: false;
-$base-font-size: 16px;
-$base-line-height: 20px;
-
-@include establish-baseline;
-  /*
-  @include unstyled-link;
-  */
-
 @mixin font-scaling-mixin($viewport, $scale) {
+  $root-font-size: $scale * 16px;
+  $root-line-height: $scale * 20px;
+
   @include breakpoint($viewport) {
+    html {
+      font-size: $root-font-size;
+      line-height: $root-line-height;
+    }
+
     body {
-       @include adjust-font-size-to($scale*$body-font-size, $scale);
+       font-size: $scale * $body-font-size;
+       font-size: $scale * $body-font-size / $root-font-size * 1rem;
+       line-height: $scale * 1em;
     }
 
     h1 {
-       @include adjust-font-size-to($scale*$h1-font-size, $scale);
+       font-size: $scale * $h1-font-size;
+       font-size: $scale * $h1-font-size / $root-font-size * 1rem;
     }
 
     h2 {
-       @include adjust-font-size-to($scale*$h2-font-size, $scale);
+       font-size: $scale * $h2-font-size;
+       font-size: $scale * $h2-font-size / $root-font-size * 1rem;
     }
 
     h3 {
-       @include adjust-font-size-to($scale*$h3-font-size, $scale);
+       font-size: $scale * $h3-font-size;
+       font-size: $scale * $h3-font-size / $root-font-size * 1rem;
     }
 
     footer {
-       @include adjust-font-size-to($scale*$footer-font-size, $scale);
+       font-size: $scale * $footer-font-size;
+       font-size: $scale * $footer-font-size / $root-font-size * 1rem;
     }
   }
 }

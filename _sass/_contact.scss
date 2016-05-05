@@ -1,7 +1,7 @@
 .contact-segment {
   input, textarea, button {
     display: block;
-    @include box-shadow(none);
+    box-shadow: none;
     font: inherit;
     outline: none;
     border: none;
@@ -22,16 +22,23 @@
 }
 
 .social-icons {
-  @include inline-block-list(1.0em);
+  list-style-type: none;
+  //@include inline-block-list(1.0em);
   margin: 2em auto 2em auto;
+  padding: 0;
   text-align: center;
 
-  > li:first-child {
-    padding-left: 0;
-  }
+  > li {
+    display: inline-block;
+    padding: 0 1em;
 
-  > li:last-child {
-    padding-right: 0;
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
   }
 
   .social-icon {
@@ -46,8 +53,8 @@
 
   > .contact-form-left-column,
   > .contact-form-right-column {
-    @include opacity(1.0);
-    @include transition(opacity 0.5s ease-in-out);
+    opacity: 1.0;
+    transition: opacity 0.5s ease-in-out;
   }
 
   > .contact-messages {
@@ -58,7 +65,7 @@
   &.with-messages {
     > .contact-form-left-column,
     > .contact-form-right-column {
-      @include opacity(0.3);
+      opacity: 0.3;
     }
   }
 }

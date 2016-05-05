@@ -30,6 +30,6 @@
     width: 100%;
     height: 2em;
     background: url('/img/arrow-down.svg') no-repeat center center;
-    @include background-size(contain);
+    background-size: contain;
   }
 }

@@ -10,14 +10,9 @@ languages: ['en', 'de']
 markdown: kramdown
 encoding: utf-8
 include: ['.htaccess']
-exclude: ['Gemfile', 'Gemfile.lock', 'README.md']
-
-# Plugin gems
-gems:
-- jekyll-compass
-- jekyll-sitemap
-- jekyll-language-plugin
-- jekyll-email-protect
+exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'LICENSE.md']
+sass:
+  style: compressed
 
 # Jekyll Language Plugin settings
 language_data: data.lang.%%

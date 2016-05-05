@@ -17,7 +17,7 @@ body {
     height: 100%;
     z-index: -10;
     background: url('/img/background-pattern.svg') no-repeat center center;
-    @include background-size(cover);
+    background-size: cover;
   }
 }
 
@@ -25,15 +25,15 @@ h1, h2, h3, h4, h5, h5 {
   color: $theme-primary-color;
 }
 
-a {
-  @include link-colors($theme-primary-color, $theme-primary-color, false, $theme-primary-color, $theme-primary-color);
+a, a:visited, a:active, a:hover {
+  color: $theme-primary-color;
 }
 
 .footer-segment {
   color: $theme-footer-color;
 
-  a {
-    @include link-colors($theme-footer-link-color, $theme-footer-link-color, false, $theme-footer-link-color, $theme-footer-link-color);
+  a, a:visited, a:active, a:hover {
+    color: $theme-footer-link-color;
   }
 
   .powered-by-jekyll {
@@ -43,7 +43,13 @@ a {
   }
 
   .site-languages {
-    @include inline-list;
+    list-style-type: none;
+
+    &, > li {
+      margin: 0;
+      padding: 0;
+      display: inline;
+    }
 
     > li:not(:last-child):after {
       content: " \00b7 ";
@@ -58,6 +64,7 @@ a {
 .contact-form {
   input, textarea {
     background-color: rgba(lighten($theme-background-color, 5%), 0.5);
+    color: $theme-text-color;
   }
 
   button {
@@ -70,11 +77,11 @@ a {
 .social-icon a,
 .contact-form button,
 .contact-icon a {
-  @include opacity(0.8);
-  @include transition(opacity 0.5s ease-in-out);
+  opacity: 0.8;
+  transition: opacity 0.5s ease-in-out;
 
   &:hover, &:active {
-    @include opacity(1.0);
+    opacity: 1.0;
   }
 }
 

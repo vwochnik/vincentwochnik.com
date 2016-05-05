@@ -1,0 +1,30 @@
+/*
+ * Mixin for centering content horizontally and vertically using flexbox.
+ */
+@mixin flex-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin overlay($position, $z-index, $duration) {
+    position: $position;
+    left: 0; top: 0;
+    width: 100%; height: 0;
+    z-index: $z-index;
+    transition: opacity $duration ease-in-out, height 0s linear, visibility 0s linear;
+    visibility: hidden;
+    overflow: hidden;
+    opacity: 0.0;
+
+    &.fade-out {
+      transition: opacity $duration ease-in-out, height 0s linear $duration, visibility 0s linear $duration;
+    }
+
+    &.visible {
+      height: 100%;
+      visibility: visible;
+      opacity: 1.0;
+    }
+}
