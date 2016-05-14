@@ -24,6 +24,10 @@
         margin-bottom: 0.5 * line-height-spacing();
       }
 
+      input, button {
+        height: 1.5 * line-height-spacing();
+      }
+
       textarea {
         height: 5.5 * line-height-spacing();
       }
