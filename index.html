@@ -16,32 +16,32 @@ subset: index
     <h2>{% t 'contact_heading' %}</h2>
   </header>
   <ul class="social-icons">
-    <li class="social-icon">
+    <li>
       <a href="mailto:{{ site.email | encode_email }}" title="{% t 'send_an_email' %}">
         <img src="{{ site.baseurl }}/img/social-email.svg" alt="{% t 'send_an_email' %}"/>
       </a>
     </li>
-    <li class="social-icon">
+    <li>
       <a href="skype:{{ site.skype | encode_email }}?call" title="{% t 'call_on_skype' %}">
         <img src="{{ site.baseurl }}/img/social-skype.svg" alt="{% t 'call_on_skype' %}"/>
       </a>
     </li>
-    <li class="social-icon">
+    <li>
       <a href="https://github.com/vwochnik" target="_blank" title="{% t 'profile_on_github' %}">
         <img src="{{ site.baseurl }}/img/social-github.svg" alt="{% t 'profile_on_github' %}"/>
       </a>
     </li>
-    {% comment %}<!-- Remove google+ from rendered page --><li class="social-icon">
+    {% comment %}<!-- Remove google+ from rendered page --><li>
       <a href="https://plus.google.com/+VincentWochnik?rel=author" target="_blank" title="{% t 'profile_on_gplus' %}">
         <img src="{{ site.baseurl }}/img/social-google-plus.svg" alt="{% t 'profile_on_gplus' %}"/>
       </a>
     </li>{% endcomment %}
-    <li class="social-icon">
+    <li>
       <a href="http://lnkd.in/d5yxEw6" target="_blank" title="{% t 'profile_on_linkedin' %}">
         <img src="{{ site.baseurl }}/img/social-linkedin.svg" alt="{% t 'profile_on_linkedin' %}"/>
       </a>
     </li>
-    <li class="social-icon">
+    <li>
       <a href="#" id="qr-code-link" title="{% t 'show_qrcode' %}">
         <img src="{{ site.baseurl }}/img/social-qrcode.svg" alt="{% t 'show_qrcode' %}"/>
       </a>

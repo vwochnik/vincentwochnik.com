@@ -1,13 +1,4 @@
 .contact-segment {
-  input, textarea, button {
-    display: block;
-    box-shadow: none;
-    font: inherit;
-    outline: none;
-    border: none;
-    padding: 0.5em 0.7em;
-  }
-
   input, textarea {
     width: 100%;
   }
@@ -23,14 +14,12 @@
 
 .social-icons {
   list-style-type: none;
-  //@include inline-block-list(1.0em);
-  margin: 2em auto 2em auto;
-  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 
   > li {
     display: inline-block;
-    padding: 0 1em;
 
     &:first-child {
       padding-left: 0;
@@ -38,12 +27,6 @@
 
     &:last-child {
       padding-right: 0;
-    }
-  }
-
-  .social-icon {
-    > a > img {
-      width: 3em; height: 3em;
     }
   }
 }

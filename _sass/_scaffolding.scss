@@ -1,0 +1,45 @@
+body {
+   font-family: $body-font-face;
+}
+
+.segment > .segment-heading,
+.footer-segment {
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font-face;
+  font-weight: $heading-font-weight;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+input, textarea, button {
+  display: block;
+  box-shadow: none;
+  font: inherit;
+  outline: none;
+  border: none;
+  padding: none;
+}
+
+a {
+  &, &:visited, &:active {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.screenreader {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

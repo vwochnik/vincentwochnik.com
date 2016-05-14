@@ -23,11 +23,9 @@ $susy: (
       @if $container {
         @include container(center);
       }
-      padding: gutter(6) gutter(12);
-
-      > .segment-heading {
-        margin: 0 0 gutter(6) 0;
-      }
+      
+      padding-left: gutter(12);
+      padding-right: gutter(12);
     }
   }
 }
@@ -72,21 +70,3 @@ $susy: (
 // qr code grid
 @include two-column-grid('qr-code-images', $viewport-tiny, 1/24, false);
 @include two-column-grid('qr-code-images', $viewport-medium, 1/12, true);
-
-@include susy-breakpoint($viewport-tiny, (gutters: 1/24)) {
-    .contact-form-input {
-      margin: gutter(2) 0;
-    }
-}
-
-@include susy-breakpoint($viewport-small, (gutters: 1/24)) {
-    .contact-form-input {
-      margin: gutter(2) 0;
-    }
-}
-
-@include susy-breakpoint($viewport-medium, (gutters: 1/12)) {
-    .contact-form-input {
-      margin: gutter(2) 0;
-    }
-}

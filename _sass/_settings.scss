@@ -13,22 +13,16 @@ $viewport-large:  'screen' (min-width 62em);
 // large desktops and televisions
 $viewport-huge:   'screen' (min-width 75em);
 
-// tiny font scaling
-$font-scale-tiny: 0.8;
-$font-scale-small: 0.8;
-$font-scale-medium: 1.0;
-$font-scale-large: 1.2;
-$font-scale-huge: 1.5;
+$rhythm-tiny:   ( font-size: 0.75 * 12pt, modular-scale: 1.1 );
+$rhythm-small:  ( font-size: 0.8 * 12pt, modular-scale: 1.12 );
+$rhythm-medium: ( font-size: 1.0 * 12pt, modular-scale: 1.125 );
+$rhythm-large:  ( font-size: 1.2 * 12pt, modular-scale: 1.135 );
+$rhythm-huge:   ( font-size: 1.5 * 12pt, modular-scale: 1.15 );
 
 /* font faces and sizes */
-$body-font-size: 14px;
 $body-font-face: "Open Sans", Arial, Helvetica, sans-serif;
 $heading-font-face: "Titillium Web", sans-serif;
 $heading-font-weight: 200;
-$h1-font-size: 36px;
-$h2-font-size: 24px;
-$h3-font-size: 18px;
-$footer-font-size: 10px;
 
 /* theme colors */
 $theme-background-color: #212428;

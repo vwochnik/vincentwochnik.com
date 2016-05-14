@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin rhythm-mixin($viewport, $rhythm) {
+  $m: map-get($rhythm, 'modular-scale'); $m2: $m*$m;
+  $scales: ($m2*$m2*$m2, $m2*$m2*$m, $m2*$m2, $m2*$m, $m2, $m);
+
+  @include breakpoint($viewport) {
+    html {
+      font-size: map-get($rhythm, 'font-size');
+    }
+
+    @include with-settings((base-font-size: 1rem, base-font-scale: $scales)) {
+      @include body;
+      @include headings;
+      @include content;
+
+      input, textarea, button {
+        font-size: base-font-size();
+        line-height: line-height-spacing();
+        padding: 0.25 * line-height-spacing() 0.75 * line-height-spacing();
+        margin-bottom: 0.5 * line-height-spacing();
+      }
+
+      textarea {
+        height: 5.5 * line-height-spacing();
+      }
+
+      footer {
+        font-size: 0.8 * base-font-size();
+      }
+
+      .segment {
+        padding-top: line-height-spacing();
+        padding-bottom: line-height-spacing();
+      }
+
+      .social-icons {
+        margin-bottom: 1 * line-height-spacing();
+
+        > li {
+          padding: 0 0.5 * line-height-spacing();
+
+          > a > img {
+            width: 2 * line-height-spacing();
+            height: 2 * line-height-spacing();
+          }
+        }
+      }
+    }
+  }
+}
+
+@include rhythm-mixin($viewport-tiny, $rhythm-tiny);
+@include rhythm-mixin($viewport-small, $rhythm-small);
+@include rhythm-mixin($viewport-medium, $rhythm-medium);
+@include rhythm-mixin($viewport-large, $rhythm-large);
+@include rhythm-mixin($viewport-huge, $rhythm-huge);

@@ -1,12 +1,14 @@
 ---
 ---
-@import "susy";
 @import "breakpoint";
+@import "shevy";
+@import "susy";
 
 @import "third-party/normalize";
 @import "settings";
 @import "mixins";
-@import "font";
+@import "scaffolding";
+@import "rhythm";
 @import "grids";
 @import "cover";
 @import "contact";
