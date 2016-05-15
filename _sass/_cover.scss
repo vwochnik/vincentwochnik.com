@@ -35,7 +35,8 @@
       top: 0;
 
       .blinking-cursor {
-        position: absolute;
+        display: inline-block;
+        width: 0;
       }
     }
 
