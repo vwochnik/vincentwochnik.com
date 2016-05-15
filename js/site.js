@@ -7,6 +7,10 @@
   }
 
   $(function() {
+    $('#typing').typing({
+      sourceElement: $('#cover .typing-content')
+    });
+
     $('#qr-code-overlay').click(function(e) {
       if (e.target.nodeName !== 'A') {
         toggleOverlay();

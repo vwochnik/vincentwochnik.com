@@ -6,9 +6,14 @@ languages:
 subset: index
 ---
 <section class="cover" id="cover">
-  <canvas class="cover-canvas" id="cover-canvas" data-colors="#00c0ff, #ff00c0" data-segments="3" data-opacity="0.2"></canvas>
-  <h1 class="cover-lead">{% t 'lead' %}</h1>
-  <p class="cover-slogan">{% t 'slogan' %}</p>
+  <div class="cover-container">
+    <div class="typing-content">
+      <h1 data-speed="120">{% t 'hello' %} <small data-speed="80" data-delay="1000">{% t 'intro' %}</small></h1>
+      <p>{% t 'slogan' %}</p>
+      <p>{% t 'pitch' %}</p>
+    </div>
+    <div class="typing" id="typing"></div>
+  </div>
   <a href="#contact" class="cover-arrow-down animated-scroll"></a>
 </section>
 <section class="segment contact-segment" id="contact">

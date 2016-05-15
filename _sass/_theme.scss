@@ -19,6 +19,17 @@ body {
     background: url('/img/background-pattern.svg') no-repeat center center;
     background-size: cover;
   }
+
+  .shapes {
+    position: fixed;
+    left: 0; top: 0;
+    z-index: -1;
+
+    path {
+      fill: none;
+      stroke: $theme-primary-color;
+    }
+  }
 }
 
 h1, h2, h3, h4, h5, h5 {

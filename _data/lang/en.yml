@@ -18,8 +18,10 @@ err:
   slogan: File Not Found
 index:
   title: Web Development, Internet of Things and more
-  lead: Vincent Wochnik
-  slogan: Software Engineer &middot; Frontend Developer
+  hello: Hello!
+  intro: I'm Vincent.
+  slogan: I am a self-proclaimed full stack developer.
+  pitch: ""
   contact_heading: Get In Touch
   send_an_email: Send me an E-mail
   call_on_skype: Call me on Skype

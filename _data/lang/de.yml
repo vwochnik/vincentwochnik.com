@@ -18,8 +18,10 @@ err:
   slogan: Datei Nicht Gefunden
 index:
   title: Webentwicklung, Internet der Dinge und mehr
-  lead: Vincent Wochnik
-  slogan: Softwareentwickler &middot; Frontend Developer
+  hello: Hallo!
+  intro: Ich heiße Vincent.
+  slogan: Ich bin ein selbsternannter Full-Stack-Entwickler.
+  pitch: ""
   contact_heading: Treten Sie in Verbindung
   send_an_email: Senden Sie eine E-Mail
   call_on_skype: Rufen Sie mich auf Skype an
