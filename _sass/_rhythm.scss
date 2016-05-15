@@ -17,6 +17,11 @@
       @include headings;
       @include content;
 
+      p.large {
+        font-size: 1.5*base-font-size();
+        line-height: line-height-spacing(1.5);
+      }
+
       input, textarea, button {
         font-size: base-font-size();
         line-height: line-height-spacing();
