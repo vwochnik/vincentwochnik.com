@@ -6,8 +6,12 @@ languages:
 subset: err
 sitemap: false
 ---
-<header class="cover">
-  <h1 class="cover-lead">{% t 'lead' %}</h1>
-  <p class="cover-slogan">{% t 'slogan' %}</p>
-</header>
+<div class="cover-wrapper">
+  <section class="cover">
+    <div class="cover-container">
+      <h1>{% t 'lead' %}</h1>
+      <p>{% t 'slogan' %}</p>
+    </div>
+  </section>
+</div>
 {% include inline/footer.html %}

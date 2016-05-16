@@ -2,8 +2,10 @@
 <html>
   {% include head.html %}
 <body>
-  {{ content }}
-  <svg class="shapes" id="shapes"></svg>
+  <div class="wrapper">
+    {{ content }}
+    <svg class="shapes" id="shapes"></svg>
+  </div>
 </body>
 </html>
 {% include scripts.html %}

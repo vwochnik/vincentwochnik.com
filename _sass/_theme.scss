@@ -40,11 +40,20 @@ a, a:visited, a:active, a:hover {
   color: $theme-primary-color;
 }
 
+.contact-segment-wrapper {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.footer-segment-wrapper {
+  background-color: $theme-primary-color;
+  opacity: 0.8;
+}
+
 .footer-segment {
-  color: $theme-footer-color;
+  color: $theme-background-color;
 
   a, a:visited, a:active, a:hover {
-    color: $theme-footer-link-color;
+    color: $theme-background-color;
   }
 
   .powered-by-jekyll {

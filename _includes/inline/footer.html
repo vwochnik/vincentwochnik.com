@@ -1,11 +1,13 @@
-<footer class="segment footer-segment">
-  <span>Copyright &copy; {{ site.time | date: '%Y' }} {{ site.author }}. {% t 'common.footer.all_rights_reserved' %}</span>
-  <span>{% t 'common.footer.site_last_published' %}: {{ site.time | tdate: 'common.footer.site_last_published_date' }}</span>
-  <br/><span>{% t 'common.footer.site_powered_by' %} <a href="http://jekyllrb.com/" title="Jekyll"><img class="powered-by-jekyll" src="/img/powered-by-jekyll.svg" alt="Jekyll"></a></span>
-  <span>&middot;</span>
-  <ul class="site-languages">
-    {% for language in site.languages %}
-      <li><a href="{{ site.baseurl }}/{{ language }}/" title="{% tl language %}">{% tl language %}</a></li>
-    {% endfor %}
-  </ul>
-</footer>
+<div class="segment-wrapper footer-segment-wrapper">
+  <footer class="segment footer-segment">
+    <span>Copyright &copy; {{ site.time | date: '%Y' }} {{ site.author }}. {% t 'common.footer.all_rights_reserved' %}</span>
+    <span>{% t 'common.footer.site_last_published' %}: {{ site.time | tdate: 'common.footer.site_last_published_date' }}</span>
+    <br/><span>{% t 'common.footer.site_powered_by' %} <a href="http://jekyllrb.com/" title="Jekyll"><img class="powered-by-jekyll" src="/img/powered-by-jekyll.svg" alt="Jekyll"></a></span>
+    <span>&middot;</span>
+    <ul class="site-languages">
+      {% for language in site.languages %}
+        <li><a href="{{ site.baseurl }}/{{ language }}/" title="{% tl language %}">{% tl language %}</a></li>
+      {% endfor %}
+    </ul>
+  </footer>
+</div>

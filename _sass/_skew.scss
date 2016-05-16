@@ -1,0 +1,19 @@
+.wrapper {
+  overflow-y: hidden;
+}
+
+.contact-segment-wrapper,
+.footer-segment-wrapper {
+  transform: skew(0,2deg);
+
+  > .segment {
+    transform: skew(0,-2deg);
+  }
+}
+
+.footer-segment-wrapper {
+  position: relative;
+  margin-top: -1px;
+  margin-bottom: -2%;
+  padding-bottom: 2%;
+}
