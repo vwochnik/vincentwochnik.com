@@ -45,8 +45,7 @@ a, a:visited, a:active, a:hover {
 }
 
 .footer-segment-wrapper {
-  background-color: $theme-primary-color;
-  opacity: 0.8;
+  background-color: mix($theme-background-color, $theme-primary-color, 20%);
 }
 
 .footer-segment {
