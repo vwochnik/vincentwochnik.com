@@ -1,11 +1,16 @@
 .contact-segment-wrapper {
   transform: skew(0,-2deg);
   padding-bottom: 6%;
-  margin-bottom: -6%;
 
   > .contact-segment {
     transform: skew(0,2deg);
   }
+}
+
+.footer-segment-crop {
+  margin-top: -8%;
+  padding-top: 2%;
+  overflow-y: hidden;
 }
 
 .footer-segment-wrapper {
@@ -18,10 +23,4 @@
   > .footer-segment {
     transform: skew(0,-2deg);
   }
-}
-
-.footer-segment-crop {
-  margin-top: -2%;
-  padding-top: 2%;
-  overflow-y: hidden;
 }
