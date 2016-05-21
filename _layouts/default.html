@@ -2,7 +2,9 @@
 <html>
   {% include head.html %}
 <body>
+  <a href="#menu" class="menu-button"><span class="burger"></span></a>
   {{ content }}
+  {% include inline/menu.html %}
   <svg class="shapes" id="shapes"></svg>
 </body>
 </html>

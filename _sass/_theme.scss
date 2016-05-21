@@ -40,6 +40,22 @@ a, a:visited, a:active, a:hover {
   color: $theme-primary-color;
 }
 
+.menu {
+  background-color: rgba($theme-background-color, 0.9);
+}
+
+.menu-button {
+  > .burger {
+    @include burger(2rem, 0.24rem, 0.4rem, $theme-primary-color);
+  }
+
+  &.active {
+    > .burger {
+      @include burger-to-cross;
+    }
+  }
+}
+
 .sash-wrapper,
 .contact-segment-wrapper {
   border-color: $theme-primary-color;
@@ -50,8 +66,9 @@ a, a:visited, a:active, a:hover {
   background-color: mix($theme-background-color, $theme-primary-color, 20%);
 }
 
-.cover {
-  > .cover-container {
+.cover,
+.sash {
+  > .content-container {
     .tagline {
       color: $theme-primary-color;
     }
@@ -84,10 +101,6 @@ a, a:visited, a:active, a:hover {
       content: " \00b7 ";
     }
   }
-}
-
-.qr-code-overlay {
-  background-color: rgba($theme-background-color, 0.9);
 }
 
 .contact-form {

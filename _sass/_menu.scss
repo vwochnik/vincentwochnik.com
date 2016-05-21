@@ -1,0 +1,31 @@
+.menu {
+  @include overlay(fixed, 2, 1s);
+  @include flex-cover();
+
+  > .content-container {
+    text-align: center;
+  }
+
+  .menu-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      text-transform: uppercase;
+      
+      > a {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.menu-button {
+  position: absolute;
+  display: block;
+  z-index: 3;
+  top: 2rem;
+  right: 2rem;
+  width: 2rem;
+}

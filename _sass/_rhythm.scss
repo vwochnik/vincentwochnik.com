@@ -17,6 +17,11 @@
       @include headings;
       @include content;
 
+      .menu-items > li {
+        font-size: 2*base-font-size();
+        margin-bottom: line-height-spacing(1);
+      }
+
       p.large {
         font-size: 1.5*base-font-size();
         line-height: line-height-spacing(1.5);

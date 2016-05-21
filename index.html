@@ -6,8 +6,8 @@ languages:
 subset: index
 ---
 <div class="cover-wrapper">
-  <section class="cover full with-arrow" id="cover">
-    <div class="cover-container">
+  <section class="cover" id="cover">
+    <div class="content-container">
       <div class="typing-content">
         <h1 data-speed="120">{% t 'hello' %} <small data-speed="80" data-delay="1000">{% t 'intro' %}</small></h1>
         <p class="tagline">{% t 'slogan' %}</p>
@@ -15,7 +15,7 @@ subset: index
       </div>
       <div class="typing" id="typing"></div>
     </div>
-    <a href="#contact" class="cover-arrow-down animated-scroll"></a>
+    <a href="#contact" class="arrow-down animated-scroll"></a>
   </section>
 </div>
 <div class="segment-wrapper contact-segment-wrapper">
@@ -49,14 +49,8 @@ subset: index
           <img src="{{ site.baseurl }}/img/social-linkedin.svg" alt="{% t 'profile_on_linkedin' %}"/>
         </a>
       </li>
-      <li>
-        <a href="#" id="qr-code-link" title="{% t 'show_qrcode' %}">
-          <img src="{{ site.baseurl }}/img/social-qrcode.svg" alt="{% t 'show_qrcode' %}"/>
-        </a>
-      </li>
     </ul>
     {% include inline/contact-form.html %}
   </section>
 </div>
 {% include inline/footer.html %}
-{% include inline/qr-code-overlay.html %}
