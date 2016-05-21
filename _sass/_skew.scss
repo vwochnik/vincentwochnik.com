@@ -1,8 +1,29 @@
+.sash-wrapper {
+  border-bottom: 0.1rem solid transparent;
+  margin-top: -2%;
+  padding-top: 2%;
+  transform: skew(0,-2deg);
+
+  > .sash {
+    transform: skew(0,2deg);
+  }
+}
+
 .contact-segment-wrapper {
+  border-top: 0.1rem solid transparent;
+  margin-top: -0.1rem;
+}
+
+.blog-segment-wrapper {
+  margin-top: -0.1rem;
+}
+
+.contact-segment-wrapper,
+.blog-segment-wrapper {
   transform: skew(0,-2deg);
   padding-bottom: 6%;
 
-  > .contact-segment {
+  > .segment {
     transform: skew(0,2deg);
   }
 }
@@ -20,7 +41,7 @@
   margin-bottom: -2%;
   padding-bottom: 2%;
 
-  > .footer-segment {
+  > .segment {
     transform: skew(0,-2deg);
   }
 }

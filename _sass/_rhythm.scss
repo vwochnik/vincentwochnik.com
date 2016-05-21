@@ -42,6 +42,15 @@
       }
 
       .segment {
+        padding-top: 2 * line-height-spacing();
+        padding-bottom: 2 * line-height-spacing();
+
+        &:not(:first-child) {
+          padding-top: 0;
+        }
+      }
+
+      .footer-segment {
         padding-top: line-height-spacing();
         padding-bottom: line-height-spacing();
       }

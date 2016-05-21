@@ -40,12 +40,22 @@ a, a:visited, a:active, a:hover {
   color: $theme-primary-color;
 }
 
+.sash-wrapper,
 .contact-segment-wrapper {
-  background-color: rgba(255, 255, 255, 0.02);
+  border-color: $theme-primary-color;
+  background-color: rgba($theme-primary-color, 0.07);
 }
 
 .footer-segment-wrapper {
   background-color: mix($theme-background-color, $theme-primary-color, 20%);
+}
+
+.cover {
+  > .cover-container {
+    .tagline {
+      color: $theme-primary-color;
+    }
+  }
 }
 
 .footer-segment {
@@ -82,7 +92,7 @@ a, a:visited, a:active, a:hover {
 
 .contact-form {
   input, textarea {
-    background-color: rgba(lighten($theme-background-color, 5%), 0.5);
+    background-color: rgba(mix($theme-text-color, $theme-primary-color, 50%), 0.05);
     color: $theme-text-color;
   }
 

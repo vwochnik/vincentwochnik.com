@@ -9,11 +9,21 @@
 .cover {
   position: relative;
   @include flex-cover();
-  /* IE 11 not supporting min-height: 100vh with vertically centered flex
-   * items. */
-  height: 100vh;
 
-  padding-bottom: 4em;
+  &.full {
+    /* IE 11 not supporting min-height: 100vh with vertically centered flex
+     * items. */
+    height: 100vh;
+  }
+
+  &.sash {
+    height: 40vh;
+    min-height: 10rem;
+  }
+
+  &.with-arrow {
+    padding-bottom: 4em;
+  }
 
   > .cover-image-large {
     display: block;
@@ -23,12 +33,16 @@
 
   > .cover-container {
     position: relative;
+    text-align: center;
 
-    p.large {
+    .tagline {
       text-transform: uppercase;
-      color: $theme-primary-color;
     }
 
+    > .typing, > .typing-content {
+      width: 100%;
+    }
+    
     > .typing {
       position: absolute;
       left: 0;
