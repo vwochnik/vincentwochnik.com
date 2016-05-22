@@ -1,17 +1,14 @@
 ---
 layout: default
-languages:
-- en
-- de
-subset: index
+title: Web Development, Internet of Things and more
 ---
 <div class="cover-wrapper">
   <section class="cover" id="cover">
     <div class="content-container">
       <div class="typing-content">
-        <h1 data-speed="120">{% t 'hello' %} <small data-speed="80" data-delay="1000">{% t 'intro' %}</small></h1>
-        <p class="tagline">{% t 'slogan' %}</p>
-        <p>{% t 'pitch' %}</p>
+        <h1 data-speed="120">Hello! <small data-speed="80" data-delay="1000">I'm Vincent.</small></h1>
+        <p class="tagline">I call myself a full-stack developer.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.x</p>
       </div>
       <div class="typing" id="typing"></div>
     </div>
@@ -21,32 +18,32 @@ subset: index
 <div class="segment-wrapper contact-segment-wrapper">
   <section class="segment contact-segment" id="contact">
     <header class="segment-heading">
-      <h2>{% t 'contact_heading' %}</h2>
+      <h2>Get in Touch</h2>
     </header>
     <ul class="social-icons">
       <li>
-        <a href="mailto:{{ site.email | encode_email }}" title="{% t 'send_an_email' %}">
-          <img src="{{ site.baseurl }}/img/social-email.svg" alt="{% t 'send_an_email' %}"/>
+        <a href="mailto:{{ site.email | encode_email }}" title="Send me an E-mail">
+          <img src="{{ site.baseurl }}/img/social-email.svg" alt="Send me an E-mail"/>
         </a>
       </li>
       <li>
-        <a href="skype:{{ site.skype | encode_email }}?call" title="{% t 'call_on_skype' %}">
-          <img src="{{ site.baseurl }}/img/social-skype.svg" alt="{% t 'call_on_skype' %}"/>
+        <a href="skype:{{ site.skype | encode_email }}?call" title="Call me on Skype">
+          <img src="{{ site.baseurl }}/img/social-skype.svg" alt="Call me on Skype"/>
         </a>
       </li>
       <li>
-        <a href="https://github.com/vwochnik" target="_blank" title="{% t 'profile_on_github' %}">
-          <img src="{{ site.baseurl }}/img/social-github.svg" alt="{% t 'profile_on_github' %}"/>
+        <a href="https://github.com/vwochnik" target="_blank" title="Visit my profile on GitHub">
+          <img src="{{ site.baseurl }}/img/social-github.svg" alt="Visit my profile on GitHub"/>
         </a>
       </li>
       {% comment %}<!-- Remove google+ from rendered page --><li>
-        <a href="https://plus.google.com/+VincentWochnik?rel=author" target="_blank" title="{% t 'profile_on_gplus' %}">
-          <img src="{{ site.baseurl }}/img/social-google-plus.svg" alt="{% t 'profile_on_gplus' %}"/>
+        <a href="https://plus.google.com/+VincentWochnik?rel=author" target="_blank" title="Visit my profile on Google+">
+          <img src="{{ site.baseurl }}/img/social-google-plus.svg" alt="Visit my profile on Google+"/>
         </a>
       </li>{% endcomment %}
       <li>
-        <a href="http://lnkd.in/d5yxEw6" target="_blank" title="{% t 'profile_on_linkedin' %}">
-          <img src="{{ site.baseurl }}/img/social-linkedin.svg" alt="{% t 'profile_on_linkedin' %}"/>
+        <a href="http://lnkd.in/d5yxEw6" target="_blank" title="Visit my profile on LinkedIn">
+          <img src="{{ site.baseurl }}/img/social-linkedin.svg" alt="Visit my profile on LinkedIn"/>
         </a>
       </li>
     </ul>

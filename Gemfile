@@ -5,7 +5,6 @@ gem 'thor'
 group :jekyll_plugins do
   gem 'jekyll-sitemap'
   gem 'jekyll-autoprefixer'
-  gem 'jekyll-language-plugin'
   gem 'jekyll-email-protect'
   gem 'jekyll-deploy'
 end

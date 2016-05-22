@@ -1,29 +1,29 @@
 <form class="contact-form" id="contact-form">
 <div class="contact-form-left-column">
   <div class="contact-form-input">
-    <label for="contact-name" class="screenreader">{% t 'contact_form_name_label' %}</label>
-    <input id="contact-name" name="name" type="text" placeholder="{% t 'contact_form_name_label' %}">
+    <label for="contact-name" class="screenreader">Your name</label>
+    <input id="contact-name" name="name" type="text" placeholder="Your name">
   </div>
     <div class="contact-form-input">
-      <label for="contact-email" class="screenreader">{% t 'contact_form_email_label' %}</label>
-      <input id="contact-email" name="replyto" type="email" placeholder="{% t 'contact_form_email_label' %}">
+      <label for="contact-email" class="screenreader">Your e-mail address</label>
+      <input id="contact-email" name="replyto" type="email" placeholder="Your e-mail address">
     </div>
     <div class="contact-form-input">
-      <label for="contact-subject" class="screenreader">{% t 'contact_form_subject_label' %}</label>
-      <input id="contact-subject" name="subject" type="text" placeholder="{% t 'contact_form_subject_label' %}">
+      <label for="contact-subject" class="screenreader">Subject</label>
+      <input id="contact-subject" name="subject" type="text" placeholder="Subject">
     </div>
 </div>
 <div class="contact-form-right-column">
   <div class="contact-form-input">
-    <label for="contact-message" class="screenreader">{% t 'contact_form_message_label' %}</label>
-    <textarea id="contact-message" name="message" placeholder="{% t 'contact_form_message_label' %}"></textarea>
+    <label for="contact-message" class="screenreader">Type your message</label>
+    <textarea id="contact-message" name="message" placeholder="Type your message"></textarea>
   </div>
   <div class="contact-form-input">
-    <button id="contact-submit" type="submit">{% t 'contact_form_send' %}</button>
+    <button id="contact-submit" type="submit">Send message</button>
   </div>
 </div>
 <div id="contact-messages" class="contact-messages">
-  <span class="contact-message contact-message-sent contact-message-success">{% t 'contact_message_sent' %}</span>
-  <span class="contact-message contact-message-send-failed contact-message-error">{% t 'contact_message_send_failed' %}</span>
+  <span class="contact-message contact-message-sent contact-message-success">Thank you! Your message has been submitted successfully.</span>
+  <span class="contact-message contact-message-send-failed contact-message-error">Your message could not be submitted. Please try again later.</span>
 </div>
 </form>

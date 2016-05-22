@@ -1,10 +1,14 @@
 # Site settings
 title: Vincent Wochnik
+description: Frontend Development, Software Engineering and more
 author: Vincent Wochnik
+keywords: >
+  wochnik, vincent, vincent wochnik, software, engineer, engineering,
+  development, software engineer, software development, frontend, frontend
+  development, internet of things, iot
 email: vincent@vincentwochnik.com
 skype: v.wochnik
 url: "http://vincentwochnik.com"
-languages: ['en', 'de']
 
 # Build settings
 markdown: kramdown
@@ -13,10 +17,6 @@ include: ['.htaccess']
 exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'LICENSE.md']
 sass:
   style: compressed
-
-# Jekyll Language Plugin settings
-language_data: data.lang.%%
-language_includes_dir: _i18n
 
 # deploy options
 deploy:

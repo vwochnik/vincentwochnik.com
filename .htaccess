@@ -6,19 +6,8 @@ RewriteBase /
 RewriteCond %{HTTP_HOST} ^www.vincentwochnik.com$ [NC]
 RewriteRule ^(.*)$ http://vincentwochnik.com/$1 [R=301,L]
 
-# redirect german
-RewriteCond %{REQUEST_URI} !^/(en|de)/ [NC]
-RewriteCond %{HTTP:Accept-Language} (de) [NC]
-RewriteRule ^$ /de/ [R=302,L]
-
-# redirect english
-RewriteCond %{REQUEST_URI} !^/(en|de)/ [NC]
-# default language no l cond
-#RewriteCond %{HTTP:Accept-Language} (en) [NC]
-RewriteRule ^$ /en/ [R=302,L]
-
 # error document
-ErrorDocument 404 /en/404.html
+ErrorDocument 404 /404.html
 
 # Disable indexes
 Options -Indexes
