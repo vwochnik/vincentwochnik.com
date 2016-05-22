@@ -62,8 +62,11 @@
 }
 
 .sash {
-  height: 40vh;
-  min-height: 10rem;
+  height: 15rem;
+}
+
+.cover-segment-wrapper {
+  position: relative;
 }
 
 @include cover-mixin($viewport-tiny, 90%);

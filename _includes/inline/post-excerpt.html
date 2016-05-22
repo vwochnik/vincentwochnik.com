@@ -1,7 +1,9 @@
 <article class="segment blog-segment" data-post-uri="{{ site.baseurl }}{{ include.post.url }}">
   <header class="segment-heading">
     <h2><a href="{{ site.baseurl }}{{ include.post.url }}" title="{{ include.post.title }}">{{ include.post.title }}</a></h2>
-    <span>{{ include.post.date | date: '%B %d, %Y' }}</span>
   </header>
-  <p>{% if include.post.excerpt %}{{ include.post.excerpt | strip_html }}{% else %}{{ include.post.content | strip_html | truncatewords: 56 }}{% endif %} <a href="{{ site.baseurl }}{{ include.post.url }}" title="{{ include.post.title }}" class="read-more">Read more</a></p>
+  <p><span class="excerpt-date">{{ include.post.date | date: '%B %d, %Y' }}.</span> {% if include.post.excerpt %}{{ include.post.excerpt | strip_html }}{% else %}{{ include.post.content | strip_html | truncatewords: 56 }}{% endif %}</p>
+  <div class="read-more-container">
+    <a href="{{ site.baseurl }}{{ include.post.url }}" title="{{ include.post.title }}" class="read-more">Read more &rsaquo;</a>
+  </div>
 </article>

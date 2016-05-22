@@ -5,19 +5,15 @@ layout: default
   <section class="sash">
     <div class="content-container">
       <h1>{{ page.title }}</h1>
-      <p class="tagline">...</p>
+      <p class="tagline">{{ page.date | date: '%B %d, %Y' }}</p>
     </div>
   </section>
 </div>
 <div class="segment-wrapper blog-segment-wrapper">
   <article class="segment blog-segment">
-    <header class="segment-heading">
-      <h2><a href="{{ site.baseurl }}{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h2>
-    </header>
     {{ content }}
   </article>
 </div>
-{% include inline/footer.html %}
 <div id="post-excerpt" style="display:none">
   {% include inline/post-excerpt.html post=page %}
 </div>

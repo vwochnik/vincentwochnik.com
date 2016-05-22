@@ -1,7 +1,7 @@
 (function(window, Snap, mina) {
 	'use strict';
 
-	/* shapes, each (-100 < x,y < 100) */
+	/* shapes, each (-100 < x,y < 100). taken from d3.js */
   var SHAPES = [
 		"M0,59.172702727031975A59.172702727031975,59.172702727031975 0 1,1 0,-59.172702727031975A59.172702727031975,59.172702727031975 0 1,1 0,59.172702727031975Z",
 	  "M-70.35623639735145,-23.45207879911715H-23.45207879911715V-70.35623639735145H23.45207879911715V-23.45207879911715H70.35623639735145V23.45207879911715H23.45207879911715V70.35623639735145H-23.45207879911715V23.45207879911715H-70.35623639735145Z",
@@ -66,16 +66,18 @@
     });
   }
 
-  paper = Snap("#shapes");
-	resize();
-  window.addEventListener('resize', resize, false);
+	if (document.querySelector("#shapes")) {
+	  paper = Snap("#shapes");
+		resize();
+	  window.addEventListener('resize', resize, false);
 
-	(function loop() {
-		setTimeout(loop, 1000);
-		Snap.animate(0, 100, function(n) {
-			if (Math.round(n) % 10 === 0) {
-				spawn();
-			}
-		}, 1000);
-	})();
+		(function loop() {
+			Snap.animate(0, 100, function(n) {
+				if (Math.round(n) % 10 === 0)
+					spawn();
+				if (n === 100)
+					loop();
+			}, 1000);
+		})();
+	}
 })(window, Snap, mina);

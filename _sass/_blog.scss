@@ -1,0 +1,16 @@
+.excerpt-date {
+  text-transform: uppercase;
+}
+
+.read-more-container {
+  text-align: center;
+
+  .read-more {
+    display: inline-block;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

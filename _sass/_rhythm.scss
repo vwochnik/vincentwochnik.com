@@ -27,14 +27,14 @@
         line-height: line-height-spacing(1.5);
       }
 
-      input, textarea, button {
+      input, textarea, button, .read-more {
         font-size: base-font-size();
         line-height: line-height-spacing();
         padding: 0.25 * line-height-spacing() 0.75 * line-height-spacing();
         margin-bottom: 0.5 * line-height-spacing();
       }
 
-      input, button {
+      input, button, .read-more {
         height: 1.5 * line-height-spacing();
       }
 

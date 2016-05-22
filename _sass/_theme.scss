@@ -20,9 +20,10 @@ body {
     background-size: cover;
   }
 
-  .shapes {
+  .background-shapes {
     position: fixed;
     left: 0; top: 0;
+    width: 100%; height: 100%;
     z-index: -1;
 
     path {
@@ -37,6 +38,10 @@ h1, h2, h3, h4, h5, h5 {
 }
 
 a, a:visited, a:active, a:hover {
+  color: $theme-primary-color;
+}
+
+.excerpt-date {
   color: $theme-primary-color;
 }
 
@@ -85,21 +90,7 @@ a, a:visited, a:active, a:hover {
   .powered-by-jekyll {
     width: auto;
     height: 2.5em;
-    vertical-align: -32%;
-  }
-
-  .site-languages {
-    list-style-type: none;
-
-    &, > li {
-      margin: 0;
-      padding: 0;
-      display: inline;
-    }
-
-    > li:not(:last-child):after {
-      content: " \00b7 ";
-    }
+    vertical-align: -46%;
   }
 }
 
@@ -108,17 +99,19 @@ a, a:visited, a:active, a:hover {
     background-color: rgba(mix($theme-text-color, $theme-primary-color, 50%), 0.05);
     color: $theme-text-color;
   }
+}
 
-  button {
-    background-color: $theme-primary-color;
-    color: $theme-background-color;
-  }
+.contact-form button,
+.read-more, .read-more:visited, .read-more:active, .read-more:hover {
+  background-color: $theme-primary-color;
+  color: $theme-background-color;
 }
 
 .cover-arrow-down,
 .social-icon a,
 .contact-form button,
-.contact-icon a {
+.contact-icon a,
+.read-more {
   opacity: 0.8;
   transition: opacity 0.5s ease-in-out;
 
