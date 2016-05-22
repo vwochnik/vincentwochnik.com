@@ -1,0 +1,18 @@
+---
+layout: default
+title: Blog
+---
+<div class="sash-wrapper">
+  <section class="sash">
+    <div class="content-container">
+      <h1>Blog</h1>
+      <p class="tagline">Articles, work and my thoughts</p>
+    </div>
+  </section>
+</div>
+<div class="segment-wrapper blog-segment-wrapper" id="posts">
+  {% for post in site.posts limit: 8 %}
+    {% include inline/post-excerpt.html post=post %}
+  {% endfor %}
+</div>
+{% include inline/footer.html %}

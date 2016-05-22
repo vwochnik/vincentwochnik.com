@@ -3,6 +3,7 @@ gem 'jekyll', '3.1.2'
 gem 'thor'
 
 group :jekyll_plugins do
+  gem 'jekyll-coffeescript'
   gem 'jekyll-sitemap'
   gem 'jekyll-autoprefixer'
   gem 'jekyll-email-protect'
