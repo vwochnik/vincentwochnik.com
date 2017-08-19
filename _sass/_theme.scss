@@ -68,7 +68,9 @@ a, a:visited, a:active, a:hover {
 }
 
 .footer-segment-wrapper {
-  background-color: mix($theme-background-color, $theme-primary-color, 20%);
+  &:before, &:after {
+    background-color: mix($theme-background-color, $theme-primary-color, 20%);
+  }
 }
 
 .cover,
