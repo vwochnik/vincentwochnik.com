@@ -1,6 +1,8 @@
 ---
 layout: job
 title: Work at Cumulocity
+permalink: /jobs/cumulocity.html
+company: Cumulocity GmbH
 since: 2014
 until: 2015
 job: Developer Intern
