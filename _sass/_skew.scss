@@ -14,18 +14,23 @@
   margin-top: -0.1rem;
 }
 
-.blog-segment-wrapper {
+.blog-segment-wrapper,
+.job-segment-wrapper {
   margin-top: -0.1rem;
 }
 
-.contact-segment-wrapper,
-.blog-segment-wrapper {
+.contact-segment-wrapper {
   transform: skew(0,-2deg);
-  padding-bottom: 6%;
 
   > .segment {
     transform: skew(0,2deg);
   }
+}
+
+.contact-segment-wrapper,
+.blog-segment-wrapper,
+.job-segment-wrapper {
+  padding-bottom: 6%;
 }
 
 .footer-segment-wrapper {

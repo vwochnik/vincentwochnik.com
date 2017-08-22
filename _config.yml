@@ -10,6 +10,11 @@ email: vincent@vincentwochnik.com
 skype: v.wochnik
 url: "http://vincentwochnik.com"
 
+# work collection
+collections:
+  jobs:
+    output: true
+
 # Build settings
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:slug:output_ext
