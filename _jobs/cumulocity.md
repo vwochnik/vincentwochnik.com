@@ -4,7 +4,7 @@ title: Work at Cumulocity
 since: 2014
 until: 2015
 job: Developer Intern
-icon: /img/media/cumulocity.png
+icon: /img/media/cumulocity-icon.png
 ---
 Open, application centric, free to try: The mission of Cumulocity is to make
 mobile machine-to-machine applications profitable for all businesses through
