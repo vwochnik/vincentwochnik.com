@@ -20,11 +20,11 @@ $bg-entry: rgb(80,80,80);
     width: 0;
     border-left: 0.1em dashed transparent;
     margin-left: -0.05em;
+    z-index: -1;
   }
 
   .job {
     position:relative;
-    text-align:center;
     float: right;
     clear: right;
     width: 45%;
@@ -37,60 +37,34 @@ $bg-entry: rgb(80,80,80);
 
     text-decoration: none;
 
-    -webkit-transition: background .15s linear;
-    -moz-transition: background .15s linear;
-    -ms-transition: background .15s linear;
-    -o-transition: background .15s linear;
-    transition: background .15s linear;
+    .job-icon {
+      float: left;
+      width: 3rem;
+      height: 3rem;
+    }
 
-    &.featured {
-      width: 95% !important;
-      background: lighten(#ccc,11%);
+    .job-info {
+      margin: 0 0 0 3.5rem;
+      text-align: left;
 
-      &:after, &:before {
-        display: none;
+      .job-title {
+        display: block;
       }
-    }
-
-    @media all and (max-width: 600px) {
-      width: 85%;
-    }
-
-    &.offset-first {
-      margin-top: -1.5em!important;
-    }
-
-    img {
-      margin-top: 10px;
-      max-width: 100%;
     }
 
     &:nth-of-type(2n) {
       float: left;
       clear: left;
-        @media all and(min-width:600px){
-          margin-top:2em;
-        }
-    }
+      margin-top: 3rem;
 
-    &:after {
-      @media all and (min-width: 650px) {
-        display: block;
-        content: ' ';
-        height: 9px; width: 9px;
-        background: lighten($bg-entry,30%);
-        border-radius: 50%;
-        position:absolute;
-        left: -5%;
-        top: 1.5em;
-        border: 2px solid white;
+      .job-icon {
+        float: right;
       }
-    }
 
-    &:nth-child(2n):after {
-      right: -5%;
-      /* reset the standard declaration I defined before*/
-      left: auto;
+      .job-info {
+        margin: 0 3.5rem 0 0;
+        text-align: right;
+      }
     }
   }
 }
