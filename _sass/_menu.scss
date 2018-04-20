@@ -1,6 +1,15 @@
 .menu {
-  @include overlay(fixed, 2, 1s);
+  @include overlay(absolute, 2, 1s);
   @include flex-cover();
+
+  > .overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 
   > .content-container {
     text-align: center;
@@ -13,7 +22,7 @@
 
     > li {
       text-transform: uppercase;
-      
+
       > a {
         text-decoration: none;
       }

@@ -45,7 +45,7 @@ a, a:visited, a:active, a:hover {
   color: $theme-primary-color;
 }
 
-.menu {
+.menu > .overlay {
   background-color: rgba($theme-background-color, 0.9);
 }
 
