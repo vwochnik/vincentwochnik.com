@@ -39,6 +39,10 @@
   line-height: 2rem;
   font-size: 1.5rem;
 
+  &:hover {
+    text-decoration: none;
+  }
+
   .sp {
     @include invisible-text();
   }
