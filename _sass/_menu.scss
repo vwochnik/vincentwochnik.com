@@ -30,6 +30,24 @@
   }
 }
 
+.logo {
+  position: absolute;
+  display: block;
+  z-index: 3;
+  top: 2rem;
+  left: 2rem;
+  line-height: 2rem;
+  font-size: 1.5rem;
+
+  .sp {
+    @include invisible-text();
+  }
+
+  .last {
+    font-weight: 700;
+  }
+}
+
 .menu-button {
   position: absolute;
   display: block;
