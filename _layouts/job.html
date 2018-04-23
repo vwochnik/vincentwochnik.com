@@ -5,7 +5,11 @@ layout: default
   <section class="sash">
     <div class="content-container">
       <h1>{{ page.title }}</h1>
-      <p class="tagline">{{ page.since }}&nbsp;&ndash; {{ page.until }}, {{ page.job }} at {{ page.company }}</p>
+      {% if page.until %}
+        <p class="tagline">{{ page.since }}&nbsp;&ndash; {{ page.until }}, {{ page.job }} at {{ page.company }}</p>
+      {% else %}
+        <p class="tagline">{{ page.year }}, {{ page.job }} at {{ page.company }}</p>
+      {% endif %}
     </div>
   </section>
 </div>
