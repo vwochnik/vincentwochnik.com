@@ -1,6 +1,6 @@
 ---
 layout: job
-title: Work at Cumulocity
+title: Internship at Cumulocity
 permalink: /jobs/cumulocity.html
 company: Cumulocity GmbH
 since: 2014

@@ -24,7 +24,11 @@ title: Web Development, Internet of Things and more
         <li class="job">
           <img class="job-icon" src="{{ site.baseurl }}{{ job.icon }}" alt="{{ job.title }}">
           <div class="job-info">
-            <div class="job-duration">{{ job.since }}&nbsp;&ndash; {{ job.until }}</div>
+            {% if job.until %}
+              <div class="job-duration">{{ job.since }}&nbsp;&ndash; {{ job.until }}</div>
+            {% else %}
+              <div class="job-duration">{{ job.year }}</div>
+            {% endif %}
             <a class="job-title" href="{{ site.baseurl }}{{ job.url }}" title="{{ job.title }}">{{ job.title }}</a>
             <span>{{ job.job }} at {{ job.company }}</span>
           </div>
