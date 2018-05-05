@@ -42,7 +42,9 @@
   &:hover {
     text-decoration: none;
   }
+}
 
+.logo, .logo-segment {
   .sp {
     @include invisible-text();
   }

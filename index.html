@@ -1,24 +1,16 @@
 ---
-layout: default
+layout: landing
 title: Web Development, Internet of Things and more
 ---
-<div class="cover-wrapper">
-  <section class="cover" id="cover">
-    <div class="content-container">
-      <div class="typing-content">
-        <h1 data-speed="120">Hello! <small data-speed="80" data-delay="1000">I'm Vincent.</small></h1>
-        <p class="tagline">I am a full-stack developer with a passion for the web.</p>
-      </div>
-      <div class="typing" id="typing"></div>
-    </div>
-    <a href="#contact" class="arrow-down animated-scroll"></a>
+<div class="segment-wrapper logo-segment-wrappe">
+  <section class="segment logo-segment">
+    <header class="segment-heading">
+      <h1><span class="first">Vincent</span><span class="sp"> </span><span class="last">Wochnik</span</h1>
+    </header>
   </section>
 </div>
 <div class="segment-wrapper contact-segment-wrapper">
   <section class="segment contact-segment" id="contact">
-    <header class="segment-heading">
-      <h2>Get in Touch</h2>
-    </header>
     <ul class="social-icons">
       <li>
         <a href="mailto:{{ site.email | encode_email }}" title="Send me an E-mail">
@@ -49,4 +41,3 @@ title: Web Development, Internet of Things and more
     {% include inline/contact-form.html %}
   </section>
 </div>
-<svg class="background-shapes" id="shapes"></svg>

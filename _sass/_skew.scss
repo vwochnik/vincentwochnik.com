@@ -9,16 +9,10 @@
   }
 }
 
-.contact-segment-wrapper {
-  border-top: 0.1rem solid transparent;
-  margin-top: -0.1rem;
-}
-
 .blog-segment-wrapper {
   margin-top: -0.1rem;
 }
 
-.contact-segment-wrapper,
 .blog-segment-wrapper {
   transform: skew(0,-2deg);
   padding-bottom: 6%;
@@ -29,7 +23,6 @@
 }
 
 .footer-segment-wrapper {
-  margin-top: -6%;
   position: relative;
 
   &:before, &:after {
