@@ -22,7 +22,7 @@
   }
 }
 
-.footer-segment-wrapper {
+body:not(.landing-page) .footer-segment-wrapper {
   position: relative;
 
   &:before, &:after {
