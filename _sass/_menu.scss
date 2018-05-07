@@ -44,16 +44,6 @@
   }
 }
 
-.logo, .logo-segment {
-  .sp {
-    @include invisible-text();
-  }
-
-  .last {
-    font-weight: 700;
-  }
-}
-
 .menu-button {
   position: absolute;
   display: block;

@@ -3,7 +3,6 @@ body {
 }
 
 .segment > .segment-heading,
-.logo-segment,
 .footer-segment {
   text-align: center;
 }
@@ -34,13 +33,20 @@ a {
   }
 }
 
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+.full-name {
+  .sp {
+    @include invisible-text();
+  }
+
+  .last {
+    font-weight: 700;
+  }
+}
+
 .screenreader {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+  @include invisible-text();
 }
