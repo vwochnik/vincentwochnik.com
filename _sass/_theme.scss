@@ -48,19 +48,6 @@
     color: $theme-primary-color;
   }
 
-  .footer-segment {
-    color: $theme-background-color;
-
-    a, a:visited, a:active, a:hover {
-      color: $theme-background-color;
-    }
-
-    .powered-by-jekyll {
-      width: auto;
-      height: 2.5em;
-      vertical-align: -46%;
-    }
-  }
 
   .contact-form {
     input, textarea {
@@ -95,6 +82,14 @@
     &.contact-message-error {
       color: $theme-error-color;
     }
+  }
+}
+
+.footer-segment {
+  color: $theme-footer-color;
+
+  a, a:visited, a:active, a:hover {
+    color: $theme-footer-color;
   }
 }
 

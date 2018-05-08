@@ -50,3 +50,9 @@ ul, ol {
 .screenreader {
   @include invisible-text();
 }
+
+.powered-by-jekyll {
+  width: auto;
+  height: 2.5em;
+  vertical-align: -46%;
+}
