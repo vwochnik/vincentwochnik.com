@@ -64,6 +64,11 @@
         padding-bottom: line-height-spacing();
       }
 
+      .portrait {
+        width: 6 * line-height-spacing();
+        height: 6 * line-height-spacing();
+      }
+
       .social-icons {
         margin-bottom: 1 * line-height-spacing();
 

@@ -51,6 +51,12 @@ ul, ol {
   @include invisible-text();
 }
 
+.portrait {
+  border-style: solid;
+  border-width: 0.1rem;
+  border-radius: 50%;
+}
+
 .powered-by-jekyll {
   width: auto;
   height: 2.5em;
