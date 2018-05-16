@@ -5,24 +5,27 @@
 body {
   color: $theme-text-color;
   background-color: $theme-background-color;
+}
 
-  /* additional background pattern */
-  &:before {
-    content: "";
-    display: block;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-    background: url('/img/background-pattern.svg') no-repeat center center;
-    background-size: cover;
-  }
+.landing-page:before {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background: url('/img/background-pattern.svg') no-repeat center center;
+  background-size: cover;
 }
 
 a, a:visited, a:active, a:hover {
   color: $theme-primary-color;
+}
+
+.logo {
+  color: $theme-text-color !important;
 }
 
 .menu > .overlay {
@@ -31,7 +34,7 @@ a, a:visited, a:active, a:hover {
 
 .menu-button {
   > .burger {
-    @include burger(2rem, 0.24rem, 0.4rem, $theme-primary-color);
+    @include burger(2rem, 0.24rem, 0.4rem, $theme-text-color);
   }
 
   &.active {
@@ -80,14 +83,16 @@ a, a:visited, a:active, a:hover {
   }
 }
 
-.footer-segment {
-  color: $theme-footer-text-color;
-
+.footer-segment-wrapper {
   &:before, &:after {
     background-color: $theme-footer-color;
   }
 
-  a, a:visited, a:active, a:hover {
+  .footer-segment {
     color: $theme-footer-text-color;
+
+    a, a:visited, a:active, a:hover {
+      color: $theme-footer-text-color;
+    }
   }
 }
