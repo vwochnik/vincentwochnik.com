@@ -2,7 +2,7 @@
  * This file contains theming definitions.
  */
 
-.landing-page {
+body {
   color: $theme-text-color;
   background: url('/img/theme-background.png') $theme-background-color;
 
@@ -19,130 +19,83 @@
     background: url('/img/background-pattern.svg') no-repeat center center;
     background-size: cover;
   }
+}
 
-  h1, h2, h3, h4, h5, h5 {
-    color: $theme-primary-color;
+h1, h2, h3, h4, h5, h5 {
+  color: $theme-primary-color;
+}
+
+a, a:visited, a:active, a:hover {
+  color: $theme-primary-color;
+}
+
+.menu > .overlay {
+  background-color: rgba($theme-background-color, 0.9);
+}
+
+.menu-button {
+  > .burger {
+    @include burger(2rem, 0.24rem, 0.4rem, $theme-primary-color);
   }
 
-  a, a:visited, a:active, a:hover {
-    color: $theme-primary-color;
-  }
-
-  .menu > .overlay {
-    background-color: rgba($theme-background-color, 0.9);
-  }
-
-  .menu-button {
+  &.active {
     > .burger {
-      @include burger(2rem, 0.24rem, 0.4rem, $theme-primary-color);
-    }
-
-    &.active {
-      > .burger {
-        @include burger-to-cross;
-      }
+      @include burger-to-cross;
     }
   }
+}
 
-  .jumbotron-segment {
+.jumbotron-segment {
+  color: $theme-primary-color;
+}
+
+.portrait {
+  border-color: $theme-primary-color;
+}
+
+.contact-form {
+  input, textarea {
+    background-color: rgba(mix($theme-text-color, $theme-primary-color, 50%), 0.05);
+    color: $theme-text-color;
+  }
+}
+
+.contact-form button,
+.read-more, .read-more:visited, .read-more:active, .read-more:hover {
+  background-color: $theme-primary-color;
+  color: $theme-background-color;
+}
+
+.social-icon a,
+.contact-form button,
+.contact-icon a,
+.read-more {
+  opacity: 0.8;
+  transition: opacity 0.5s ease-in-out;
+
+  &:hover, &:active {
+    opacity: 1.0;
+  }
+}
+
+.contact-messages > .contact-message {
+  &.contact-message-success {
     color: $theme-primary-color;
   }
 
-  .portrait {
-    border-color: $theme-primary-color;
-  }
-
-  .contact-form {
-    input, textarea {
-      background-color: rgba(mix($theme-text-color, $theme-primary-color, 50%), 0.05);
-      color: $theme-text-color;
-    }
-  }
-
-  .contact-form button {
-    background-color: $theme-primary-color;
-    color: $theme-background-color;
-  }
-
-  .social-icon a,
-  .contact-form button,
-  .contact-icon a {
-    opacity: 0.8;
-    transition: opacity 0.5s ease-in-out;
-
-    &:hover, &:active {
-      opacity: 1.0;
-    }
-  }
-
-  .contact-messages > .contact-message {
-    &.contact-message-success {
-      color: $theme-primary-color;
-    }
-
-    &.contact-message-error {
-      color: $theme-error-color;
-    }
+  &.contact-message-error {
+    color: $theme-error-color;
   }
 }
 
 .footer-segment {
   color: $theme-footer-color;
 
+  &:before, &:after {
+    background-color: $theme-background-color;
+  }
+
   a, a:visited, a:active, a:hover {
     color: $theme-footer-color;
-  }
-}
-
-.default-page {
-  color: $theme-light-text-color;
-  background: $theme-light-background-color;
-
-  h1, h2, h3, h4, h5, h5 {
-    color: $theme-light-primary-color;
-  }
-
-  a, a:visited, a:active, a:hover {
-    color: $theme-light-primary-color;
-  }
-
-  .menu > .overlay {
-    background-color: rgba($theme-light-background-color, 0.9);
-  }
-
-  .menu-button {
-    > .burger {
-      @include burger(2rem, 0.24rem, 0.4rem, $theme-light-primary-color);
-    }
-
-    &.active {
-      > .burger {
-        @include burger-to-cross;
-      }
-    }
-  }
-
-  .jumbotron-segment {
-    color: $theme-light-primary-color;
-  }
-
-  .read-more, .read-more:visited, .read-more:active, .read-more:hover {
-    background-color: $theme-light-primary-color;
-    color: $theme-light-background-color;
-  }
-
-  .read-more {
-    opacity: 0.8;
-    transition: opacity 0.5s ease-in-out;
-
-    &:hover, &:active {
-      opacity: 1.0;
-    }
-  }
-
-  .footer-segment-wrapper {
-    &:before, &:after {
-      background-color: $theme-background-color;
-    }
   }
 }

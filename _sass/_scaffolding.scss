@@ -38,6 +38,8 @@ ul, ol {
 }
 
 .full-name {
+  text-transform: uppercase;
+
   .sp {
     @include invisible-text();
   }
