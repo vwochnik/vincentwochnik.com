@@ -3,6 +3,7 @@
     var visible = !$('#menu').hasClass('visible');
     $('#menu').toggleClass('fade-out', !visible);
     $('#menu').toggleClass('visible', visible);
+    $("body").toggleClass('menu-visible', visible);
     $('.menu-button').toggleClass('active', visible);
   }
 
