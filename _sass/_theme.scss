@@ -4,7 +4,7 @@
 
 body {
   color: $theme-text-color;
-  background: url('/img/theme-background.png') $theme-background-color;
+  background-color: $theme-background-color;
 
   /* additional background pattern */
   &:before {
@@ -19,10 +19,6 @@ body {
     background: url('/img/background-pattern.svg') no-repeat center center;
     background-size: cover;
   }
-}
-
-h1, h2, h3, h4, h5, h5 {
-  color: $theme-primary-color;
 }
 
 a, a:visited, a:active, a:hover {
@@ -43,10 +39,6 @@ a, a:visited, a:active, a:hover {
       @include burger-to-cross;
     }
   }
-}
-
-.jumbotron-segment {
-  color: $theme-primary-color;
 }
 
 .portrait {
@@ -89,13 +81,13 @@ a, a:visited, a:active, a:hover {
 }
 
 .footer-segment {
-  color: $theme-footer-color;
+  color: $theme-footer-text-color;
 
   &:before, &:after {
-    background-color: $theme-background-color;
+    background-color: $theme-footer-color;
   }
 
   a, a:visited, a:active, a:hover {
-    color: $theme-footer-color;
+    color: $theme-footer-text-color;
   }
 }
