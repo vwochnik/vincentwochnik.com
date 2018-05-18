@@ -2,10 +2,10 @@
 <html>
   {% include head.html %}
 <body class="landing-page">
-  <a href="#menu" class="menu-button"><span class="burger"></span></a>
+  {% comment %}<a href="#menu" class="menu-button"><span class="burger"></span></a>{% endcomment %}
   {{ content }}
   {% include inline/footer.html %}
-  {% include inline/menu.html %}
+  {% comment %}{% include inline/menu.html %}{% endcomment %}
 </body>
 </html>
 {% include scripts.html %}

@@ -3,10 +3,10 @@
   {% include head.html %}
 <body>
   <a href="/" class="logo full-name"><span class="first">Vincent</span><span class="sp"> </span><span class="last">Wochnik</span></a>
-  <a href="#menu" class="menu-button"><span class="burger"></span></a>
+  {% comment %}<a href="#menu" class="menu-button"><span class="burger"></span></a>{% endcomment %}
   {{ content }}
   {% include inline/footer.html %}
-  {% include inline/menu.html %}
+  {% comment %}{% include inline/menu.html %}{% endcomment %}
 </body>
 </html>
 {% include scripts.html %}
