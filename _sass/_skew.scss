@@ -1,5 +1,11 @@
+.contact-segment-wrapper {
+  padding-bottom: 2%;
+  margin-bottom: -2%;
+}
+
 .footer-segment-wrapper {
   position: relative;
+  z-index: 1;
 
   &:before, &:after {
     content: "";
