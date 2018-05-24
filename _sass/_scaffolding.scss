@@ -53,6 +53,11 @@ ul, ol {
   @include invisible-text();
 }
 
+.jumbotron-segment {
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .portrait {
   border-style: solid;
   border-width: 0.1rem;
