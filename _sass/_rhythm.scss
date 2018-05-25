@@ -17,9 +17,13 @@
       @include headings;
       @include content;
 
-      .menu-items > li {
-        font-size: 2*base-font-size();
-        margin-bottom: line-height-spacing(1);
+      .menu {
+        padding-top: 4 * line-height-spacing();
+
+        li {
+          font-size: 2*base-font-size();
+          margin-bottom: line-height-spacing(1);
+        }
       }
 
       .jumbotron-segment p {

@@ -1,21 +1,20 @@
+.menu-wrapper {
+  @include overlay(absolute, 200, 1s);
+}
+
+.menu-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
 .menu {
-  @include overlay(absolute, 2, 1s);
-  @include flex-cover();
+  text-align: center;
 
-  > .overlay {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
-
-  > .content-container {
-    text-align: center;
-  }
-
-  .menu-items {
+  ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -33,7 +32,7 @@
 .logo {
   position: absolute;
   display: block;
-  z-index: 3;
+  z-index: 250;
   top: 2rem;
   left: 2rem;
   line-height: 2rem;
@@ -47,7 +46,7 @@
 .menu-button {
   position: absolute;
   display: block;
-  z-index: 3;
+  z-index: 250;
   top: 2rem;
   right: 2rem;
   width: 2rem;
