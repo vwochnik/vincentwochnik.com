@@ -14,7 +14,7 @@ url: "http://vincentwochnik.com"
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:slug:output_ext
 encoding: utf-8
-include: ['.htaccess']
+include: ['.htaccess', '_redirects']
 exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'LICENSE.md']
 sass:
   style: compressed
