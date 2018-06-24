@@ -21,7 +21,7 @@ To solve these problems, SmartREST has been introduced to act as a proxy server
 between the client endpoint and the Cumulocity platform, reducing the amount of
 data to be sent and removing the necessity to deal with JSON on the client side.
 
-![SmartREST diagram](/img/blog/smartrest-diagram.svg)
+![SmartREST diagram](/media/smartrest-diagram.svg)
 
 By storing device-relevant JSON data in a template, data density can be
 increased tenfold. The proxy then translates the compact data to the full JSON

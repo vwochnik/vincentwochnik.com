@@ -15,7 +15,7 @@ points.
 To obtain a consistent and even curve one needs to place the control points like
 the following figure illustrates.
 
-![Curved line control points](/img/blog/curved-line.svg)
+![Curved line control points](/media/curved-line.svg)
 
 Given are the outer control points *A* and *D*, as the line starting and ending
 points, as well as the curviness expressed by the degree *a*.
