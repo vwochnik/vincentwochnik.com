@@ -13,6 +13,12 @@ body {
   background-size: 50rem 50rem;
 }
 
+h1.full-name {
+  background-image: url('/img/head.svg');
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
 a, a:visited, a:active, a:hover {
   color: $theme-primary-color;
 }

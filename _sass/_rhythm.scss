@@ -67,9 +67,9 @@
         padding-bottom: line-height-spacing();
       }
 
-      .portrait {
-        width: 6 * line-height-spacing();
-        height: 6 * line-height-spacing();
+      h1.full-name {
+        padding-top: 6 * line-height-spacing();
+        background-size: 6.51063*line-height-spacing() 6*line-height-spacing();
       }
 
       .social-icons {
