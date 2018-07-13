@@ -23,7 +23,7 @@ $susy: (
       @if $container {
         @include container(center);
       }
-      
+
       padding-left: gutter(12);
       padding-right: gutter(12);
     }
@@ -67,6 +67,7 @@ $susy: (
 @include two-column-grid('contact-form', $viewport-small, 1/24, true);
 @include two-column-grid('contact-form', $viewport-medium, 1/12, true);
 
-// qr code grid
-@include two-column-grid('qr-code-images', $viewport-tiny, 1/24, false);
-@include two-column-grid('qr-code-images', $viewport-medium, 1/12, true);
+// contact form grid
+@include two-column-grid('portfolio-listing', $viewport-tiny, 1/24, false);
+@include two-column-grid('portfolio-listing', $viewport-small, 1/24, true);
+@include two-column-grid('portfolio-listing', $viewport-medium, 1/12, true);
