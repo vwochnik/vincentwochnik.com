@@ -30,19 +30,22 @@
       var json_data = {};
       for (var fkey in form_data) {
         if (form_data.hasOwnProperty(fkey)) {
-          json_data['_'+fkey] = form_data[fkey];
+          json_data[fkey] = form_data[fkey];
         }
       }
 
       processing = true;
       $.ajax({
-        url: '//formspree.io/%76%69%6E%63%65%6E%74@%76%69%6E%63%65%6E%74%77%6F%63%68%6E%69%6B.%63%6F%6D',
+        url: 'https://app.99inbound.com/api/e/RUz0fFbH',
         method: 'POST',
         data: json_data,
-        dataType: 'json'
+        dataType: 'json',
+        headers: {
+          'Accept': 'application/json'
+        }
       }).done(function(data) {
         processing = false;
-        next((typeof data.success !== 'undefined') ? true : false);
+        next(data.error === null);
       }).fail(function() {
         processing = false;
         next(false);
