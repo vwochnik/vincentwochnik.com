@@ -36,7 +36,7 @@
 
       processing = true;
       $.ajax({
-        url: 'https://app.99inbound.com/api/e/RUz0fFbH',
+        url: '//vwchnkcom.herokuapp.com/mail',
         method: 'POST',
         data: json_data,
         dataType: 'json',
@@ -45,7 +45,7 @@
         }
       }).done(function(data) {
         processing = false;
-        next(data.error === null);
+        next(!data.success);
       }).fail(function() {
         processing = false;
         next(false);
