@@ -38,14 +38,14 @@
       $.ajax({
         url: '//vwchnkcom.herokuapp.com/mail',
         method: 'POST',
-        data: json_data,
-        dataType: 'json',
+        data: JSON.stringify(json_data),
         headers: {
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
         }
       }).done(function(data) {
         processing = false;
-        next(!data.success);
+        next(data.success);
       }).fail(function() {
         processing = false;
         next(false);
