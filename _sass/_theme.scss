@@ -27,6 +27,10 @@ a, a:visited, a:active, a:hover {
   color: $theme-text-color !important;
 }
 
+.loading-indicator {
+  @include loading-indicator(2rem, 0.2rem, $theme-primary-color);
+}
+
 .menu-overlay {
   background-color: rgba($theme-background-color, 0.9);
 }
