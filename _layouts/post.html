@@ -12,9 +12,9 @@ layout: default
 <div class="segment-wrapper blog-segment-wrapper">
   <article class="segment blog-segment">
     {{ content }}
-    {% if page.comments %}
+    {% comment %}{% if page.comments %}
       {% include inline/disqus.html %}
-    {% endif %}
+    {% endif %}{% endcomment %}
   </article>
 </div>
 <div id="post-excerpt" style="display:none">
