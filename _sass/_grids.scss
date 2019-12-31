@@ -3,69 +3,47 @@
  */
 
 /* global susy grid settings */
-$susy: (
-  global-box-sizing: border-box,
-  debug: (image: hide)
-);
-
-@include border-box-sizing;
+* {
+  box-sizing: border-box;
+}
 
 @mixin segment-grid($viewport, $container, $gutters) {
-  $susy-options: null;
-  @if $container {
-    $susy-options: (container: $container, gutters: $gutters);
-  } @else {
-    $susy-options: (gutters: $gutters);
-  }
-
-  @include susy-breakpoint($viewport, $susy-options) {
+  @include breakpoint($viewport) {
     .segment {
       @if $container {
-        @include container(center);
+        margin: 0 auto;
+        max-width: $container;
       }
 
-      padding-left: gutter(12);
-      padding-right: gutter(12);
+      padding-left: $gutters;
+      padding-right: $gutters;
     }
   }
 }
 
 @mixin two-column-grid($class, $viewport, $gutters, $with-columns) {
-  $susy-options: null;
-  @if $with-columns {
-    $susy-options: (columns: 2, gutters: $gutters, container-position: 0);
-  } @else {
-    $susy-options: (gutters: $gutters, container-position: 0);
-  }
-
-  @include susy-breakpoint($viewport, $susy-options) {
+  @include breakpoint($viewport) {
     .#{$class} {
-      @include container();
-
       @if $with-columns {
-        > .#{$class}-left-column {
-          @include span(1 first);
-        }
-
-        > .#{$class}-right-column {
-          @include span(1 last);
-        }
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-gap: $gutters;
       }
     }
   }
 }
 
 // segment grid
-@include segment-grid($viewport-tiny, false, 1/4);
-@include segment-grid($viewport-small, false, 1/4);
-@include segment-grid($viewport-medium, 80%, 1/4);
-@include segment-grid($viewport-large, 75%, 1/4);
-@include segment-grid($viewport-huge, 60%, 1/4);
+@include segment-grid($viewport-tiny, false, 3%);
+@include segment-grid($viewport-small, false, 3%);
+@include segment-grid($viewport-medium, 80%, 3%);
+@include segment-grid($viewport-large, 75%, 3%);
+@include segment-grid($viewport-huge, 60%, 3%);
 
 // contact form grid
-@include two-column-grid('contact-form', $viewport-tiny, 1/24, false);
-@include two-column-grid('contact-form', $viewport-small, 1/24, true);
-@include two-column-grid('contact-form', $viewport-medium, 1/12, true);
+@include two-column-grid('contact-form', $viewport-tiny, 3%, false);
+@include two-column-grid('contact-form', $viewport-small, 3%, true);
+@include two-column-grid('contact-form', $viewport-medium, 3%, true);
 
 // contact form grid
 @include two-column-grid('portfolio-listing', $viewport-tiny, 1/24, false);

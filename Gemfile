@@ -11,5 +11,4 @@ group :jekyll_plugins do
 end
 
 gem 'breakpoint'
-gem 'susy'
 gem 'shevy'
