@@ -21,13 +21,37 @@
   }
 }
 
-@mixin two-column-grid($class, $viewport, $gutters, $with-columns) {
+@mixin contact-form-grid($viewport, $gutters) {
   @include breakpoint($viewport) {
-    .#{$class} {
-      @if $with-columns {
-        display: grid;
-        grid-template-columns: repeat(2, 50%);
-        grid-gap: $gutters;
+    .contact-form {
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+      grid-template-rows: repeat(4, auto);
+      grid-template-areas: 
+        "name message"
+        "email message"
+        "subject message"
+        ". submit";
+      grid-column-gap: $gutters;
+
+      .contact-form-name {
+        grid-area: name;
+      }
+      
+      .contact-form-email {
+        grid-area: email;
+      }
+      
+      .contact-form-subject {
+        grid-area: subject;
+      }
+      
+      .contact-form-message {
+        grid-area: message;
+      }
+      
+      .contact-form-submit {
+        grid-area: submit;
       }
     }
   }
@@ -41,11 +65,5 @@
 @include segment-grid($viewport-huge, 60%, 3%);
 
 // contact form grid
-@include two-column-grid('contact-form', $viewport-tiny, 3%, false);
-@include two-column-grid('contact-form', $viewport-small, 3%, true);
-@include two-column-grid('contact-form', $viewport-medium, 3%, true);
-
-// contact form grid
-@include two-column-grid('portfolio-listing', $viewport-tiny, 1/24, false);
-@include two-column-grid('portfolio-listing', $viewport-small, 1/24, true);
-@include two-column-grid('portfolio-listing', $viewport-medium, 1/12, true);
+@include contact-form-grid($viewport-small, 3%);
+@include contact-form-grid($viewport-medium, 3%);

@@ -1,30 +1,26 @@
 <form class="contact-form" id="contact-form">
-<div class="contact-form-left-column">
-  <div class="contact-form-input">
+  <div class="contact-form-input contact-form-name">
     <label for="contact-name" class="screenreader">Your name</label>
     <input id="contact-name" name="name" type="text" placeholder="Your name">
   </div>
-    <div class="contact-form-input">
-      <label for="contact-email" class="screenreader">Your e-mail address</label>
-      <input id="contact-email" name="email" type="email" placeholder="Your e-mail address">
-    </div>
-    <div class="contact-form-input">
-      <label for="contact-subject" class="screenreader">Subject</label>
-      <input id="contact-subject" name="subject" type="text" placeholder="Subject">
-    </div>
-</div>
-<div class="contact-form-right-column">
-  <div class="contact-form-input">
+  <div class="contact-form-input contact-form-email">
+    <label for="contact-email" class="screenreader">Your e-mail address</label>
+    <input id="contact-email" name="email" type="email" placeholder="Your e-mail address">
+  </div>
+  <div class="contact-form-input contact-form-subject">
+    <label for="contact-subject" class="screenreader">Subject</label>
+    <input id="contact-subject" name="subject" type="text" placeholder="Subject">
+  </div>
+  <div class="contact-form-input contact-form-message">
     <label for="contact-message" class="screenreader">Type your message</label>
     <textarea id="contact-message" name="message" placeholder="Type your message"></textarea>
   </div>
-  <div class="contact-form-input">
+  <div class="contact-form-input contact-form-submit">
     <button id="contact-submit" type="submit">Send message</button>
   </div>
-</div>
-<div id="contact-messages" class="contact-messages">
-  <span class="contact-message contact-message-processing contact-message-success"><div class="loading-indicator">Loading...</div></span>
-  <span class="contact-message contact-message-sent contact-message-success">Thank you! Your message has been submitted successfully.</span>
-  <span class="contact-message contact-message-send-failed contact-message-error">Your message could not be submitted. Please try again later.</span>
-</div>
+  <div id="contact-messages" class="contact-messages">
+    <span class="contact-message contact-message-processing contact-message-success"><div class="loading-indicator">Loading...</div></span>
+    <span class="contact-message contact-message-sent contact-message-success">Thank you! Your message has been submitted successfully.</span>
+    <span class="contact-message contact-message-send-failed contact-message-error">Your message could not be submitted. Please try again later.</span>
+  </div>
 </form>
