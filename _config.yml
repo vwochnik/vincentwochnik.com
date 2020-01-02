@@ -15,7 +15,7 @@ markdown: kramdown
 permalink: /blog/:year/:month/:day/:slug:output_ext
 encoding: utf-8
 include: ['.htaccess', '_redirects']
-exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'LICENSE.md']
+exclude: ['Gemfile', 'Gemfile.lock', 'resources', 'README.md', 'LICENSE.md']
 sass:
   style: compressed
 
