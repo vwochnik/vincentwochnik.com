@@ -47,4 +47,4 @@ function generateSkill(label, rating, fontSize, outputFile) {
 	fs.writeFileSync(outputFile, container.html());
 }
 
-generateSkill("HTML", 1.0, 40, "html.svg");
+generateSkill("HTML/CSS", 1.0, 40, "skill-html.svg");
