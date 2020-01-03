@@ -50,10 +50,10 @@ function generateSkill(label, rating, fontSize, outputFile) {
 	console.info(`<li><img src="${outputFile}" alt="${label}"></li>`)
 }
 
-generateSkill("HTML5", 1.0, 45, "skill-html.svg");
-generateSkill("CSS3", 0.8, 41, "skill-css.svg");
+generateSkill("HTML5", 1.0, 50, "skill-html.svg");
+generateSkill("CSS3", 0.8, 60, "skill-css.svg");
 generateSkill("JavaScript/ES6", 0.9, 28, "skill-js.svg");
 generateSkill("Node.js", 0.9, 40, "skill-node.svg");
 generateSkill("React.js", 0.8, 40, "skill-react.svg");
-generateSkill("D3.js", 0.8, 40, "skill-d3.svg");
-generateSkill("Go", 0.7, 40, "skill-go.svg");
+generateSkill("D3.js", 0.8, 50, "skill-d3.svg");
+generateSkill("Go", 0.7, 70, "skill-go.svg");
