@@ -2,10 +2,8 @@
 ---
 @import "breakpoint";
 @import "shevy";
-@import "susy";
 
 @import "third-party/normalize";
-@import "third-party/jquery-typing";
 @import "third-party/burger";
 @import "settings";
 @import "mixins";
@@ -13,8 +11,9 @@
 @import "rhythm";
 @import "grids";
 @import "menu";
-@import "cover";
 @import "contact";
+@import "skills";
+@import "portfolio";
 @import "blog";
 @import "jobs";
 @import "skew";

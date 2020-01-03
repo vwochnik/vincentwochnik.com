@@ -1,17 +1,20 @@
 ---
 layout: default
 ---
-<div class="sash-wrapper">
-  <section class="sash">
-    <div class="content-container">
+<div class="jumbotron-wrapper">
+  <section class="segment jumbotron-segment">
+    <header class="segment-heading">
       <h1>{{ page.title }}</h1>
-      <p class="tagline">{{ page.date | date: '%B %d, %Y' }}</p>
-    </div>
+    </header>
+    <p>{{ page.date | date: '%B %d, %Y' }}</p>
   </section>
 </div>
 <div class="segment-wrapper blog-segment-wrapper">
   <article class="segment blog-segment">
     {{ content }}
+    {% comment %}{% if page.comments %}
+      {% include inline/disqus.html %}
+    {% endif %}{% endcomment %}
   </article>
 </div>
 <div id="post-excerpt" style="display:none">

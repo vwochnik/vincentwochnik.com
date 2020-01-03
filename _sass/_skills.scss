@@ -1,0 +1,18 @@
+.skills {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  flex-flow: row wrap;
+  padding: 0;
+  
+  > .skill {
+    display: block;
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    > img {
+      display: block;
+    }
+  }
+}
+

@@ -21,30 +21,18 @@
       }
     }
 
-    function submitData(form_data, next) {
-      if (processing) {
-        next(false);
-        return;
-      }
-
-      var json_data = {};
-      for (var fkey in form_data) {
-        if (form_data.hasOwnProperty(fkey)) {
-          json_data['_'+fkey] = form_data[fkey];
-        }
-      }
-
-      processing = true;
+    function submitData(data, next) {
       $.ajax({
-        url: '//formspree.io/%76%69%6E%63%65%6E%74@%76%69%6E%63%65%6E%74%77%6F%63%68%6E%69%6B.%63%6F%6D',
+        url: '//vwchnkcom.herokuapp.com/mail',
         method: 'POST',
-        data: json_data,
-        dataType: 'json'
+        data: JSON.stringify(data),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
       }).done(function(data) {
-        processing = false;
-        next((typeof data.success !== 'undefined') ? true : false);
+        next(!!data.success);
       }).fail(function() {
-        processing = false;
         next(false);
       });
     }
@@ -54,20 +42,31 @@
       $messages = $("#contact-messages");
 
       $form.submit(function(e) {
+        e.preventDefault();
+
+        if (processing) {
+          return false;
+        }
+
+        $('[type="submit"]', $form).prop('disabled', true);
+        processing = true;
+
         var data = {};
         $.each($form.serializeArray(), function(idx, item) { data[item.name] = item.value; });
 
-        $('[type="submit"]', $form).prop('disabled', true);
+        showMessage('contact-message-processing', false);
+
         submitData(data, function(success) {
           if (success) {
+            $form.trigger('reset');
             showMessage('contact-message-sent', true);
           } else {
             showMessage('contact-message-send-failed', true);
           }
-          $form.trigger('reset');
+
           $('[type="submit"]', $form).prop('disabled', false);
+          processing = false;
         });
-        e.preventDefault();
         return false;
       });
     });

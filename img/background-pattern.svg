@@ -3,7 +3,7 @@
 <defs>
 <rect id="p" width="8" height="8" />
 </defs>
-<g fill="rgba(0,0,0,0.1)">
+<g fill="rgba(0,0,0,0.03)">
 <use x="32" y="32" xlink:href="#p" />
 <use x="32" y="40" xlink:href="#p" />
 <use x="32" y="48" xlink:href="#p" />

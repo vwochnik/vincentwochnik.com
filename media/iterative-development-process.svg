@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
+  <style>/* <![CDATA[ */
+    .arrow path{stroke:#00c0ff;stroke-width:2;fill:#00c0ff;fill-opacity:0.2}.label{fill:#00c0ff;font-family:sans-serif;letter-spacing:0.2em}
+  /* ]]> */</style>
+  <defs>
+    <path id="arclp0" d="M55 349 A187 187 0 0 0 259 309" />
+    <path id="arclp1" d="M299 285 A142 142 0 0 1 299 84" />
+    <path id="arclp2" d="M299 84 A142 142 0 0 1 500 84" />
+    <path id="arclp3" d="M500 84 A142 142 0 0 1 500 285" />
+    <path id="arclp4" d="M299 285 A142 142 0 0 0 500 285" />
+    <path id="arclp5" d="M540 309 A187 187 0 0 0 744 349" />
+  </defs>
+  <g class="arrow initial">
+    <path d="M259 309 L263 342 A214 214 0 0 1 45 374 L73 356 L66 325 A160 160 0 0 0 229 300 Z" />
+    <text dy="0.35em" text-anchor="middle">
+      <textPath class="label" xlink:href="#arclp0" startOffset="50%" font-size="15">INITIAL</textPath>
+    </text>
+  </g>
+  <g class="arrow plan">
+    <path d="M287 271 L280 304 A169 169 0 0 1 265 81 L299 84 L308 114 A115 115 0 0 0 318 266 Z" />
+    <text dy="0.35em" text-anchor="middle">
+      <textPath class="label" xlink:href="#arclp1" startOffset="50%" font-size="15">PLAN</textPath>
+    </text>
+  </g>
+  <g class="arrow build">
+    <path d="M313 71 L280 64 A169 169 0 0 1 503 50 L500 84 L470 93 A115 115 0 0 0 318 103 Z" />
+    <text dy="0.35em" text-anchor="middle">
+      <textPath class="label" xlink:href="#arclp2" startOffset="50%" font-size="15">BUILD</textPath>
+    </text>
+  </g>
+  <g class="arrow test">
+    <path d="M512 97 L519 64 A169 169 0 0 1 534 287 L500 285 L491 254 A115 115 0 0 0 481 103 Z" />
+    <text dy="0.35em" text-anchor="middle">
+      <textPath class="label" xlink:href="#arclp3" startOffset="50%" font-size="15">TEST</textPath>
+    </text>
+  </g>
+  <g class="arrow feedback">
+    <path d="M486 297 L519 304 A169 169 0 0 1 296 318 L299 285 L329 275 A115 115 0 0 0 481 266 Z" />
+    <text dy="0.35em" text-anchor="middle">
+      <textPath class="label" xlink:href="#arclp4" startOffset="50%" font-size="15">FEEDBACK</textPath>
+    </text>
+  </g>
+  <g class="arrow deploy">
+    <path d="M744 349 L734 382 A214 214 0 0 1 521 328 L553 321 L559 290 A160 160 0 0 0 719 330 Z" />
+    <text dy="0.35em" text-anchor="middle">
+      <textPath class="label" xlink:href="#arclp5" startOffset="50%" font-size="15">DEPLOY</textPath>
+    </text>
+  </g>
+</svg>

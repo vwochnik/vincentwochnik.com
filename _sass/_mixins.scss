@@ -28,3 +28,46 @@
       opacity: 1.0;
     }
 }
+
+@mixin invisible-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+@mixin loading-indicator($size, $thickness, $color) {
+  position: relative;
+  width: $size;
+  height: $size;
+  text-indent: -9999em;
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    border: $thickness solid $color;
+    border-color: $color transparent $color transparent;
+    animation: loading-indicator 1.2s linear infinite;
+  }
+}
+
+@keyframes loading-indicator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

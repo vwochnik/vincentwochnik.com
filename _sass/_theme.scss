@@ -4,54 +4,40 @@
 
 body {
   color: $theme-text-color;
-  background: url('/img/theme-background.png') $theme-background-color;
-
-  /* additional background pattern */
-  &:before {
-    content: "";
-    display: block;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-    background: url('/img/background-pattern.svg') no-repeat center center;
-    background-size: cover;
-  }
-
-  .background-shapes {
-    position: fixed;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    z-index: -1;
-
-    path {
-      fill: none;
-      stroke: $theme-primary-color;
-    }
-  }
+  background-color: $theme-background-color;
 }
 
-h1, h2, h3, h4, h5, h5 {
-  color: $theme-primary-color;
+.landing-page {
+  background-image: url('/img/background-pattern.svg');
+  background-position: center center;
+  background-size: 50rem 50rem;
+}
+
+h1.full-name {
+  background-image: url('/img/head.svg');
+  background-position: top center;
+  background-repeat: no-repeat;
 }
 
 a, a:visited, a:active, a:hover {
   color: $theme-primary-color;
 }
 
-.excerpt-date {
-  color: $theme-primary-color;
+.logo {
+  color: $theme-text-color !important;
 }
 
-.menu {
+.loading-indicator {
+  @include loading-indicator(2rem, 0.2rem, $theme-primary-color);
+}
+
+.menu-overlay {
   background-color: rgba($theme-background-color, 0.9);
 }
 
 .menu-button {
   > .burger {
-    @include burger(2rem, 0.24rem, 0.4rem, $theme-primary-color);
+    @include burger(2rem, 0.24rem, 0.4rem, $theme-text-color);
   }
 
   &.active {
@@ -61,52 +47,13 @@ a, a:visited, a:active, a:hover {
   }
 }
 
-.sash-wrapper,
-.contact-segment-wrapper {
+.portrait {
   border-color: $theme-primary-color;
-  background-color: rgba($theme-primary-color, 0.07);
-}
-
-.footer-segment-wrapper {
-  &:before, &:after {
-    background-color: mix($theme-background-color, $theme-primary-color, 20%);
-  }
-}
-
-.cover,
-.sash {
-  > .content-container {
-    .tagline {
-      color: $theme-primary-color;
-    }
-  }
-}
-
-.jobs-segment {
-  .jobs {
-    &:before {
-      border-color: $theme-primary-color;
-    }
-  }
-}
-
-.footer-segment {
-  color: $theme-background-color;
-
-  a, a:visited, a:active, a:hover {
-    color: $theme-background-color;
-  }
-
-  .powered-by-jekyll {
-    width: auto;
-    height: 2.5em;
-    vertical-align: -46%;
-  }
 }
 
 .contact-form {
   input, textarea {
-    background-color: rgba(mix($theme-text-color, $theme-primary-color, 50%), 0.05);
+    background-color: rgba($theme-primary-color, 0.2);
     color: $theme-text-color;
   }
 }
@@ -117,8 +64,7 @@ a, a:visited, a:active, a:hover {
   color: $theme-background-color;
 }
 
-.cover-arrow-down,
-.social-icon a,
+.social-icons a,
 .contact-form button,
 .contact-icon a,
 .read-more {
@@ -137,5 +83,19 @@ a, a:visited, a:active, a:hover {
 
   &.contact-message-error {
     color: $theme-error-color;
+  }
+}
+
+.footer-segment-wrapper {
+  &:before, &:after {
+    background-color: $theme-footer-color;
+  }
+
+  .footer-segment {
+    color: $theme-footer-text-color;
+
+    a, a:visited, a:active, a:hover {
+      color: $theme-footer-text-color;
+    }
   }
 }

@@ -17,6 +17,7 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  padding-left: 0;
 
   > li {
     display: inline-block;
@@ -34,8 +35,7 @@
 .contact-form {
   position: relative;
 
-  > .contact-form-left-column,
-  > .contact-form-right-column {
+  > .contact-form-input {
     opacity: 1.0;
     transition: opacity 0.5s ease-in-out;
   }
@@ -46,8 +46,7 @@
   }
 
   &.with-messages {
-    > .contact-form-left-column,
-    > .contact-form-right-column {
+    > .contact-form-input {
       opacity: 0.3;
     }
   }

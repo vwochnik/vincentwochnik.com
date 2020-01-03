@@ -3,70 +3,67 @@
  */
 
 /* global susy grid settings */
-$susy: (
-  global-box-sizing: border-box,
-  debug: (image: hide)
-);
-
-@include border-box-sizing;
+* {
+  box-sizing: border-box;
+}
 
 @mixin segment-grid($viewport, $container, $gutters) {
-  $susy-options: null;
-  @if $container {
-    $susy-options: (container: $container, gutters: $gutters);
-  } @else {
-    $susy-options: (gutters: $gutters);
-  }
-
-  @include susy-breakpoint($viewport, $susy-options) {
+  @include breakpoint($viewport) {
     .segment {
       @if $container {
-        @include container(center);
+        margin: 0 auto;
+        max-width: $container;
       }
-      
-      padding-left: gutter(12);
-      padding-right: gutter(12);
+
+      padding-left: $gutters;
+      padding-right: $gutters;
     }
   }
 }
 
-@mixin two-column-grid($class, $viewport, $gutters, $with-columns) {
-  $susy-options: null;
-  @if $with-columns {
-    $susy-options: (columns: 2, gutters: $gutters, container-position: 0);
-  } @else {
-    $susy-options: (gutters: $gutters, container-position: 0);
-  }
+@mixin contact-form-grid($viewport, $gutters) {
+  @include breakpoint($viewport) {
+    .contact-form {
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+      grid-template-rows: repeat(4, auto);
+      grid-template-areas: 
+        "name message"
+        "email message"
+        "subject message"
+        ". submit";
+      grid-column-gap: $gutters;
 
-  @include susy-breakpoint($viewport, $susy-options) {
-    .#{$class} {
-      @include container();
-
-      @if $with-columns {
-        > .#{$class}-left-column {
-          @include span(1 first);
-        }
-
-        > .#{$class}-right-column {
-          @include span(1 last);
-        }
+      .contact-form-name {
+        grid-area: name;
+      }
+      
+      .contact-form-email {
+        grid-area: email;
+      }
+      
+      .contact-form-subject {
+        grid-area: subject;
+      }
+      
+      .contact-form-message {
+        grid-area: message;
+      }
+      
+      .contact-form-submit {
+        grid-area: submit;
       }
     }
   }
 }
 
 // segment grid
-@include segment-grid($viewport-tiny, false, 1/4);
-@include segment-grid($viewport-small, false, 1/4);
-@include segment-grid($viewport-medium, 80%, 1/4);
-@include segment-grid($viewport-large, 75%, 1/4);
-@include segment-grid($viewport-huge, 60%, 1/4);
+@include segment-grid($viewport-tiny, false, 3%);
+@include segment-grid($viewport-small, false, 3%);
+@include segment-grid($viewport-medium, 80%, 3%);
+@include segment-grid($viewport-large, 75%, 3%);
+@include segment-grid($viewport-huge, 60%, 3%);
 
 // contact form grid
-@include two-column-grid('contact-form', $viewport-tiny, 1/24, false);
-@include two-column-grid('contact-form', $viewport-small, 1/24, true);
-@include two-column-grid('contact-form', $viewport-medium, 1/12, true);
-
-// qr code grid
-@include two-column-grid('qr-code-images', $viewport-tiny, 1/24, false);
-@include two-column-grid('qr-code-images', $viewport-medium, 1/12, true);
+@include contact-form-grid($viewport-small, 3%);
+@include contact-form-grid($viewport-medium, 3%);

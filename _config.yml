@@ -8,7 +8,7 @@ keywords: >
   development, internet of things, iot
 email: vincent@vincentwochnik.com
 skype: v.wochnik
-url: "http://vincentwochnik.com"
+url: "https://vincentwochnik.com"
 
 # work collection
 collections:
@@ -19,8 +19,8 @@ collections:
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:slug:output_ext
 encoding: utf-8
-include: ['.htaccess']
-exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'LICENSE.md']
+include: ['.htaccess', '_redirects']
+exclude: ['Gemfile', 'Gemfile.lock', 'resources', 'README.md', 'LICENSE.md']
 sass:
   style: compressed
 

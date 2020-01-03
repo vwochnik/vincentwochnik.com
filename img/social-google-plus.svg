@@ -7,7 +7,7 @@
       <polygon points="402,142 402,64 368,64 368,142 288,142 288,176 368,176 368,257 402,257 402,176 480,176 480,142  "/>
     </g>
   </mask>
-  <g fill="#00c0ff" mask="url(#iconMask)">
+  <g fill="#79a8a9" mask="url(#iconMask)">
     <circle cx="32" cy="32" r="32"/>
   </g>
 </svg>
