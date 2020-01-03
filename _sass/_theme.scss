@@ -86,6 +86,14 @@ a, a:visited, a:active, a:hover {
   }
 }
 
+.jobs-segment {
+  .jobs {
+    &:before {
+      border-color: $theme-primary-color;
+    }
+  }
+}
+
 .footer-segment-wrapper {
   &:before, &:after {
     background-color: $theme-footer-color;
