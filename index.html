@@ -28,9 +28,6 @@ title: Web Development, Internet of Things and more
     <ul class="jobs">
       {% for job in site.data.jobs reversed %}
         <li class="job">
-          <div class="icon">
-            <img src="{{ site.baseurl }}{{ job.icon }}" alt="{{ job.company }}">
-          </div>
           {% if job.until %}
             <div class="date">{{ job.since }}&nbsp;&ndash; {{ job.until }}</div>
           {% else %}
