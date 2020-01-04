@@ -1,0 +1,26 @@
+- role: Developer Intern
+  company: Cumulocity GmbH
+  since: 2014
+  until: 2015
+  icon: /img/media/cumulocity-icon.png
+  notes:
+  - first note
+- role: Developer Intern
+  company: odoscope GmbH
+  year: 2016
+  icon: /img/media/odoscope-icon.svg
+  notes:
+  - first note
+- role: Bachelor of Computer Science
+  company: Fontys University of Applied Sciences, Venlo
+  year: 2016
+  icon: /img/media/graduation-icon.svg
+  notes:
+  - first note
+- role: Software Developer
+  company: odoscope GmbH
+  since: 2016
+  until: now
+  icon: /img/media/odoscope-icon.svg
+  notes:
+  - first note
