@@ -1,0 +1,78 @@
+.jobs {
+  padding: 4rem 0;
+  position: relative;
+  list-style-type: none;
+  
+  margin: 0 auto;
+  max-width: 30rem;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(33% + 1rem);
+    bottom: 0;
+    width: 0.2rem;
+    background: #ddd;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  } 
+}
+
+.job {
+  clear: both;
+  text-align: left;
+  position: relative;
+ 
+  .date {
+    margin: 1rem 0 0.5rem;
+    float: left;
+    width: 33%;
+    padding-right: 2rem;
+    text-align: right;
+    position: relative;
+  }
+  .icon {
+    display: block;
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    border: 0.2rem solid #ddd;
+    border-radius: 50%;
+    background: #f4f7f7;
+    position: absolute;
+    border-radius:50%;
+    left: calc(33% + 1rem - 1.5rem);
+    top: 0;
+    z-index: 99;
+    
+    > img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: auto;
+      height: auto;
+      max-width: 1.5rem;
+      max-height: 1.5rem;
+      transform: translate(-50%,-50%);
+    }
+  }
+  .detail {
+    margin: 1rem 0 0.5rem;
+    float: right;
+    width: 66%;
+    padding-left: 3rem;
+    
+    .title {
+      margin-top: 0;
+      font-weight: 400;
+    }
+    ul {
+      color:#aaa;
+      padding-left: 1em;;
+    }
+  }
+}

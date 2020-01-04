@@ -13,13 +13,39 @@ title: Web Development, Internet of Things and more
 <div class="segment-wrapper skills-segment-wrapper">
   <section class="segment skills-segment">
     <ul class="skills">
-<li class="skill"><img src="{{ site.baseurl }}/img/skill-html.svg" alt="HTML5"></li>
-<li class="skill"><img src="{{ site.baseurl }}/img/skill-css.svg" alt="CSS3"></li>
-<li class="skill"><img src="{{ site.baseurl }}/img/skill-js.svg" alt="JavaScript/ES6"></li>
-<li class="skill"><img src="{{ site.baseurl }}/img/skill-node.svg" alt="Node.js"></li>
-<li class="skill"><img src="{{ site.baseurl }}/img/skill-react.svg" alt="React.js"></li>
-<li class="skill"><img src="{{ site.baseurl }}/img/skill-d3.svg" alt="D3.js"></li>
-<li class="skill"><img src="{{ site.baseurl }}/img/skill-go.svg" alt="Go"></li>
+      <li class="skill"><img src="{{ site.baseurl }}/img/skill-html.svg" alt="HTML5"></li>
+      <li class="skill"><img src="{{ site.baseurl }}/img/skill-css.svg" alt="CSS3"></li>
+      <li class="skill"><img src="{{ site.baseurl }}/img/skill-js.svg" alt="JavaScript/ES6"></li>
+      <li class="skill"><img src="{{ site.baseurl }}/img/skill-node.svg" alt="Node.js"></li>
+      <li class="skill"><img src="{{ site.baseurl }}/img/skill-react.svg" alt="React.js"></li>
+      <li class="skill"><img src="{{ site.baseurl }}/img/skill-d3.svg" alt="D3.js"></li>
+      <li class="skill"><img src="{{ site.baseurl }}/img/skill-go.svg" alt="Go"></li>
+    </ul>
+  </section>
+</div>
+<div class="segment-wrapper jobs-segment-wrapper">
+  <section class="segment jobs-segment">
+    <ul class="jobs">
+      {% for job in site.data.jobs reversed %}
+        <li class="job">
+          <div class="icon">
+            <img src="{{ site.baseurl }}{{ job.icon }}" alt="{{ job.company }}">
+          </div>
+          {% if job.until %}
+            <div class="date">{{ job.since }}&nbsp;&ndash; {{ job.until }}</div>
+          {% else %}
+            <div class="date">{{ job.year }}</div>
+          {% endif %}
+          <div class="detail">
+            <p class="title">{{ job.role }} at {{ job.company }}</a>
+            <ul class="notes">
+              {% for note in job.notes %}
+                <li class="note">{{ note }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+      {% endfor %}
     </ul>
   </section>
 </div>
