@@ -31,34 +31,25 @@
     margin: 1rem 0 0.5rem;
     float: left;
     width: 33%;
-    padding-right: 2rem;
+    padding-right: 0.5rem;
     text-align: right;
     position: relative;
   }
-  .icon {
+  
+  &:before {
+    content: '';
     display: block;
     position: relative;
-    width: 3rem;
-    height: 3rem;
+    width: 0.5rem;
+    height: 0.5rem;
     border: 0.2rem solid #ddd;
     border-radius: 50%;
     background: #f4f7f7;
     position: absolute;
     border-radius:50%;
-    left: calc(33% + 1rem - 1.5rem);
-    top: 0;
+    left: calc(33% + 1rem - 0.25rem);
+    top: 1rem;
     z-index: 99;
-    
-    > img {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: auto;
-      height: auto;
-      max-width: 1.5rem;
-      max-height: 1.5rem;
-      transform: translate(-50%,-50%);
-    }
   }
   .detail {
     margin: 1rem 0 0.5rem;
