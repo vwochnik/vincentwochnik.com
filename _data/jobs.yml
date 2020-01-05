@@ -3,20 +3,27 @@
   since: 2014
   until: 2015
   notes:
-  - first note
+  - Design and implementation of a CSV-based API for communication with embedded devices
+  - Development of a C++-based reference implementation for use on embedded systems
 - role: Developer Intern
   company: odoscope GmbH
   year: 2016
   notes:
-  - first note
+    - Interactive visualization of visitor statistics using D3.js
 - role: Bachelor of Computer Science
   company: Fontys University of Applied Sciences, Venlo
   year: 2016
   notes:
-  - first note
+  - Programming in Java, C++ and JavaScript
+  - Theory of software architecture, design patterns and testing
+  - Theory and practice of software algorithms
+  - Development of practically oriented projects in a team
+  - Design and implementation of SQL databases
+  - Linux administration course
 - role: Software Developer
   company: odoscope GmbH
   since: 2016
   until: now
   notes:
-  - first note
+  - Implementation of features into the dashboard web application using Angular.js and D3.js
+  - Development of JavaScripts embedded on customer's websites to incorporate the odoscope API
