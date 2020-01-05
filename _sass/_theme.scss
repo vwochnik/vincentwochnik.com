@@ -51,6 +51,19 @@ a, a:visited, a:active, a:hover {
   border-color: $theme-primary-color;
 }
 
+.jobs {
+  &:before {
+    border-color: rgba($theme-primary-color, 0.2);
+  }
+  
+  .job {
+    &:before {
+      background-color: $theme-background-color;
+      border-color: $theme-primary-color;
+    }
+  }
+}
+
 .contact-form {
   input, textarea {
     background-color: rgba($theme-primary-color, 0.2);

@@ -1,20 +1,18 @@
 .jobs {
-  padding: 4rem 0;
   position: relative;
   list-style-type: none;
+  padding-left: 0;
   
-  margin: 0 auto;
-  max-width: 30rem;
-
   &:before {
     content: '';
     position: absolute;
     top: 0;
-    left: calc(33% + 1rem);
+    left: calc(33% + 1rem - 0.1rem);
     bottom: 0;
     width: 0.2rem;
-    background: #ddd;
+    border-left: 0.2rem solid transparent;
   }
+
   &:after {
     content: "";
     display: table;
@@ -27,8 +25,23 @@
   text-align: left;
   position: relative;
  
+  &:before {
+    content: '';
+    display: block;
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    border: 0.2rem dotted transparent;
+    border-radius: 50%;
+    background: #f4f7f7;
+    position: absolute;
+    border-radius:50%;
+    left: calc(33% + 1rem - 0.5rem);
+    top: 0.2rem;
+    z-index: 99;
+  }
+
   .date {
-    margin: 1rem 0 0.5rem;
     float: left;
     width: 33%;
     padding-right: 0.5rem;
@@ -36,34 +49,18 @@
     position: relative;
   }
   
-  &:before {
-    content: '';
-    display: block;
-    position: relative;
-    width: 0.5rem;
-    height: 0.5rem;
-    border: 0.2rem solid #ddd;
-    border-radius: 50%;
-    background: #f4f7f7;
-    position: absolute;
-    border-radius:50%;
-    left: calc(33% + 1rem - 0.25rem);
-    top: 1rem;
-    z-index: 99;
-  }
   .detail {
-    margin: 1rem 0 0.5rem;
     float: right;
     width: 66%;
     padding-left: 3rem;
     
     .title {
-      margin-top: 0;
       font-weight: 400;
     }
-    ul {
-      color:#aaa;
-      padding-left: 1em;;
+
+    .notes {
+      list-style-type: disc;
+      padding-left: 1.1rem;
     }
   }
 }

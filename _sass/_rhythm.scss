@@ -72,6 +72,29 @@
         background-size: 6.51063*line-height-spacing() 6*line-height-spacing();
       }
 
+      .jobs {
+        padding-top: line-height-spacing();
+        padding-bottom: line-height-spacing();
+        
+        .job {
+          &:not(:last-child) {
+            .date, .detail {
+              margin-bottom: line-height-spacing();
+            }
+          }
+          
+          .detail {
+            .title {
+              margin-bottom: 0;
+            }
+
+            .notes {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
       .skills {
         margin: 0 auto 1 * line-height-spacing();
         max-width: 22 * line-height-spacing();
