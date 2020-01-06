@@ -57,3 +57,5 @@ generateSkill("Node.js", 0.9, 40, "skill-node.svg");
 generateSkill("React.js", 0.8, 40, "skill-react.svg");
 generateSkill("D3.js", 0.8, 50, "skill-d3.svg");
 generateSkill("Go", 0.7, 70, "skill-go.svg");
+generateSkill("Java", 0.6, 60, "skill-java.svg");
+generateSkill("C/C++", 0.5, 55, "skill-cpp.svg");
