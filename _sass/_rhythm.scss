@@ -97,14 +97,13 @@
 
       .skills {
         margin: 0 auto 1 * line-height-spacing();
-        max-width: 22 * line-height-spacing();
+        grid-column-gap: 0.5 * line-height-spacing();
 
         > .skill {
           &, > img {
-            width: 4 * line-height-spacing();
-            height: 4 * line-height-spacing();
+            width: 3.5 * line-height-spacing();
+            height: 3.5 * line-height-spacing();
           }
-          margin: 0 0.5 * line-height-spacing() 0.5 * line-height-spacing();
         }
       }
 

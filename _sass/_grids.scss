@@ -57,6 +57,25 @@
   }
 }
 
+.skills {
+  display: grid;
+  grid-template-columns: repeat(8, auto-fit);
+  grid-template-areas:
+    "s1 s1 s2 s2 s3 s3 s4 s4"
+    ". s5 s5 s6 s6 s7 s7 ."
+    ". . s8 s8 s9 s9 . .";
+  justify-items: center;
+  justify-content: center;
+  
+  > .skill {
+    @for $i from 1 through 9 {
+      &:nth-child(#{$i}) {
+        grid-area: s#{$i};
+      }
+    }
+  }
+}
+
 // segment grid
 @include segment-grid($viewport-tiny, false, 3%);
 @include segment-grid($viewport-small, false, 3%);
