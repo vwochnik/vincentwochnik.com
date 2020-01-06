@@ -63,12 +63,13 @@
   grid-template-areas:
     "s1 s1 s2 s2 s3 s3 s4 s4"
     ". s5 s5 s6 s6 s7 s7 ."
-    ". . s8 s8 s9 s9 . .";
+    ". . s8 s8 s9 s9 . ."
+    ". . . s10 s10 . . .";
   justify-items: center;
   justify-content: center;
   
   > .skill {
-    @for $i from 1 through 9 {
+    @for $i from 1 through 10 {
       &:nth-child(#{$i}) {
         grid-area: s#{$i};
       }
