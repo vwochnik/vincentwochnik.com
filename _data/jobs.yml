@@ -3,7 +3,7 @@
   since: 2014
   until: 2015
   notes:
-  - Design and implementation of a CSV-based API for communication with embedded devices
+  - Design and implementation of a CSV-based API for communication with embedded devices in Java
   - Development of a C++-based reference implementation for use on embedded systems
 - role: Developer Intern
   company: odoscope GmbH
@@ -17,7 +17,7 @@
   - Programming in Java, C++, C# and JavaScript
   - Theory of software architecture, design patterns and testing
   - Theory and practice of software algorithms
-  - Development of practically oriented projects in a team
+  - Development of practically oriented projects in small teams
   - Design and implementation of SQL databases
   - Linux administration course
 - role: Software Developer
@@ -25,5 +25,6 @@
   since: 2016
   until: now
   notes:
-  - Implementation of features into the dashboard web application using Angular.js and D3.js
+  - Improvement of dashboard and controller web applications using Angular.js and D3.js
   - Development of JavaScripts embedded on customer's websites to incorporate the odoscope API
+  - Development of a reverse-proxy using Golang
