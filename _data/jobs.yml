@@ -25,6 +25,7 @@
   since: 2016
   until: now
   notes:
+  - Development of configuration frontend and backend for the customer data import service
   - Improvement of dashboard and controller web applications using Angular.js and D3.js
   - Development of JavaScripts embedded on customer's websites to incorporate the odoscope API
   - Development of a reverse-proxy using Golang
