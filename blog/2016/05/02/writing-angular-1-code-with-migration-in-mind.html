@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en" prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="keywords" content="wochnik, vincent, vincent wochnik, software, engineer, engineering, development, software engineer, software development, frontend, frontend development, internet of things, iot
+">
+  <meta name="author" content="Vincent Wochnik">
+  <meta name="description" content="Frontend Development, Software Engineering and more">
+  <title>Writing Angular 1 Code with Migration in Mind | Vincent Wochnik</title>
+  <meta property="og:locale" content="en">
+  <meta property="og:site_name" content="Vincent Wochnik">
+  <meta property="og:title" content="Writing Angular 1 Code with Migration in Mind">
+  <meta property="og:description" content="Frontend Development, Software Engineering and more">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vincentwochnik.com">
+  <meta property="og:image" content="https://vincentwochnik.com/img/thumbnail.png">
+  <link rel="canonical" href="https://vincentwochnik.com/blog/2016/05/02/writing-angular-1-code-with-migration-in-mind.html">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,700|Open+Sans+Condensed:300,700|Titillium+Web:200,300,400,700|Linden+Hill:400&subset=latin">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+
+<body>
+  <a class="logo" href="/" title="Vincent Wochnik">
+    <img class="logo-small" src="/img/logo-small.svg" alt="Vincent Wochnik" />
+  </a>
+  <a href="#menu" class="menu-button"><span class="burger"></span></a>
+  <div class="jumbotron-wrapper">
+  <section class="segment jumbotron-segment">
+    <header class="segment-heading">
+      <h1>Writing Angular 1 Code with Migration in Mind</h1>
+    </header>
+    <p>May 02, 2016</p>
+  </section>
+</div>
+<div class="segment-wrapper blog-segment-wrapper">
+  <article class="segment blog-segment">
+    <p>As typical for most projects, frameworks and libraries are chosen not least by
+their stability and maturity. Which is good, after all you want a project’s life
+span to be as long as possible while keeping maintenance and migrations at bay.</p>
+
+<p>Sometimes, however, choosing the older mature version of a framework or library
+might not be such a great idea, even if the current version is not yet stable.
+One reason to go for the current version from the start is to avoid later
+migration that ensues if the current version comes with breaking changes or
+fundamental concepts are altered.</p>
+
+<!--more-->
+
+<h2 id="context">Context</h2>
+
+<p>This is the case for a company-internal project I have been working on since
+February 2016 that started in late 2015. The project aims to build a front-end
+dashboard application allowing the user to interact with the company’s
+operational intelligence platform.</p>
+
+<p>As the title of this article is suggesting, Angular in version 1.5 has been
+chosen as the foundational framework although a beta version of Angular 2 was
+available at the time the project was started. This has been done for two
+reasons: Firstly, Angular 1.5 is stable and ready for production. Secondly,
+Angular Material that has been selected for its easy integration of Material
+Design into Angular is not yet compatible with the current version of Angular.</p>
+
+<p>However, since the project is probably not going into production for the next
+six months after it has been started, the decision could have been in favor of
+Angular 2 if Angular Material would have been dropped. This would make the later
+migration of the dashboard application to Angular 2 unnecessary.</p>
+
+<h2 id="developing-with-migration-in-mind">Developing with Migration in Mind</h2>
+
+<p>Nevertheless, Angular in version 1.5 has been chosen in conjunction with Angular
+Material. Since it was clear that a migration to Angular 2 is inevitable in the
+near future, code has been written with migration in mind.</p>
+
+<h3 id="avoid-scopes-and-controllers">Avoid Scopes and Controllers</h3>
+
+<p>Replace controllers with component directives. Avoid <code class="highlighter-rouge">$scope</code> and use
+<code class="highlighter-rouge">controllerAs</code> and <code class="highlighter-rouge">bindToController</code> instead. Scopes are obsolete in Angular 2
+so it’s a wise choice not using them whenever possible to make the task of
+migration as easy as possible.</p>
+
+<p>Instead of binding to <code class="highlighter-rouge">$scope</code> variables, properties of the controller are
+directly bound to from the template HTML using the namespace defined by
+<code class="highlighter-rouge">controllerAs</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>angular.module('myApp').directive('myName', function() {
+  function controller() {
+    var ctrl = this;
+
+    this.firstName = "John";
+    this.lastName = "Doe";
+  }
+
+  return {
+    restrict: 'A',
+    controller: controller,
+    controllerAs: 'mnCtrl',
+    template: '&lt;span class="my-name"&gt; ' +
+              '&lt;/span&gt;'
+  };
+});
+</code></pre>
+</div>
+
+<p>Notice that the controller inside the directive defined above is not a
+traditional controller anymore since it is wrapped in a directive. It’s
+component logic. The properties assigned by the component logic can also be
+replaced by an isolate scope defining those properties that are bound directly
+to the directive controller a.k.a component logic using <code class="highlighter-rouge">bindToController</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>angular.module('myApp').directive('myName', function() {
+  return {
+    restrict: 'A',
+    scope: {
+      firstName: '=?',
+      lastName: '=?'
+    },
+    controllerAs: 'mnCtrl',
+    bindToController: true,
+    template: '&lt;span class="my-name"&gt; ' +
+              '&lt;/span&gt;'
+  };
+});
+</code></pre>
+</div>
+
+<p>Notice that the directive defined above is still using the namespace defined by
+<code class="highlighter-rouge">controllerAs</code>. All variables of the isolate scope are bound to the implicitly
+defined directive controller.</p>
+
+    
+  </article>
+</div>
+<div id="post-excerpt" style="display:none">
+  <article class="segment blog-segment" data-post-uri="/blog/2016/05/02/writing-angular-1-code-with-migration-in-mind.html">
+  <header class="segment-heading">
+    <h2><a href="/blog/2016/05/02/writing-angular-1-code-with-migration-in-mind.html" title="Writing Angular 1 Code with Migration in Mind">Writing Angular 1 Code with Migration in Mind</a></h2>
+  </header>
+  <p><span class="excerpt-date">May 02, 2016.</span> As typical for most projects, frameworks and libraries are chosen not least by
+their stability and maturity. Which is good, after all you want a project’s life
+span to be as long as possible while keeping maintenance and migrations at bay.
+
+</p>
+  <div class="read-more-container">
+    <a href="/blog/2016/05/02/writing-angular-1-code-with-migration-in-mind.html" title="Writing Angular 1 Code with Migration in Mind" class="read-more">Read more &rsaquo;</a>
+  </div>
+</article>
+
+</div>
+
+  <div class="segment-wrapper footer-segment-wrapper">
+  <footer class="segment footer-segment">
+    <span>Copyright &copy; 2020 Vincent Wochnik. All rights reserved. <a href="/site-notice.html">Site Notice</a>. <a href="/privacy-policy.html">Privacy Policy</a>. </span>
+    <span>Last published: October 12, 2020.</span>
+    <br/><span>Powered by <a href="http://jekyllrb.com/" title="Jekyll"><img class="powered-by-jekyll" src="/img/powered-by-jekyll.svg" alt="Jekyll"></a></span>
+  </footer>
+</div>
+
+  <div class="menu-wrapper" id="menu">
+  <div class="menu-overlay"></div>
+  <nav class="menu">
+    <ul>
+      <li><a href="/" title="Home">Home</a></li>
+      <li><a href="/blog/" title="Blog">Blog</a></li>
+    </ul>
+  </nav>
+</div>
+
+</body>
+</html>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="/js/site.js"></script>
+<script src="/js/contact.js"></script>
+<script src="/js/more-posts.js"></script>
+

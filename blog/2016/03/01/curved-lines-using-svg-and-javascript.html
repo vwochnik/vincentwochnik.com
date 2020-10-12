@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en" prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="keywords" content="wochnik, vincent, vincent wochnik, software, engineer, engineering, development, software engineer, software development, frontend, frontend development, internet of things, iot
+">
+  <meta name="author" content="Vincent Wochnik">
+  <meta name="description" content="Frontend Development, Software Engineering and more">
+  <title>Curved Lines using SVG and JavaScript | Vincent Wochnik</title>
+  <meta property="og:locale" content="en">
+  <meta property="og:site_name" content="Vincent Wochnik">
+  <meta property="og:title" content="Curved Lines using SVG and JavaScript">
+  <meta property="og:description" content="Frontend Development, Software Engineering and more">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vincentwochnik.com">
+  <meta property="og:image" content="https://vincentwochnik.com/img/thumbnail.png">
+  <link rel="canonical" href="https://vincentwochnik.com/blog/2016/03/01/curved-lines-using-svg-and-javascript.html">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,700|Open+Sans+Condensed:300,700|Titillium+Web:200,300,400,700|Linden+Hill:400&subset=latin">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+
+<body>
+  <a class="logo" href="/" title="Vincent Wochnik">
+    <img class="logo-small" src="/img/logo-small.svg" alt="Vincent Wochnik" />
+  </a>
+  <a href="#menu" class="menu-button"><span class="burger"></span></a>
+  <div class="jumbotron-wrapper">
+  <section class="segment jumbotron-segment">
+    <header class="segment-heading">
+      <h1>Curved Lines using SVG and JavaScript</h1>
+    </header>
+    <p>March 01, 2016</p>
+  </section>
+</div>
+<div class="segment-wrapper blog-segment-wrapper">
+  <article class="segment blog-segment">
+    <p>This post deals with implementing an evenly curved line using SVG and
+JavaScript. SVG supports quadratic and cubic bezier curves using the <code class="highlighter-rouge">C</code>, <code class="highlighter-rouge">S</code>
+and <code class="highlighter-rouge">Q</code> path commands but those leave you with the calculation of the control
+points.</p>
+
+<h2 id="calculating-the-control-points">Calculating the control points</h2>
+
+<p>To obtain a consistent and even curve one needs to place the control points like
+the following figure illustrates.</p>
+
+<p><img src="/media/curved-line.svg" alt="Curved line control points" /></p>
+
+<p>Given are the outer control points <em>A</em> and <em>D</em>, as the line starting and ending
+points, as well as the curviness expressed by the degree <em>a</em>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function curvedLine(Ax, Ay, Dx, Dy, a) {
+</code></pre>
+</div>
+
+<p><em>d</em> is the calculated distance between the outer control points.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  const d = Math.sqrt(Math.pow(Ax-Dx, 2) + Math.pow(Ay-Dy, 2));
+</code></pre>
+</div>
+
+<p><em>rad</em> is the radian measure of the degree <em>a</em>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  const rad = a / 180.0 * 2.0 * Math.PI;
+</code></pre>
+</div>
+
+<p><em>r</em> is the distance from the outer to the inner control points.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  const r = (0.3 * d) / Math.cos(rad);
+</code></pre>
+</div>
+
+<p><em>theta</em> is the calculated angle of the line passing through both outer control
+points in radian.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>const theta = Math.atan2(Ay - Dy, Ax - Dx);
+</code></pre>
+</div>
+
+<p><em>aO</em> and <em>aD</em> are two angles in radian that are required to calculate the inner
+control points.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  const aO = theta - rad + Math.PI,
+        aD = theta + rad;
+</code></pre>
+</div>
+
+<p>The inner control points <em>B</em> and <em>C</em>, respectively, are calculated based on the
+line connecting the outer control points using the angle <em>a</em> and <em>r</em> as illustrated in the figure.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  const Bx = Ax + r*Math.cos(aO),
+        By = Ay + r*Math.sin(aO),
+        Cx = Dx + r*Math.cos(aD),
+        Cy = Dy + r*Math.sin(aD);
+</code></pre>
+</div>
+
+<p>Last but not least, the SVG path is built from the control points.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  return `M${Ax},${Ay} C${Bx},${By} ${Cx},${Cy} ${Dx},${Dy}`
+}
+</code></pre>
+</div>
+
+<h2 id="using-the-function">Using the function</h2>
+
+<p>You can use an SVG library like D3.js to use the function result in an SVG path.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>let svg = d3.select("body").append("svg")
+  .attr("width", 500)
+  .attr("height", 200);
+
+svg.append('path')
+  .attr('stroke', '#000')
+  .attr('fill', 'none')
+  .attr('d', curvedLine(30, 160, 470, 160, 20));
+</code></pre>
+</div>
+
+    
+  </article>
+</div>
+<div id="post-excerpt" style="display:none">
+  <article class="segment blog-segment" data-post-uri="/blog/2016/03/01/curved-lines-using-svg-and-javascript.html">
+  <header class="segment-heading">
+    <h2><a href="/blog/2016/03/01/curved-lines-using-svg-and-javascript.html" title="Curved Lines using SVG and JavaScript">Curved Lines using SVG and JavaScript</a></h2>
+  </header>
+  <p><span class="excerpt-date">March 01, 2016.</span> This post deals with implementing an evenly curved line using SVG and
+JavaScript. SVG supports quadratic and cubic bezier curves using the C, S
+and Q path commands but those leave you with the calculation of the control
+points.
+
+</p>
+  <div class="read-more-container">
+    <a href="/blog/2016/03/01/curved-lines-using-svg-and-javascript.html" title="Curved Lines using SVG and JavaScript" class="read-more">Read more &rsaquo;</a>
+  </div>
+</article>
+
+</div>
+
+  <div class="segment-wrapper footer-segment-wrapper">
+  <footer class="segment footer-segment">
+    <span>Copyright &copy; 2020 Vincent Wochnik. All rights reserved. <a href="/site-notice.html">Site Notice</a>. <a href="/privacy-policy.html">Privacy Policy</a>. </span>
+    <span>Last published: October 12, 2020.</span>
+    <br/><span>Powered by <a href="http://jekyllrb.com/" title="Jekyll"><img class="powered-by-jekyll" src="/img/powered-by-jekyll.svg" alt="Jekyll"></a></span>
+  </footer>
+</div>
+
+  <div class="menu-wrapper" id="menu">
+  <div class="menu-overlay"></div>
+  <nav class="menu">
+    <ul>
+      <li><a href="/" title="Home">Home</a></li>
+      <li><a href="/blog/" title="Blog">Blog</a></li>
+    </ul>
+  </nav>
+</div>
+
+</body>
+</html>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="/js/site.js"></script>
+<script src="/js/contact.js"></script>
+<script src="/js/more-posts.js"></script>
+
