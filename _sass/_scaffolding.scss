@@ -37,16 +37,14 @@ ul, ol {
   padding-left: 1.5rem;
 }
 
-.full-name {
-  text-transform: uppercase;
+.logo-main {
+  width: 22rem;
+  height: auto;
+}
 
-  .sp {
-    @include invisible-text();
-  }
-
-  .last {
-    font-weight: 700;
-  }
+.logo-small {
+  width: 12rem;
+  height: auto;
 }
 
 .screenreader {
